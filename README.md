@@ -1,7 +1,4 @@
-# SOON_ AngularJS Template 
-
-[![Build Status](https://travis-ci.org/thisissoon/angularjs-template.svg?branch=master)](https://travis-ci.org/thisissoon/angularjs-template) 
-[![Coverage Status](https://img.shields.io/coveralls/thisissoon/angularjs-template.svg)](https://coveralls.io/r/thisissoon/angularjs-template?branch=master)
+# [thisissoon.com](http://thisissoon.com) frontend
 
 This project structure is based on the [angular-seed](https://github.com/angular/angular-seed) application skeleton for a typical [AngularJS](http://angularjs.org/) web app.
 
@@ -12,14 +9,14 @@ The project is preconfigured to install the Angular framework and a bunch of dev
 
 To get you started you can simply clone the repository and install the dependencies:
 
-### Clone SOON_ AngularJS Template repository
+### Clone thisissoon.com frontend repository
 
-Clone the angularjs-template repository using [git][git]:
+Clone the thisissoon-frontend repository using [git][git]:
 
 ```
 cd path/to/parent/directory
-git clone git@github.com:thisissoon/angularjs-template.git
-cd angularjs-template
+git clone git@github.com:thisissoon/thisissoon-frontend.git
+cd thisissoon-frontend
 ```
 
 
