@@ -1,12 +1,34 @@
 {
     "vendor": [
         "app/components/angular/angular.js",
-        "app/components/angular-route/angular-route.js"
+        "app/components/angular-animate/angular-animate.js",
+        "app/components/angular-bootstrap/ui-bootstrap.js",
+        "app/components/angular-route/angular-route.js",
+        "app/components/angular-sanitize/angular-sanitize.js",
+        "app/js/soon-utils/app.js",
+        "app/js/soon-utils/directives/addthisToolbox.js",
+        "app/js/soon-utils/filters/timeSince.js",
+        "app/js/soon-utils/services/DataStore.js",
+        "app/js/soon-ui/app.js",
+        "app/js/soon-ui/controllers/ModalCtrl.js",
+        "app/js/soon-ui/directives/fixed.js",
+        "app/js/soon-ui/directives/fullscreen.js",
+        "app/js/soon-ui/directives/scrollTo.js",
+        "app/js/soon-ui/directives/video.js",
+        "app/js/soon-ui/services/ResizeService.js",
+        "app/js/soon-ui/services/ScrollService.js"
     ],
     "application": [
-        "app/js/soon-example/app.js",
-        "app/js/soon-example/config.js",
-        "app/js/soon-example/controllers/SearchCtrl.js",
-        "app/js/soon-example/controllers/ResultsCtrl.js"
+        "app/js/env.js",
+        "app/js/thisissoon-api/app.js",
+        "app/js/thisissoon-api/services/ThisissoonAPI.js",
+        "app/js/thisissoon-core/app.js",
+        "app/js/thisissoon-core/config.js",
+        "app/js/thisissoon-core/constants/constants.js",
+        "app/js/thisissoon-core/controllers/HeaderCtrl.js",
+        "app/js/thisissoon-core/controllers/HomeCtrl.js",
+        "app/js/thisissoon-core/controllers/ProjectCtrl.js",
+        "app/js/thisissoon-core/directives/header.js",
+        "app/js/thisissoon-core/directives/heroVideo.js"
     ]
 }

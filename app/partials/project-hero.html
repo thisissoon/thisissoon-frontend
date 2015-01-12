@@ -1,0 +1,37 @@
+<div
+    class="content"
+    ng-style="{
+        'background-color': 'rgba(' + ( getBackgroundColor() || '{{ project.tint | rgba:0.5 }}' ) + ')'
+    }">
+
+    <div class="vertical-center">
+
+        <h1>
+            <a href="{{ project.url }}" target="_blank">{{ project.title }}</a>
+        </h1>
+        <span class="project-owner">{{ project.creator }}</span>
+
+    </div>
+
+    <a  ng-if="next"
+        href
+        ng-href="#/projects/{{ next }}"
+        class="btn btn-icon-sm btn-border btn-next"
+    >
+        <span class="icon" ng-include="'img/caret.svg'"></span>
+    </a>
+
+    <a  ng-if="previous"
+        href
+        ng-href="#/projects/{{ previous }}"
+        class="btn btn-icon-sm btn-border btn-previous"
+    >
+        <span class="icon" ng-include="'img/caret.svg'"></span>
+    </a>
+
+    <a href class="link-down" soon-scroll-to="video">
+        <span class="btn btn-icon-sm" ng-include="'img/caret.svg'"></span>
+        <label class="label-btn-down">Behind the scenes</label>
+    </a>
+
+</div>

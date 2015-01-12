@@ -1,0 +1,85 @@
+<div class="nav-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-9">
+
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-3 align-right">
+
+                <button ng-click="toggleNav()" class="btn btn-icon-md btn-burger">
+                    <span class="icon icon-burger" ng-include="'img/burger.svg'"></span>
+                    <span class="icon icon-close" ng-include="'img/close.svg'"></span>
+                </button>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+            <nav class="nav">
+
+                <a  href
+                    class="filter-toggle visible-sm visible-xs"
+                    ng-click="toggleFilter()"
+                    ng-class="{ 'open': filterOpen }">
+                        Filter
+                </a>
+                <ul class="filter"
+                    ng-class="{ 'open': filterOpen }"
+                >
+                    <li class="filter-item hidden-sm hidden-xs">Filter by</li>
+                    <li class="filter-item"><label class="btn btn-block" ng-model="filter.year" btn-radio="2012" uncheckable>2012</label></li>
+                    <li class="filter-item"><label class="btn btn-block" ng-model="filter.year" btn-radio="2013" uncheckable>2013</label></li>
+                    <li class="filter-item"><label class="btn btn-block" ng-model="filter.year" btn-radio="2014" uncheckable>2014</label></li>
+                    <li class="filter-item">
+                        <label ng-model="filter.category" btn-radio="'advertising'" class="btn btn-block btn-text-icon" uncheckable>
+                            <span class="icon" ng-include="'img/category-advertising.svg'"></span>
+                            Advertising
+                        </label>
+                    </li>
+                    <li class="filter-item">
+                        <label ng-model="filter.category" btn-radio="'video'" class="btn btn-block btn-text-icon" uncheckable>
+                            <span class="icon" ng-include="'img/category-video.svg'"></span>
+                            Video
+                        </label>
+                    </li>
+                    <li class="filter-item">
+                        <label ng-model="filter.category" btn-radio="'mobile'" class="btn btn-block btn-text-icon btn-mobile" uncheckable>
+                            <span class="icon mobile" ng-include="'img/category-mobile.svg'"></span>
+                            Mobile
+                        </label>
+                    </li>
+                    <li class="filter-item">
+                        <label ng-model="filter.category" btn-radio="'website'" class="btn btn-block btn-text-icon" uncheckable>
+                            <span class="icon" ng-include="'img/category-website.svg'"></span>
+                            Website
+                        </label>
+                    </li>
+                    <li class="filter-item">
+                        <label ng-model="filter.category" btn-radio="'social'" class="btn btn-block btn-text-icon" uncheckable>
+                            <span class="icon" ng-include="'img/category-social.svg'"></span>
+                            Social
+                        </label>
+                    </li>
+                </ul>
+
+                <ul class="nav-list">
+                    <li class="nav-item animate-repeat" ng-repeat="project in projects | filter:categoryFilter">
+                        <span class="background visible-sm visible-xs" ng-style="{ 'background-image': 'url({{ project.background.video }})' }"></span>
+                        <span  class="mask visible-sm visible-xs" ng-style="{ 'background-color': 'rgba(' + hexToRgba(project.tint, .5) + ')' }"></span>
+                        <a href ng-href="#/projects/{{ project.id }}" ng-click="toggleNav()" ng-mouseover="setBackgroundImage(project.background.video, project.tint)" ng-mouseleave="removeBackgroundImage()">
+                            {{ project.title }}
+                        </a>
+                    </li>
+                </ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
