@@ -9,7 +9,9 @@
  */
 // Core variables and mixins
 @import "../components/bootstrap/less/variables.less";
+@import "default/core/variables.less";
 @import "../components/bootstrap/less/mixins.less";
+@import "default/core/mixins.less";
 
 // Reset
 @import "../components/bootstrap/less/normalize.less";
@@ -20,9 +22,13 @@
 @import "../components/bootstrap/less/type.less";
 @import "../components/bootstrap/less/code.less";
 @import "../components/bootstrap/less/grid.less";
-@import "../components/bootstrap/less/tables.less";
-@import "../components/bootstrap/less/forms.less";
+//@import "../components/bootstrap/less/tables.less";
+//@import "../components/bootstrap/less/forms.less";
 @import "../components/bootstrap/less/buttons.less";
+
+// Components w/ JavaScript
+@import "../components/bootstrap/less/modals.less";
+@import "../components/bootstrap/less/popovers.less";
 
 // Utility classes
 @import "../components/bootstrap/less/utilities.less";
@@ -33,24 +39,26 @@
  * import less files for all devices here
  * eg. width > 1200px
  */
-
+@import "default/core/reset.less";
 @import "default/core/colors.less";
-@import "default/core/variables.less";
 @import "default/core/type.less";
+@import "default/core/grid.less";
+@import "default/core/icons.less";
+@import "default/core/buttons.less";
+@import "default/core/utilities.less";
+@import "default/core/scaffolding.less";
 
-// @import "default/modules/article-card.less";
-// @import "default/modules/article.less";
+@import "default/modules/header.less";
+@import "default/modules/modal.less";
+@import "default/modules/footer.less";
+@import "default/modules/hero.less";
+@import "default/modules/about.less";
+@import "default/modules/loading.less";
 
 
 /**
  * import less files for large screen devices here
  * eg. device width > 1200px
- * @example
- *      @import "large/core/header.less";
- *      @import "large/core/footer.less";
- *
- *      @import "large/modules/article-card.less";
- *      @import "large/modules/article.less";
  */
 @media (min-width: @screen-lg-min) {
 
@@ -59,27 +67,26 @@
 /**
  * import less files for tablet sized devices here
  * eg. device width >= 768px and < 1024px
- * @example
- *      @import "tablet/core/header.less";
- *      @import "tablet/core/footer.less";
- *
- *      @import "tablet/modules/article-card.less";
- *      @import "tablet/modules/article.less";
  */
 @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
-
+    @import "tablet/core/type.less";
+    @import "tablet/modules/header.less";
+    @import "tablet/modules/footer.less";
+    @import "tablet/modules/hero.less";
+    @import "tablet/modules/about.less";
 }
 
 /**
  * import less files for mobile sized devices here
  * eg. device width < 768px
- * @example
- *      @import "mobile/core/header.less";
- *      @import "mobile/core/footer.less";
- *
- *      @import "mobile/modules/article-card.less";
- *      @import "mobile/modules/article.less";
  */
 @media (max-width: @screen-xs-max) {
-
+    @import "mobile/core/reset.less";
+    @import "mobile/core/type.less";
+    @import "mobile/core/grid.less";
+    @import "mobile/modules/header.less";
+    @import "mobile/modules/footer.less";
+    @import "mobile/modules/modal.less";
+    @import "mobile/modules/hero.less";
+    @import "mobile/modules/about.less";
 }

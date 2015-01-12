@@ -1,10 +1,117 @@
 /**
  *  @class          type
  *  @author         SOON_
- *  @description    All styling for typography here 
+ *  @description    Place all styles for the the different type faces here
  */
 
+body {
+    font-family: @font-sans-serif;
+    font-size: @initial-font-size; // 14px
+    -webkit-font-smoothing: antialiased;
+    font-weight: 400;
+    line-height: 1.5em;
+    color: @black;
+}
 
-.bg-info {
-    padding: 15px;
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4 {
+    font-family: @font-serif;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+h1, .h1 {
+    font-size: 5.714em; // 80px
+    font-weight: lighter;
+    margin-bottom: 25px;
+}
+
+h2 {
+    font-size: 3.429em; // 48px
+    margin-bottom: 30px;
+}
+
+h3 {
+    font-size: 2.714em; // 38px
+}
+
+h4 {
+    font-size: 1.6428em; // 24px
+}
+
+h5 {
+    font-size: 1.6428em; // 24px
+    font-weight: 200;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+h6 {
+    font-size: 1em;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.heading-border {
+    border-top: 1px solid @black;
+    border-bottom: 1px solid @black;
+    padding: 12px 0;
+}
+
+.section-heading {
+    margin-bottom: 64px;
+    margin-top: 10%;
+}
+
+a {
+    background-color: @yellow;
+    color: @black;
+    padding: 1px 5px;
+    .transition(background 0.3s);
+
+    &:hover,
+    &.active {
+        background-color: @white;
+        color: @black;
+        text-decoration: none;
+    }
+}
+
+p.small {
+    color: @light-trans;
+    font-size: 1em;
+}
+
+p.medium-copy-block {
+    font-size: 1.429em; // 20px
+    font-weight: 300;
+    line-height: 1.4;
+}
+
+p.large-copy-block {
+    font-size: 2.714em; // 38px
+    font-weight: 300;
+}
+
+label {
+    font-weight: normal;
+}
+
+ul {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 1em;
+}
+
+ul.dash li:before {
+    display: inline-block;
+    content: "-";
+    width: 1em;
+    margin-left: -1em;
+}
+
+address {
+    line-height: 1.8em
 }

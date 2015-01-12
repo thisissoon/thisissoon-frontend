@@ -1,0 +1,201 @@
+/**
+ *  @class          buttons
+ *  @author         SOON_
+ *  @description    Override bootstrap buttons classes here
+ */
+
+.btn {
+    background-color: @yellow;
+    border: none;
+    color: @black;
+    font-family: @font-sans-serif;
+    font-size: 1.286em; // 18px
+    font-weight: 400;
+    line-height: 45px;
+    height: 45px;
+    padding: 0px 25px;
+    position: relative;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    .transition(all .2s);
+
+    & + .btn {
+        margin-left: 2px;
+    }
+
+    &.btn-border {
+        border: 1px solid @yellow;
+    }
+
+    &.btn-icon-xs {
+        .btn-icon(30px);
+
+        svg,
+        .icon {
+            max-width: 16px;
+            max-height: 16px;
+        }
+    }
+
+    &.btn-icon-sm {
+        .btn-icon(40px);
+
+        svg,
+        .icon {
+            max-width: 22px;
+            max-height: 22px;
+        }
+    }
+
+    &.btn-icon-md {
+        .btn-icon(60px);
+
+        svg,
+        .icon {
+            max-width: 27px;
+            max-height: 27px;
+        }
+    }
+
+    &.btn-icon-lg {
+        .btn-icon(95px);
+
+        svg,
+        .icon {
+            max-width: 40px;
+            max-height: 40px;
+        }
+    }
+
+    &.btn-text-icon {
+        .clearfix();
+        line-height: 45px;
+        padding-left: 20px;
+        text-align: left;
+    }
+
+    &.btn-text-icon .icon {
+        display: inline-block;
+        float: left;
+        height: 100%;
+        margin-right: 7px;
+        position: relative;
+        vertical-align: middle;
+        width: 20px;
+    }
+
+    .icon,
+    svg {
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    svg [fill] {
+        .transition(all .2s);
+    }
+
+    &:focus,
+    &:active:focus,
+    &.active:focus {
+        outline: none;
+    }
+
+    &:hover,
+    &:hover:focus {
+        background-color: @white;
+        color: @yellow;
+
+        svg [fill] {
+            fill: @yellow;
+        }
+    }
+
+    &:focus {
+        background-color: @yellow;
+        color: @white;
+
+        svg [fill] {
+            fill: @white;
+        }
+    }
+
+    &:active,
+    &.active,
+    &:active:focus,
+    &.active:focus {
+        .box-shadow(none);
+        border-color: white;
+        background-color: @yellow;
+        color: @white;
+
+        svg [fill] {
+            fill: @white;
+        }
+    }
+
+    &.no-hover {
+        &:hover,
+        &:active
+        &.active {
+            .box-shadow(none);
+            background-color: @yellow;
+            color: @black;
+            cursor: auto;
+
+            svg [fill] {
+                fill: @black;
+            }
+        }
+    }
+
+    &.btn-facebook,
+    &.btn-facebook:hover,
+    &.btn-facebook:focus,
+    &.btn-facebook:active {
+        background-color: @facebook-blue;
+        border: 1px solid @facebook-blue;
+    }
+
+    &.btn-twitter,
+    &.btn-twitter:hover,
+    &.btn-twitter:focus,
+    &.btn-twitter:active {
+        background-color: @twitter-blue;
+        border: 1px solid @twitter-blue;
+    }
+
+    &.btn-linkedin,
+    &.btn-linkedin:hover,
+    &.btn-linkedin:focus,
+    &.btn-linkedin:active {
+        background-color: @linkedin-blue;
+        border: 1px solid @linkedin-blue;
+    }
+
+    &.btn-facebook:hover,
+    &.btn-facebook:focus,
+    &.btn-facebook:active,
+    &.btn-twitter:hover,
+    &.btn-twitter:focus,
+    &.btn-twitter:active,
+    &.btn-linkedin:hover,
+    &.btn-linkedin:focus,
+    &.btn-linkedin:active {
+        .opacity(.9);
+
+        svg [fill] {
+            fill: @white;
+        }
+    }
+
+    &.btn-facebook:active,
+    &.btn-twitter:active,
+    &.btn-linkedin:active {
+        border-color: @white;
+    }
+
+}

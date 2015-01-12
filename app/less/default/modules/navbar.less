@@ -1,0 +1,39 @@
+/**
+ *  @class          navbar
+ *  @author         SOON_
+ *  @description    main navigation
+ */
+
+nav.navbar {
+    ul {
+        height: 53px;
+        list-style: none;
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+
+    li {
+        display: inline-block;
+        height: 100%;
+        position: relative;
+    }
+
+    li a {
+        background-color: transparent;
+        color: @white;
+        display: block;
+        height: 100%;
+        padding: 30px 29px 11px 5px;
+    }
+
+    li a.active {
+        background-color: @white;
+        color: @black;
+    }
+
+    li a i {
+        display: block;
+        position: absolute;
+        top: 20px;
+    }
+}

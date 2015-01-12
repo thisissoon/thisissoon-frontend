@@ -1,0 +1,45 @@
+/**
+ *  @class          loading
+ *  @author         SOON_
+ *  @description    Loading screen to appear when changing views
+ */
+
+.loading {
+    .opacity(0);
+        .transition(~"bottom 0s linear 1.5s, opacity .5s ease-in 1s");
+
+    background-color: @white;
+    bottom: 100%;
+    left: 0;
+    position: fixed;
+    overflow: hidden;
+    right: 0;
+    top: 0;
+    z-index: 9999;
+
+    .loading-icon {
+        left: 50%;
+        margin-left: -80px;
+        margin-top: -62px;
+        position: absolute;
+        top: 50%;
+    }
+}
+
+.loading-active {
+
+    body.nav-open {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .loading {
+        .transition(~"opacity 0s ease-out");
+
+        .opacity(1);
+        bottom: 0;
+    }
+}
+
+
