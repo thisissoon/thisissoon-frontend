@@ -91,7 +91,26 @@ angular.module("thisissoon.core").controller("HomeCtrl", [
             }
         }
 
-        $scope.currentTime.get();
+        /**
+         * Time boundaries for dynamic greeting
+         * @property timeBoundaries
+         */
+        $scope.timeBoundaries = {
+            morning: new Date().setHours(5),
+            afternoon: new Date().setHours(12),
+            evening: new Date().setHours(18),
+            night: new Date().setHours(23)
+        }
+
+        /**
+         * Get current time on initialisaiton
+         * @method init
+         */
+        $scope.init = function() {
+            $scope.currentTime.get();
+        }
+
+        $scope.init();
 
     }
 

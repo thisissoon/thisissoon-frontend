@@ -3,8 +3,13 @@
     <div class="row">
         <div class="col-lg-8  col-lg-offset-4  col-md-8  col-md-offset-4  col-sm-12  col-sm-offset-0  col-xs-12  col-xs-offset-0">
             <div class="section-heading">
-                <p class="small">{{ currentTime.value | date:'h:mma'}}, London</p>
-                <h1>Good<br>morning</h1>
+                <p class="small">{{ currentTime.value | date:'H:mma'}}, London</p>
+                <h1>
+                    <span ng-if="currentTime.value.getTime() >= timeBoundaries.morning && currentTime.value.getTime() < timeBoundaries.afternoon">Good<br>morning</span>
+                    <span ng-if="currentTime.value.getTime() >= timeBoundaries.afternoon && currentTime.value.getTime() < timeBoundaries.evening">Good<br>afternoon</span>
+                    <span ng-if="currentTime.value.getTime() >= timeBoundaries.evening && currentTime.value.getTime() < timeBoundaries.night">Good<br>evening</span>
+                    <span ng-if="currentTime.value.getTime() >= timeBoundaries.night && currentTime.value.getTime() < timeBoundaries.morning">Good<br>evening</span>
+                </h1>
             </div>
             <h2>We design and build digital products, services and brands.</h2>
         </div>
