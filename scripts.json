@@ -27,8 +27,10 @@
         "app/js/thisissoon-core/constants/constants.js",
         "app/js/thisissoon-core/controllers/HeaderCtrl.js",
         "app/js/thisissoon-core/controllers/HomeCtrl.js",
+        "app/js/thisissoon-core/controllers/NavCtrl.js",
         "app/js/thisissoon-core/controllers/ProjectCtrl.js",
         "app/js/thisissoon-core/directives/header.js",
-        "app/js/thisissoon-core/directives/heroVideo.js"
+        "app/js/thisissoon-core/directives/heroVideo.js",
+        "app/js/thisissoon-core/directives/navbar.js"
     ]
 }

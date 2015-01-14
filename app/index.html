@@ -24,7 +24,7 @@
           class="loading-active"
     >
 
-<!--        <header class="header"></header>-->
+        <header class="header"></header>
         <main class="main" ng-view autoscroll></main>
         <footer class="footer" ng-include="'partials/footer.html'"></footer>
 
@@ -34,6 +34,8 @@
         <!-- build:js js/app.min.js -->
 
         <!-- build:remove -->
+        <script src="components/jquery/dist/jquery.js"></script>
+        <script src="components/bootstrap/dist/js/bootstrap.js"></script>
         <script src="components/angular/angular.js"></script>
         <script src="components/angular-route/angular-route.js"></script>
         <script src="components/angular-sanitize/angular-sanitize.js"></script>
@@ -64,9 +66,11 @@
         <script src="js/thisissoon-core/constants/constants.js"></script>
         <script src="js/thisissoon-core/controllers/HeaderCtrl.js"></script>
         <script src="js/thisissoon-core/controllers/HomeCtrl.js"></script>
+        <script src="js/thisissoon-core/controllers/NavCtrl.js"></script>
         <script src="js/thisissoon-core/controllers/ProjectCtrl.js"></script>
         <script src="js/thisissoon-core/directives/header.js"></script>
         <script src="js/thisissoon-core/directives/heroVideo.js"></script>
+        <script src="js/thisissoon-core/directives/navbar.js"></script>
         <!-- /build -->
 
     </body>

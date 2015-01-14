@@ -1,0 +1,23 @@
+<nav soon-navbar class="navbar navbar-light navbar-fixed-top">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse hidden-sm hidden-xs" id="main-nav">
+        <ul class="nav navbar-nav">
+            <li ng-repeat="section in sections">
+                <a href="#{{ section.id }}" data-nav-style="{{ section.navStyle }}" soon-scroll-to="{{ section.id }}" class="active">
+                    <i class="{{ section.icon }}" ng-if="section.icon"></i>
+                    <span class="text">{{ section.title }}</span>
+                </a>
+            </li>
+        </ul>
+    </div><!-- /.navbar-collapse -->
+</nav>

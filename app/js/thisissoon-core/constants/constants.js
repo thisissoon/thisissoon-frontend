@@ -44,3 +44,32 @@ angular.module("thisissoon.core")
             "display": false
         }
     })
+
+    .constant("HOME_SECTIONS", [
+        {
+            "id": "hero",
+            "title": "Hello",
+            "navStyle": "light"
+        },{
+            "id": "project",
+            "title": "Casestudies",
+            "icon": "icon-casestudies",
+            "navStyle": "dark"
+        },{
+            "id": "services",
+            "title": "Services",
+            "navStyle": "dark"
+        },{
+            "id": "about",
+            "title": "About",
+            "navStyle": "dark"
+        },{
+            "id": "join",
+            "title": "Join",
+            "navStyle": "light"
+        },{
+            "id": "contact",
+            "title": "Contact",
+            "navStyle": "light"
+        }
+    ])
