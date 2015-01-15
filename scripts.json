@@ -1,5 +1,7 @@
 {
     "vendor": [
+        "app/components/jquery/dist/jquery.js",
+        "components/bootstrap/js/scrollspy.js",
         "app/components/angular/angular.js",
         "app/components/angular-animate/angular-animate.js",
         "app/components/angular-bootstrap/ui-bootstrap.js",
@@ -7,6 +9,7 @@
         "app/components/angular-sanitize/angular-sanitize.js",
         "app/js/soon-utils/app.js",
         "app/js/soon-utils/directives/addthisToolbox.js",
+        "app/js/soon-utils/filters/currentDate.js",
         "app/js/soon-utils/filters/timeSince.js",
         "app/js/soon-utils/services/DataStore.js",
         "app/js/soon-ui/app.js",
@@ -27,7 +30,6 @@
         "app/js/thisissoon-core/constants/constants.js",
         "app/js/thisissoon-core/controllers/HeaderCtrl.js",
         "app/js/thisissoon-core/controllers/HomeCtrl.js",
-        "app/js/thisissoon-core/controllers/NavCtrl.js",
         "app/js/thisissoon-core/controllers/ProjectCtrl.js",
         "app/js/thisissoon-core/directives/header.js",
         "app/js/thisissoon-core/directives/heroVideo.js",
