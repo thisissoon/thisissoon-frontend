@@ -28,42 +28,50 @@ nav.navbar {
         padding: 30px 29px 11px 5px;
     }
 
-    li.active a {
-        background-color: @white;
-        color: @black;
-    }
-
-    li a:hover {
-        background-color: @yellow;
-        color: @black;
-    }
-
     li a i {
         display: block;
         position: absolute;
         top: 20px;
     }
+
+    li a:hover,
+    li a:active {
+        background-color: @yellow;
+        color: @black;
+    }
+
+    li.active a {
+        background-color: @white;
+        color: @black;
+    }
+}
+
+.navbar-light li a {
+    color: @white;
+}
+
+.navbar-dark li a {
+    color: @black;
+}
+
+.navbar-header {
+    display: none;
+    padding: 15px 40px;
+}
+
+.navbar-brand {
+    margin-bottom: 5px;
+    margin-top: 5px;
+    padding: 0;
+}
+
+.navbar-collapse {
+    box-shadow: none;
 }
 
 .navbar-fixed-top {
     left: inherit;
     right: inherit;
-}
-
-.navbar-light {
-    li a {
-        color: @white;
-    }
-}
-
-.navbar-dark {
-    li a {
-        color: @black;
-    }
-}
-
-.navbar-collapse {
-    overflow-x: hidden;
 }
 
 .navbar-show {

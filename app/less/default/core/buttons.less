@@ -28,7 +28,7 @@
     }
 
     &.btn-icon-xs {
-        .btn-icon(30px);
+        .btn-icon(35px);
 
         svg,
         .icon {
@@ -38,7 +38,7 @@
     }
 
     &.btn-icon-sm {
-        .btn-icon(40px);
+        .btn-icon(45px);
 
         svg,
         .icon {
@@ -152,50 +152,17 @@
         }
     }
 
-    &.btn-facebook,
-    &.btn-facebook:hover,
-    &.btn-facebook:focus,
-    &.btn-facebook:active {
-        background-color: @facebook-blue;
-        border: 1px solid @facebook-blue;
-    }
+    .btn-label {
+        .small;
+        color: @grey;
+        display: none;
+        position: relative;
+        text-align: right;
+        right: 80px;
 
-    &.btn-twitter,
-    &.btn-twitter:hover,
-    &.btn-twitter:focus,
-    &.btn-twitter:active {
-        background-color: @twitter-blue;
-        border: 1px solid @twitter-blue;
-    }
-
-    &.btn-linkedin,
-    &.btn-linkedin:hover,
-    &.btn-linkedin:focus,
-    &.btn-linkedin:active {
-        background-color: @linkedin-blue;
-        border: 1px solid @linkedin-blue;
-    }
-
-    &.btn-facebook:hover,
-    &.btn-facebook:focus,
-    &.btn-facebook:active,
-    &.btn-twitter:hover,
-    &.btn-twitter:focus,
-    &.btn-twitter:active,
-    &.btn-linkedin:hover,
-    &.btn-linkedin:focus,
-    &.btn-linkedin:active {
-        .opacity(.9);
-
-        svg [fill] {
-            fill: @white;
+        .nav-open & {
+            display: block;
         }
-    }
-
-    &.btn-facebook:active,
-    &.btn-twitter:active,
-    &.btn-linkedin:active {
-        border-color: @white;
     }
 
 }

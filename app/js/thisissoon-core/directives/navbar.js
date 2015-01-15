@@ -8,22 +8,25 @@
 angular.module("thisissoon.core").directive("soonNavbar",[
     "$timeout",
     "ScrollService",
+    "DataStore",
     /**
      * @constructor
      * @param {Service} $timeout      angular wrapper for setTimeout
      * @param {Service} ScrollService handles scroll events
      */
-    function ($timeout, ScrollService){
+    function ($timeout, ScrollService, DataStore){
         return {
             restrict: "A",
-            controller: "NavCtrl",
             link: function($scope, $element) {
 
                 /**
                  * @property lastScroll
-                 * @type     {Integer}
+                 * @type     {Object}
                  */
-                var lastScroll = 0;
+                var lastScroll = {
+                    time: 0,
+                    position: {}
+                }
 
                 /**
                  * Hide navbar on scroll
@@ -32,27 +35,55 @@ angular.module("thisissoon.core").directive("soonNavbar",[
                  */
                 var onScroll = function($event, scrollPosition) {
 
-                    var timeNow = (new Date()).getTime();
+                    var timeNow = (new Date()).getTime(),
+                        delay = 500;
 
                     // hide navigation on scroll action
-                    if (lastScroll !== 0) {
+                    if (lastScroll.time !== 0) {
                         $element.removeClass("navbar-show");
                         $element.addClass("navbar-hide");
                     }
 
-                    // track lastScroll time
-                    lastScroll = timeNow;
+                    // track lastScroll properties
+                    lastScroll = {
+                        time: timeNow,
+                        position: scrollPosition
+                    }
 
                     // show nav once scrolling has stopped for 800ms
                     $timeout(function() {
-                        if (timeNow === lastScroll) {
+                        if (timeNow === lastScroll.time) {
                             $element.removeClass("navbar-hide");
                             $element.addClass("navbar-show");
                         }
-                    }, 500);
+                    }, delay);
+                }
+
+                /**
+                 * Hide the fullscreen navigation on selecting an item
+                 * @method navClick
+                 */
+                $scope.navClick = function navClick(){
+                    angular.element("nav").find(".icon-burger").removeClass("close");
+                    DataStore.set("navOpen", false);
+                }
+
+                /**
+                 * Toggles the state of the main nav menu by updating
+                 * the "navOpen" value in the DataStore service
+                 * @method toggleNav
+                 */
+                $scope.toggleNav = function toggleNav($event){
+                    angular.element($event.currentTarget).find(".icon-burger").toggleClass("close");
+                    DataStore.set("navOpen", !DataStore.get("navOpen"));
                 }
 
                 ScrollService.add($scope.$id, onScroll);
+
+                /**
+                 * Initialise scrollspy
+                 */
+                $("body").scrollspy({ target: "nav.navbar" });
 
                 // on bootstrap scrollspy event set navigation style
                 $("nav.navbar").on("activate.bs.scrollspy", function (event) {

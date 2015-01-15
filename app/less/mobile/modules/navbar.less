@@ -1,0 +1,63 @@
+/**
+ *  @class          navbar
+ *  @author         SOON_
+ *  @description    main navigation
+ */
+
+nav.navbar {
+
+    ul {
+        height: 100%;
+    }
+
+    li {
+        display: block;
+    }
+
+    li a {
+        .h2;
+        margin: 0;
+        padding: 10px 20px;
+    }
+
+    .nav-open & {
+        background: @dark-grey;
+        height: 100%;
+    }
+
+    .navbar-collapse {
+        display: none;
+        overflow-y: hidden;
+
+        .nav-open & {
+            display: block;
+        }
+    }
+
+    // hide icons
+    li a i {
+        display: none;
+    }
+
+}
+
+.navbar-light li a,
+.navbar-dark li a {
+    color: @white;
+}
+
+.navbar-fixed-top {
+    left: 0;
+    right: 0;
+}
+
+// show navbar header
+.navbar-header {
+    display: block;
+    padding: 20px 20px;
+}
+
+// disable navbar animation
+.navbar-hide {
+    top: 0;
+}

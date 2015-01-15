@@ -54,7 +54,8 @@ angular.module("thisissoon.core")
             "id": "project",
             "title": "Casestudies",
             "icon": "icon-casestudies",
-            "navStyle": "dark"
+            "navStyle": "dark",
+            "open": "casestudies"
         },{
             "id": "services",
             "title": "Services",

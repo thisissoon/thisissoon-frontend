@@ -1,23 +1,28 @@
 <nav soon-navbar class="navbar navbar-light navbar-fixed-top">
-    <!-- Brand and toggle get grouped for better mobile display -->
+
     <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav">
+        <button type="button" class="btn btn-icon-sm navbar-toggle" ng-click="toggleNav($event)">
             <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
+            <i class="icon icon-burger"></i>
+            <span class="btn-label">Close</span>
         </button>
+        <img class="navbar-brand" src="img/header/logo.png" height="45">
     </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse hidden-sm hidden-xs" id="main-nav">
+    <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
             <li ng-repeat="section in sections">
-                <a href="#{{ section.id }}" data-nav-style="{{ section.navStyle }}" soon-scroll-to="{{ section.id }}" class="active">
+                <a href="#{{ section.id }}" data-nav-style="{{ section.navStyle }}" soon-scroll-to="{{ section.id }}" ng-click="navClick($event)" ng-if="!section.open">
+                    <i class="{{ section.icon }}" ng-if="section.icon"></i>
+                    <span class="text">{{ section.title }}</span>
+                </a>
+                <!-- Casetudies nav item -->
+                <a href="#{{ section.id }}" data-nav-style="{{ section.navStyle }}" ng-click="toggleProjects($event)" ng-if="section.open === 'casestudies'">
                     <i class="{{ section.icon }}" ng-if="section.icon"></i>
                     <span class="text">{{ section.title }}</span>
                 </a>
             </li>
         </ul>
-    </div><!-- /.navbar-collapse -->
+    </div>
+
 </nav>
