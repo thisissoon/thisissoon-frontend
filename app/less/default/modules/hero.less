@@ -13,21 +13,21 @@
     position: relative;
     width: 100%;
 
-    h1 a,
-    h1 a:hover {
-        color: @white;
-        text-decoration: none;
+    h2 {
+        margin-top: 80px;
+    }
+
+    .section-heading {
+        position: relative;
     }
 
     .content {
-        background-color: rgba(red(@yellow), green(@yellow), blue(@yellow), 0.5);
         background-image: url(../img/mock/hero.png);
-        bottom: 0;
-        left: 0;
+        .background-size(cover);
+        background-repeat: no-repeat;
+        background-position: center center;
         margin: auto;
-        position: absolute;
-        right: 0;
-        top: 0;
+        padding-top: 60px;
     }
 
     .vertical-center {
@@ -40,86 +40,6 @@
         position: absolute;
         right: 0;
         top: 0;
-    }
-
-    .img-google {
-        width: 108px;
-    }
-
-    .text-view {
-        position: absolute;
-        right: 101px;
-        top: 101px;
-    }
-
-    .text-view:after {
-        .rotate(25deg);
-        .size(56px, 71px);
-        bottom: 85%;
-        content: url(../img/arrow.svg);
-        left: 55%;
-        position: absolute;
-    }
-
-    .text-presents {
-        font-size: 0.929em; //13px;
-    }
-
-    .btn-next,
-    .btn-previous {
-        .size(34px, 114px);
-        border-radius: 4px;
-        display: none;
-        margin: -56px 0 0;
-        position: fixed;
-        top: 50%;
-        z-index: 10;
-    }
-
-    .btn-next {
-        .border-right-radius(0);
-        right: 0;
-        .icon {
-            .rotate(-90deg);
-            left: 3px;
-        }
-    }
-
-    .btn-previous {
-        .border-left-radius(0);
-        left: 0;
-        .icon {
-            .rotate(90deg);
-            right: 3px;
-        }
-    }
-
-    &.case-study {
-        background-image: none;
-
-        .btn-next,
-        .btn-previous {
-            display: block;
-        }
-
-        .content {
-            background-color: transparent;
-        }
-
-        .text-view {
-            display: none;
-        }
-    }
-
-    .nav-open & {
-        .btn-down,
-        .link-down,
-        .vertical-center,
-        .text-view,
-        .btn-next,
-        .btn-previous {
-            display: none;
-        }
     }
 }
 
