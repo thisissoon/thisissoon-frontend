@@ -38,7 +38,10 @@ angular.module("thisissoon.core").controller("HeaderCtrl", [
          * @method toggleProjects
          */
         $scope.toggleProjects = function toggleProjects($event){
-            $event.preventDefault();
+            if($event) {
+                $event.preventDefault();
+            }
+
             DataStore.set("projectList", !DataStore.get("projectList"));
         }
 

@@ -24,15 +24,15 @@ describe("HeaderCtrl", function (){
 
     }));
 
-    it("should toogle navOpen boolean when calling toggleNav function", function (){
-        scope.dataStore.set("navOpen", false);
-        scope.toggleNav();
-        expect(scope.dataStore.get("navOpen")).toBe(true);
-        scope.toggleNav();
-        expect(scope.dataStore.get("navOpen")).toBe(false);
-        scope.dataStore.set("navOpen", true);
-        scope.toggleNav();
-        expect(scope.dataStore.get("navOpen")).toBe(false);
+    it("should toogle projectsList boolean when calling toggleProjects function", function (){
+        scope.dataStore.set("projectList", false);
+        scope.toggleProjects();
+        expect(scope.dataStore.get("projectList")).toBe(true);
+        scope.toggleProjects();
+        expect(scope.dataStore.get("projectList")).toBe(false);
+        scope.dataStore.set("projectList", true);
+        scope.toggleProjects();
+        expect(scope.dataStore.get("projectList")).toBe(false);
     });
 
 
