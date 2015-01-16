@@ -1,4 +1,5 @@
 # [thisissoon.com](http://thisissoon.com) frontend
+[![Build Status](https://travis-ci.org/thisissoon/thisissoon-frontend.svg)](https://travis-ci.org/thisissoon/thisissoon-frontend)
 
 This project structure is based on the [angular-seed](https://github.com/angular/angular-seed) application skeleton for a typical [AngularJS](http://angularjs.org/) web app.
 
