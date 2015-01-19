@@ -13,16 +13,18 @@ angular.module("thisissoon.core").controller("HomeCtrl", [
     "$timeout",
     "DataStore",
     "projects",
+    "jobs",
     /**
      * @constructor
      * @param {Object}  $scope
      * @param {Object}  $rootScope
-     * @param {Service} $modal    Angular-bootstrap modal service
-     * @param {Service} $sce      Angular sanitize service
-     * @param {Service} DataStore Stores data to share between controllers
-     * @param {Object}  projects  List of projects from api
+     * @param {Service} $modal     Angular-bootstrap modal service
+     * @param {Service} $sce       Angular sanitize service
+     * @param {Service} DataStore  Stores data to share between controllers
+     * @param {Object}  projects   List of projects from api
+     * @param {Object}  jobs       List of jobs from api
      */
-    function ($scope, $rootScope, $modal, $sce, $timeout, DataStore, projects) {
+    function ($scope, $rootScope, $modal, $sce, $timeout, DataStore, projects, jobs) {
 
         /**
          * List of projects from thisissoon api
@@ -37,6 +39,13 @@ angular.module("thisissoon.core").controller("HomeCtrl", [
          * @type     {Object}
          */
         $scope.sticky = projects.sticky;
+
+        /**
+         * List of jobs from thisissoonapi
+         * @property jobs
+         * @type     {Object}
+         */
+        $scope.jobs = jobs.list;
 
         /**
          * Get background image for hero section

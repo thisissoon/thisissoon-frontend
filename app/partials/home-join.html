@@ -25,10 +25,10 @@
     <div class="row">
         <div class="col-lg-12 col-lg-offset-4 col-md-12 col-md-offset-4 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0">
             <div class="row">
-                <div class="col-lg-2 col-md-2 col-sm-3 col-xs-6">
-                    <h6>Front-end Developer</h6>
+                <div class="col-lg-2 col-md-2 col-sm-3 col-xs-6" ng-repeat="job in jobs">
+                    <h6>{{ job.title }}</h6>
                     <hr>
-                    <p>We need an HTML/CSS/ Javascript legend who wants to create interfaces for a new generation</p>
+                    <p>{{ job.blurb }}</p>
                     <a href>View details</a>
                 </div>
             </div>

@@ -109,6 +109,36 @@ angular.module("thisissoon.api").service("ThisissoonAPI", [
             return deferred.promise;
         }
 
+        /**
+         * Retrieves a object that contains the list of jobs
+         * @function getJobs
+         * @return   {Promise} A promise that will resolve if jobs
+         *                   exist or be rejected if it does not
+         * @example
+         * ThisisssoonAPI.getJobs()
+         *     .then(function(jobsObj){
+         *         console.log(jobsObj)
+         *         // Do something with project object here
+         *     })
+         *     .catch(function(){
+         *         console.log("No Jobs Found")
+         *         // error handling code
+         *     })
+         */
+        this.getJobs = function getCategories(){
+            var deferred = $q.defer();
+
+            $http.get(ENV.SERVER_ADDRESS + "jobs/")
+                .success(function (data) {
+                    deferred.resolve(data);
+                })
+                .error(function (data) {
+                    deferred.reject(data);
+                });
+
+            return deferred.promise;
+        }
+
 
     }
 ]);

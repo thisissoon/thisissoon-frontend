@@ -23,6 +23,9 @@ angular.module("thisissoon.core").config([
                 resolve: {
                     projects: ["ThisissoonAPI", function (ThisissoonAPI){
                         return ThisissoonAPI.getProjects();
+                    }],
+                    jobs: ["ThisissoonAPI", function (ThisissoonAPI){
+                        return ThisissoonAPI.getJobs();
                     }]
                 }
             })
