@@ -13,7 +13,7 @@
             </div>
             <div>
                 <h3 class="quote padding-bottom">{{ project.quote }}</h3>
-                <h3><a ng-href="{{ project.link }}">Visit {{ project.linkText }}</a></h3>
+                <h3 ng-if="project.link"><a ng-href="{{ project.link }}">Visit {{ project.linkText }}</a></h3>
             </div>
         </div>
     </div>

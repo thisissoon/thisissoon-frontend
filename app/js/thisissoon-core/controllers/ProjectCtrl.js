@@ -44,7 +44,10 @@ angular.module("thisissoon.core").controller("ProjectCtrl", [
         $scope.init = function init(){
             DataStore.set("projectView", true);
             $scope.setNextPrevious();
-            $scope.project.linkText = $scope.project.link.split('/')[2].split('www.')[1];
+
+            if ($scope.project.link) {
+                $scope.project.linkText = $scope.project.link.split('/')[2].split('www.')[1];
+            }
         }
 
         /**

@@ -12,22 +12,20 @@
             <img class="icon icon-close" src="img/icons/close.svg">
         </button>
     </div>
-    <div class="project container-fluid" ng-repeat="project in projects" ng-style="{ 'background-color': '{{ project.background_colour }}', 'color': '{{ project.text_colour }}' }">
-        <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-<!--                <img class="project-logo" ng-src="{{ project.hero_image.thumbnail }}" alt="{{ project.title }}">-->
-                <div class="vertical-center">
-                   <img class="" src="img/mock/project-logo.png">
+    <article class="project container-fluid" ng-repeat="project in projects" ng-style="{ 'background-color': '{{ project.background_colour }}', 'color': '{{ project.text_colour }}' }">
+        <a href ng-href="#/projects/{{ project.id }}" ng-click="toggleProjects()">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="vertical-center">
+                       <img class="project-logo" ng-src="{{ project.logo }}" alt="{{ project.title }}">
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" >
+                    <img class="project-hero" ng-src="{{ project.hero_image.hero }}"><br>
+                    {{ project.introduction }}
                 </div>
             </div>
-            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" >
-<!--                <img class="project-hero" ng-src="{{ project.hero_image.hero }}">-->
-                <img src="img/mock/project-hero.png"><br>
-                <a href ng-href="#/projects/{{ project.id }}" ng-click="toggleNav()">
-                    {{ project.introduction }}
-                </a>
-            </div>
-        </div>
-    </div>
+        </a>
+    </article>
 </div>
 
