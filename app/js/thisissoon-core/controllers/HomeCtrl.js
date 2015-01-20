@@ -8,8 +8,6 @@
 angular.module("thisissoon.core").controller("HomeCtrl", [
     "$scope",
     "$rootScope",
-    "$modal",
-    "$sce",
     "$timeout",
     "CacheService",
     "projects",
@@ -18,13 +16,11 @@ angular.module("thisissoon.core").controller("HomeCtrl", [
      * @constructor
      * @param {Object}  $scope
      * @param {Object}  $rootScope
-     * @param {Service} $modal     Angular-bootstrap modal service
-     * @param {Service} $sce       Angular sanitize service
      * @param {Service} CacheService  Stores data to share between controllers
      * @param {Object}  projects   List of projects from api
      * @param {Object}  jobs       List of jobs from api
      */
-    function ($scope, $rootScope, $modal, $sce, $timeout, CacheService, projects, jobs) {
+    function ($scope, $rootScope, $timeout, CacheService, projects, jobs) {
 
         /**
          * List of projects from thisissoon api
@@ -63,27 +59,6 @@ angular.module("thisissoon.core").controller("HomeCtrl", [
          */
         $scope.getBackgroundColor = function getBackgroundColor(){
             return CacheService.get("backgroundColor");
-        }
-
-        /**
-         * Opens modal window with video player inside
-         * @method PlayVideo
-         */
-        $scope.playVideo = function playVideo(){
-            $scope.$broadcast("heroVideo:pause");
-
-            $scope.project = {
-                video: $sce.trustAsResourceUrl("//www.youtube.com/embed/oa-E5MRI9d0?autoplay=1&autohide=1")
-            }
-
-            var modal = $modal.open({
-                templateUrl: "partials/modal-youtube.html",
-                scope: $scope
-            });
-
-            modal.result.finally(function(){
-                $scope.$broadcast("heroVideo:play");
-            })
         }
 
         /**

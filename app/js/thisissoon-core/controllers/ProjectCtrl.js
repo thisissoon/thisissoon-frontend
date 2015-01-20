@@ -8,7 +8,6 @@
  */
 angular.module("thisissoon.core").controller("ProjectCtrl", [
     "$scope",
-    "$modal",
     "$rootScope",
     "CacheService",
     "project",
@@ -16,12 +15,11 @@ angular.module("thisissoon.core").controller("ProjectCtrl", [
     /**
      * @constructor
      * @param {Object}  $scope     Scope of the controller
-     * @param {Service} $modal     Angular-bootstrap modal service
      * @param {Service} CacheService  Stores data to share between controllers
      * @param {Object}  project    Project detail object from thisissoon API
      * @param {Object}  projects   List of projects from api
      */
-    function ($scope, $modal, $rootScope, CacheService, project, projects) {
+    function ($scope, $rootScope, CacheService, project, projects) {
 
         /**
          * List of projects from thisissoon API
