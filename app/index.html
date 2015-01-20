@@ -16,10 +16,10 @@
         <!-- /build -->
     </head>
     <body ng-class="{
-            'nav-open': dataStore.get('navOpen'),
-            'project-list-open': dataStore.get('projectList'),
-            'loading-active': dataStore.get('loading'),
-            'project-view': dataStore.get('projectView')
+            'nav-open': cache.get('navOpen'),
+            'project-list-open': cache.get('projectList'),
+            'loading-active': cache.get('loading'),
+            'project-view': cache.get('projectView')
           }"
           class="loading-active"
     >
@@ -31,6 +31,9 @@
         <div class="loading" ng-include="'partials/loading.html'"></div>
 
 
+        <!-- Add this -->
+        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-545b3f957aee3425&domready=1" async="async"></script>
+
         <!-- build:js js/app.min.js -->
 
         <!-- build:remove -->
@@ -41,6 +44,7 @@
         <script src="components/angular-sanitize/angular-sanitize.js"></script>
         <script src="components/angular-animate/angular-animate.js"></script>
         <script src="components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+        <script src="components/angular-addthis/dist/angular-addthis.js"></script>
 
         <script src="js/soon-ui/app.js"></script>
         <script src="js/soon-ui/directives/fixed.js"></script>
@@ -49,12 +53,6 @@
         <script src="js/soon-ui/directives/video.js"></script>
         <script src="js/soon-ui/services/ResizeService.js"></script>
         <script src="js/soon-ui/services/ScrollService.js"></script>
-
-        <script src="js/soon-utils/app.js"></script>
-        <script src="js/soon-utils/directives/addthisToolbox.js"></script>
-        <script src="js/soon-utils/filters/timeSince.js"></script>
-        <script src="js/soon-utils/filters/currentDate.js"></script>
-        <script src="js/soon-utils/services/DataStore.js"></script>
 
         <script src="js/env.js"></script>
 
@@ -70,6 +68,8 @@
         <script src="js/thisissoon-core/directives/header.js"></script>
         <script src="js/thisissoon-core/directives/heroVideo.js"></script>
         <script src="js/thisissoon-core/directives/navbar.js"></script>
+        <script src="js/thisissoon-core/filters/currentDate.js"></script>
+        <script src="js/thisissoon-core/services/CacheService.js"></script>
         <!-- /build -->
 
     </body>

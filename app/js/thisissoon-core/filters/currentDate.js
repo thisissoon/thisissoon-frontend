@@ -1,11 +1,11 @@
 "use strict";
 /**
  * Returns the current date
- * @module soon.utils
+ * @module thisissoon.core
  * @author SOON_
  * @class  currentDate
  **/
-angular.module("soon.utils").filter("currentDate", [
+angular.module("thisissoon.core").filter("currentDate", [
     "$filter",
     function($filter) {
         return function() {

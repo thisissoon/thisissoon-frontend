@@ -10,18 +10,18 @@ angular.module("thisissoon.core").controller("ProjectCtrl", [
     "$scope",
     "$modal",
     "$rootScope",
-    "DataStore",
+    "CacheService",
     "project",
     "projects",
     /**
      * @constructor
      * @param {Object}  $scope     Scope of the controller
      * @param {Service} $modal     Angular-bootstrap modal service
-     * @param {Service} DataStore  Stores data to share between controllers
+     * @param {Service} CacheService  Stores data to share between controllers
      * @param {Object}  project    Project detail object from thisissoon API
      * @param {Object}  projects   List of projects from api
      */
-    function ($scope, $modal, $rootScope, DataStore, project, projects) {
+    function ($scope, $modal, $rootScope, CacheService, project, projects) {
 
         /**
          * List of projects from thisissoon API
@@ -42,7 +42,7 @@ angular.module("thisissoon.core").controller("ProjectCtrl", [
          * @method init
          */
         $scope.init = function init(){
-            DataStore.set("projectView", true);
+            CacheService.put("projectView", true);
             $scope.setNextPrevious();
 
             if ($scope.project.link) {
@@ -81,7 +81,7 @@ angular.module("thisissoon.core").controller("ProjectCtrl", [
          * @type     {String}
          */
         $scope.getBackgroundColor = function getBackgroundColor(){
-            return DataStore.get("backgroundColor");
+            return CacheService.get("backgroundColor");
         }
 
         /**
@@ -110,7 +110,7 @@ angular.module("thisissoon.core").controller("ProjectCtrl", [
         }
 
         $scope.$on("$destroy", function(){
-            DataStore.remove("projectView");
+            CacheService.remove("projectView");
         })
 
         $scope.init();

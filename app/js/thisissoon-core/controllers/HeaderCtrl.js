@@ -8,15 +8,15 @@
  */
 angular.module("thisissoon.core").controller("HeaderCtrl", [
     "$scope",
-    "DataStore",
+    "CacheService",
     "ThisissoonAPI",
     /**
      * @constructor
      * @param {Object}  $scope        Scope of the controller
-     * @param {Service} DataStore     Stores data to share between controllers
+     * @param {Service} CacheService     Stores data to share between controllers
      * @param {Object}  ThisissoonAPI Provides access to api which contains all project case studies
      */
-    function ($scope, DataStore, ThisissoonAPI) {
+    function ($scope, CacheService, ThisissoonAPI) {
 
         /**
          * List of projects from thisissoon API
@@ -26,15 +26,15 @@ angular.module("thisissoon.core").controller("HeaderCtrl", [
         $scope.projects = [];
 
         /**
-         * Expose dataStore on isolate scope
-         * @property dataStore
+         * Expose cache in isolate scope
+         * @property cache
          * @type     {Function}
          */
-        $scope.dataStore = DataStore;
+        $scope.cache = CacheService;
 
         /**
          * Toggles the state of the project list menu by updating
-         * the "projectList" value in the DataStore service
+         * the "projectList" value in the CacheService service
          * @method toggleProjects
          */
         $scope.toggleProjects = function toggleProjects($event){
@@ -42,7 +42,7 @@ angular.module("thisissoon.core").controller("HeaderCtrl", [
                 $event.preventDefault();
             }
 
-            DataStore.set("projectList", !DataStore.get("projectList"));
+            CacheService.put("projectList", !CacheService.get("projectList"));
         }
 
         /**

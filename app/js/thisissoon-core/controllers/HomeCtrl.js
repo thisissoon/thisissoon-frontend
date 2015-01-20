@@ -11,7 +11,7 @@ angular.module("thisissoon.core").controller("HomeCtrl", [
     "$modal",
     "$sce",
     "$timeout",
-    "DataStore",
+    "CacheService",
     "projects",
     "jobs",
     /**
@@ -20,11 +20,11 @@ angular.module("thisissoon.core").controller("HomeCtrl", [
      * @param {Object}  $rootScope
      * @param {Service} $modal     Angular-bootstrap modal service
      * @param {Service} $sce       Angular sanitize service
-     * @param {Service} DataStore  Stores data to share between controllers
+     * @param {Service} CacheService  Stores data to share between controllers
      * @param {Object}  projects   List of projects from api
      * @param {Object}  jobs       List of jobs from api
      */
-    function ($scope, $rootScope, $modal, $sce, $timeout, DataStore, projects, jobs) {
+    function ($scope, $rootScope, $modal, $sce, $timeout, CacheService, projects, jobs) {
 
         /**
          * List of projects from thisissoon api
@@ -53,7 +53,7 @@ angular.module("thisissoon.core").controller("HomeCtrl", [
          * @type     {String}
          */
         $scope.getBackgroundImage = function getBackgroundImage(){
-            return DataStore.get("backgroundImage");
+            return CacheService.get("backgroundImage");
         }
 
         /**
@@ -62,7 +62,7 @@ angular.module("thisissoon.core").controller("HomeCtrl", [
          * @type     {String}
          */
         $scope.getBackgroundColor = function getBackgroundColor(){
-            return DataStore.get("backgroundColor");
+            return CacheService.get("backgroundColor");
         }
 
         /**

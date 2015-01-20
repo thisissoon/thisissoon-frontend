@@ -16,35 +16,34 @@ angular.module("thisissoon.core", [
     "ngAnimate",
     "ui.bootstrap",
     "soon.ui",
-    "soon.utils",
     "thisissoon.api"
 ])
 
 .run([
     "$rootScope",
-    "DataStore",
+    "CacheService",
     /**
      * @constructor
      * @param {Service} $rootScope
-     * @param {Service} DataStore
+     * @param {Service} CacheService
      */
-    function ($rootScope, DataStore) {
+    function ($rootScope, CacheService) {
 
-        $rootScope.dataStore = DataStore;
+        $rootScope.cache = CacheService;
 
-        DataStore.set("navOpen", false);
-        DataStore.set("loading", true);
-        DataStore.set("projectList", false);
+        CacheService.put("navOpen", false);
+        CacheService.put("loading", true);
+        CacheService.put("projectList", false);
 
         // close nav menu when changing views
         $rootScope.$on("$routeChangeStart", function() {
-            DataStore.set("navOpen", false);
-            DataStore.set("loading", true);
+            CacheService.put("navOpen", false);
+            CacheService.put("loading", true);
         });
 
         // close nav menu when changing views
         $rootScope.$on("$routeChangeSuccess", function() {
-            DataStore.set("loading", false);
+            CacheService.put("loading", false);
         });
 
     }

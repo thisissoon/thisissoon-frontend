@@ -8,13 +8,13 @@
 angular.module("thisissoon.core").directive("soonNavbar",[
     "$timeout",
     "ScrollService",
-    "DataStore",
+    "CacheService",
     /**
      * @constructor
      * @param {Service} $timeout      angular wrapper for setTimeout
      * @param {Service} ScrollService handles scroll events
      */
-    function ($timeout, ScrollService, DataStore){
+    function ($timeout, ScrollService, CacheService){
         return {
             restrict: "A",
             link: function($scope, $element) {
@@ -65,17 +65,17 @@ angular.module("thisissoon.core").directive("soonNavbar",[
                  */
                 $scope.navClick = function navClick(){
                     angular.element("nav").find(".icon-burger").removeClass("close");
-                    DataStore.set("navOpen", false);
+                    CacheService.put("navOpen", false);
                 }
 
                 /**
                  * Toggles the state of the main nav menu by updating
-                 * the "navOpen" value in the DataStore service
+                 * the "navOpen" value in the CacheService service
                  * @method toggleNav
                  */
                 $scope.toggleNav = function toggleNav($event){
                     angular.element($event.currentTarget).find(".icon-burger").toggleClass("close");
-                    DataStore.set("navOpen", !DataStore.get("navOpen"));
+                    CacheService.put("navOpen", !CacheService.get("navOpen"));
                 }
 
                 ScrollService.add($scope.$id, onScroll);

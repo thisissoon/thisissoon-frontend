@@ -1,4 +1,4 @@
-<nav soon-navbar class="navbar navbar-light navbar-fixed-top" ng-class="{ 'home': !dataStore.get('projectView'), 'projects': dataStore.get('projectView') }">
+<nav soon-navbar class="navbar navbar-light navbar-fixed-top" ng-class="{ 'home': !cache.get('projectView'), 'projects': cache.get('projectView') }">
 
     <div class="navbar-header">
         <button type="button" class="btn btn-icon-sm navbar-toggle" ng-click="toggleNav($event)">
@@ -9,7 +9,7 @@
         <img class="navbar-brand" src="img/header/logo.png" height="45">
     </div>
 
-    <div class="collapse navbar-collapse" ng-if="!dataStore.get('projectView')">
+    <div class="collapse navbar-collapse" ng-if="!cache.get('projectView')">
         <ul class="nav navbar-nav">
             <li>
                 <a href="#hero" data-nav-style="light" soon-scroll-to="hero" ng-click="navClick()">
@@ -38,7 +38,7 @@
     </div>
 
     <!-- Project navigation -->
-    <div class="collapse navbar-collapse" ng-if="dataStore.get('projectView')">
+    <div class="collapse navbar-collapse" ng-if="cache.get('projectView')">
         <ul class="nav navbar-nav">
             <li><a href="#/" ng-click="navClick()"><span class="text">Home</span></a></li>
             <li>
