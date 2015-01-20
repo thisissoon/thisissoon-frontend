@@ -11,28 +11,14 @@
 
     <div class="collapse navbar-collapse" ng-if="!cache.get('projectView')">
         <ul class="nav navbar-nav">
-            <li>
-                <a href="#hero" data-nav-style="light" soon-scroll-to="hero" ng-click="navClick()">
-                    <span class="text">Hello</span>
+            <li ng-repeat="section in sections">
+                <a href="#{{ section.id }}" data-nav-style="{{ section.navStyle }}" soon-scroll-to="{{ section.id }}" ng-click="navClick()" ng-if="section.id !== 'project'">
+                    <span class="text">{{ section.title }}</span>
                 </a>
-            </li>
-            <li><!-- Casetudies -->
-                <a href ng-click="toggleProjects($event)">
-                    <i class="icon-casestudies"></i>
-                    <span class="text">Casestudies</span>
+                <a href ng-if="section.id === 'project'"ng-click="toggleProjects($event)"><!-- Casestudies -->
+                    <i class="{{ section.icon }}"></i>
+                    <span class="text">{{ section.title }}</span>
                 </a>
-            </li>
-            <li>
-                <a href="#services" data-nav-style="dark" soon-scroll-to="services" ng-click="navClick()"><span class="text">Services</span></a>
-            </li>
-            <li>
-                <a href="#about" data-nav-style="dark" soon-scroll-to="about" ng-click="navClick()"><span class="text">About</span></a>
-            </li>
-            <li>
-                <a href="#join" data-nav-style="light" soon-scroll-to="join" ng-click="navClick()"><span class="text">Join</span></a>
-            </li>
-            <li>
-                <a href="#contact" data-nav-style="light" soon-scroll-to="contact" ng-click="navClick()"><span class="text">Contact</span></a>
             </li>
         </ul>
     </div>

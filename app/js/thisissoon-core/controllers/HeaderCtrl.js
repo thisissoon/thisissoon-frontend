@@ -10,13 +10,15 @@ angular.module("thisissoon.core").controller("HeaderCtrl", [
     "$scope",
     "CacheService",
     "ThisissoonAPI",
+    "NAV",
     /**
      * @constructor
      * @param {Object}  $scope        Scope of the controller
-     * @param {Service} CacheService     Stores data to share between controllers
+     * @param {Service} CacheService  Stores data to share between controllers
      * @param {Object}  ThisissoonAPI Provides access to api which contains all project case studies
+     * @param {Object}  NAV           Provides lists of nav menu items for each view
      */
-    function ($scope, CacheService, ThisissoonAPI) {
+    function ($scope, CacheService, ThisissoonAPI, NAV) {
 
         /**
          * List of projects from thisissoon API
@@ -24,6 +26,13 @@ angular.module("thisissoon.core").controller("HeaderCtrl", [
          * @type     {Array}
          */
         $scope.projects = [];
+
+        /**
+         * List of home sections
+         * @property sections
+         * @type     {Array}
+         */
+        $scope.sections = NAV.home;
 
         /**
          * Expose cache in isolate scope

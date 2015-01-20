@@ -88,6 +88,7 @@ angular.module("thisissoon.core").directive("soonNavbar",[
                 // on bootstrap scrollspy event set navigation style
                 $("nav.navbar").on("activate.bs.scrollspy", function (event) {
                     var navStyle = angular.element(event.target).find("a").attr("data-nav-style");
+                    $scope.$emit("scrollSpyChanged", event);
 
                     switch(navStyle) {
                         case "dark":
