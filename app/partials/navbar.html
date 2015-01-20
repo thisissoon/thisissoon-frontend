@@ -1,4 +1,4 @@
-<nav soon-navbar class="navbar navbar-light navbar-fixed-top">
+<nav soon-navbar class="navbar navbar-light navbar-fixed-top" ng-class="{ 'home': !dataStore.get('projectView'), 'projects': dataStore.get('projectView') }">
 
     <div class="navbar-header">
         <button type="button" class="btn btn-icon-sm navbar-toggle" ng-click="toggleNav($event)">
@@ -9,18 +9,52 @@
         <img class="navbar-brand" src="img/header/logo.png" height="45">
     </div>
 
-    <div class="collapse navbar-collapse">
+    <div class="collapse navbar-collapse" ng-if="!dataStore.get('projectView')">
         <ul class="nav navbar-nav">
-            <li ng-repeat="section in sections">
-                <a href="#{{ section.id }}" data-nav-style="{{ section.navStyle }}" soon-scroll-to="{{ section.id }}" ng-click="navClick($event)" ng-if="!section.open">
-                    <i class="{{ section.icon }}" ng-if="section.icon"></i>
-                    <span class="text">{{ section.title }}</span>
+            <li>
+                <a href="#hero" data-nav-style="light" soon-scroll-to="hero" ng-click="navClick()">
+                    <span class="text">Hello</span>
                 </a>
-                <!-- Casetudies nav item -->
-                <a href="#{{ section.id }}" data-nav-style="{{ section.navStyle }}" ng-click="toggleProjects($event)" ng-if="section.open === 'casestudies'">
-                    <i class="{{ section.icon }}" ng-if="section.icon"></i>
-                    <span class="text">{{ section.title }}</span>
+            </li>
+            <li><!-- Casetudies -->
+                <a href ng-click="toggleProjects($event)">
+                    <i class="icon-casestudies"></i>
+                    <span class="text">Casestudies</span>
                 </a>
+            </li>
+            <li>
+                <a href="#services" data-nav-style="dark" soon-scroll-to="services" ng-click="navClick()"><span class="text">Services</span></a>
+            </li>
+            <li>
+                <a href="#about" data-nav-style="dark" soon-scroll-to="about" ng-click="navClick()"><span class="text">About</span></a>
+            </li>
+            <li>
+                <a href="#join" data-nav-style="light" soon-scroll-to="join" ng-click="navClick()"><span class="text">Join</span></a>
+            </li>
+            <li>
+                <a href="#contact" data-nav-style="light" soon-scroll-to="contact" ng-click="navClick()"><span class="text">Contact</span></a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Project navigation -->
+    <div class="collapse navbar-collapse" ng-if="dataStore.get('projectView')">
+        <ul class="nav navbar-nav">
+            <li><a href="#/" ng-click="navClick()"><span class="text">Home</span></a></li>
+            <li>
+                <a href ng-click="toggleProjects($event)">
+                    <i class="icon-casestudies"></i>
+                    <span class="text">All casestudies</span>
+                </a>
+            </li>
+            <li ng-class="{ 'disabled': !prevProject }">
+                <a href ng-href="#/projects/{{ prevProject }}" ng-if="prevProject"><span class="text">Previous</span></a>
+                <a href ng-if="!prevProject"><span class="text">Previous</span></a>
+            </li>
+            <li class="active"><a href><span class="text">{{ currentProject }} / {{ projects.length }}</span></a></li>
+            <li ng-class="{ 'disabled': !nextProject }">
+                <a ng-href="#/projects/{{ nextProject }}" ng-if="nextProject"><span class="text">Next</span></a>
+                <a href ng-if="!nextProject"><span class="text">Next</span></a>
             </li>
         </ul>
     </div>

@@ -1,37 +1,13 @@
-<div
-    class="content"
-    ng-style="{
-        'background-color': 'rgba(' + ( getBackgroundColor() || '{{ project.tint | rgba:0.5 }}' ) + ')'
-    }">
+<div class="content container-fluid">
 
-    <div class="vertical-center">
-
-        <h1>
-            <a href="{{ project.url }}" target="_blank">{{ project.title }}</a>
-        </h1>
-        <span class="project-owner">{{ project.creator }}</span>
-
+    <div class="row">
+        <div class="col-lg-6  col-lg-offset-4  col-md-6  col-md-offset-4  col-sm-12  col-sm-offset-0  col-xs-12  col-xs-offset-0">
+            <div class="section-heading">
+                <h1>{{ project.title }}</h1>
+            </div>
+            <h2>{{ project.introduction }}</h2>
+            <img ng-src="{{ project.hero_image.huge.replace('localhost', 'localdocker') }}">
+        </div>
     </div>
-
-    <a  ng-if="next"
-        href
-        ng-href="#/projects/{{ next }}"
-        class="btn btn-icon-sm btn-border btn-next"
-    >
-        <span class="icon" ng-include="'img/caret.svg'"></span>
-    </a>
-
-    <a  ng-if="previous"
-        href
-        ng-href="#/projects/{{ previous }}"
-        class="btn btn-icon-sm btn-border btn-previous"
-    >
-        <span class="icon" ng-include="'img/caret.svg'"></span>
-    </a>
-
-    <a href class="link-down" soon-scroll-to="video">
-        <span class="btn btn-icon-sm" ng-include="'img/caret.svg'"></span>
-        <label class="label-btn-down">Behind the scenes</label>
-    </a>
 
 </div>

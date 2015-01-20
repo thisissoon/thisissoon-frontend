@@ -1,5 +1,23 @@
-<div id="hero"   class="hero case-study"
-        ng-style="{ 'background-image': 'url(' + ( getBackgroundImage() ||  project.background.huge) + ')' }"
+<div id="hero"   class="case-study"
+        ng-style="{ 'background-color': project.background_colour, 'color': project.text_colour }"
         ng-include="'partials/project-hero.html'"
         soon-fullscreen>
+</div>
+<div id="project-description" class=""
+        ng-style="{ 'background-color': project.tint_colour, 'color': project.text_colour }"
+        ng-include="'partials/project-description.html'"
+        soon-fullscreen>
+</div>
+<div id="project-images" class=""
+        ng-style="{ 'color': project.text_colour }"
+        ng-include="'partials/project-images.html'">
+</div>
+<div id="project-stats" class=""
+        ng-style="{ 'background-color': project.background_colour, 'color': project.text_colour  }"
+        ng-include="'partials/project-stats.html'"
+        soon-fullscreen>
+</div>
+<div id="project-share" class=""
+        ng-style="{ 'background-color': project.tint_colour, 'color': project.text_colour  }"
+        ng-include="'partials/project-share.html'">
 </div>

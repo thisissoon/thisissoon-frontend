@@ -34,6 +34,7 @@ angular.module("thisissoon.core", [
 
         DataStore.set("navOpen", false);
         DataStore.set("loading", true);
+        DataStore.set("projectList", false);
 
         // close nav menu when changing views
         $rootScope.$on("$routeChangeStart", function() {

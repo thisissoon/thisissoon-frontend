@@ -10,13 +10,13 @@ angular.module("thisissoon.core").controller("HeaderCtrl", [
     "$scope",
     "DataStore",
     "ThisissoonAPI",
-    "HOME_SECTIONS",
     /**
      * @constructor
-     * @param {Object}  $scope     Scope of the controller
-     * @param {Object}  ThisissoonAPI  Provides access to api which contains all project case studies
+     * @param {Object}  $scope        Scope of the controller
+     * @param {Service} DataStore     Stores data to share between controllers
+     * @param {Object}  ThisissoonAPI Provides access to api which contains all project case studies
      */
-    function ($scope, DataStore, ThisissoonAPI, HOME_SECTIONS) {
+    function ($scope, DataStore, ThisissoonAPI) {
 
         /**
          * List of projects from thisissoon API
@@ -26,11 +26,11 @@ angular.module("thisissoon.core").controller("HeaderCtrl", [
         $scope.projects = [];
 
         /**
-         * List of home page sections
-         * @property sections
-         * @type     {Array}
+         * Expose dataStore on isolate scope
+         * @property dataStore
+         * @type     {Function}
          */
-        $scope.sections = HOME_SECTIONS;
+        $scope.dataStore = DataStore;
 
         /**
          * Toggles the state of the project list menu by updating
@@ -57,6 +57,12 @@ angular.module("thisissoon.core").controller("HeaderCtrl", [
         }
 
         $scope.init();
+
+        $scope.$on("currentProject", function(event, data){
+            $scope.currentProject = data.currentCount;
+            $scope.prevProject = data.previous;
+            $scope.nextProject = data.next;
+        });
 
     }
 

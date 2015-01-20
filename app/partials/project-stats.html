@@ -1,0 +1,20 @@
+<div class="content container-fluid">
+    <div class="row">
+        <div class="col-lg-8  col-lg-offset-4  col-md-8  col-md-offset-4  col-sm-12  col-sm-offset-0  col-xs-12  col-xs-offset-0">
+            <h1>Results</h1>
+        </div>
+        <div class="col-lg-8  col-lg-offset-4  col-md-8  col-md-offset-4  col-sm-12  col-sm-offset-0  col-xs-12  col-xs-offset-0">
+            <div class="row padding-full">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-repeat="stat in project.project_stats">
+                    <div class="stats" >
+                        <p><span class="h1">{{ stat.value }}</span> {{ stat.stat.title }}</p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h3 class="quote padding-bottom">{{ project.quote }}</h3>
+                <h3><a ng-href="{{ project.link }}">Visit {{ project.linkText }}</a></h3>
+            </div>
+        </div>
+    </div>
+</div>
