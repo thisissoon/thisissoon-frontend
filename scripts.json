@@ -4,14 +4,9 @@
         "components/bootstrap/js/scrollspy.js",
         "app/components/angular/angular.js",
         "app/components/angular-animate/angular-animate.js",
-        "app/components/angular-bootstrap/ui-bootstrap.js",
         "app/components/angular-route/angular-route.js",
         "app/components/angular-sanitize/angular-sanitize.js",
-        "app/js/soon-utils/app.js",
-        "app/js/soon-utils/directives/addthisToolbox.js",
-        "app/js/soon-utils/filters/currentDate.js",
-        "app/js/soon-utils/filters/timeSince.js",
-        "app/js/soon-utils/services/DataStore.js",
+        "components/angular-addthis/dist/angular-addthis.js",
         "app/js/soon-ui/app.js",
         "app/js/soon-ui/controllers/ModalCtrl.js",
         "app/js/soon-ui/directives/fixed.js",
@@ -33,6 +28,10 @@
         "app/js/thisissoon-core/controllers/ProjectCtrl.js",
         "app/js/thisissoon-core/directives/header.js",
         "app/js/thisissoon-core/directives/heroVideo.js",
-        "app/js/thisissoon-core/directives/navbar.js"
+        "app/js/thisissoon-core/directives/navbar.js",
+        "app/js/thisissoon-core/directives/navCounter.js",
+        "app/js/thisissoon-core/filters/currentDate.js",
+        "app/js/thisissoon-core/filters/numberString.js",
+        "app/js/thisissoon-core/services/CacheService.js"
     ]
 }

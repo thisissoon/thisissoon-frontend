@@ -2,7 +2,7 @@
 
 describe("HeaderCtrl", function (){
 
-    var scope, _dataStore, _thisissoonAPI;
+    var scope, _cache, _thisissoonAPI;
 
     beforeEach(function(){
         module("thisissoon.core");
@@ -12,27 +12,27 @@ describe("HeaderCtrl", function (){
 
         scope = $rootScope.$new();
 
-        _dataStore = $injector.get("DataStore");
+        _cache = $injector.get("CacheService");
 
         _thisissoonAPI = $injector.get("ThisissoonAPI");
 
         $controller("HeaderCtrl", {
             $scope: scope,
-            DataStore: _dataStore,
+            CacheService: _cache,
             ThisissoonAPI: _thisissoonAPI
         });
 
     }));
 
     it("should toogle projectsList boolean when calling toggleProjects function", function (){
-        scope.dataStore.set("projectList", false);
+        scope.cache.put("projectList", false);
         scope.toggleProjects();
-        expect(scope.dataStore.get("projectList")).toBe(true);
+        expect(scope.cache.get("projectList")).toBe(true);
         scope.toggleProjects();
-        expect(scope.dataStore.get("projectList")).toBe(false);
-        scope.dataStore.set("projectList", true);
+        expect(scope.cache.get("projectList")).toBe(false);
+        scope.cache.put("projectList", true);
         scope.toggleProjects();
-        expect(scope.dataStore.get("projectList")).toBe(false);
+        expect(scope.cache.get("projectList")).toBe(false);
     });
 
 

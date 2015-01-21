@@ -2,7 +2,7 @@
 
 describe("HomeCtrl", function (){
 
-    var scope, rootScope, _modal, _dataStore, _projects;
+    var scope, rootScope, _cache, _projects, _jobs;
 
     beforeEach(function(){
         module("thisissoon.core");
@@ -14,21 +14,23 @@ describe("HomeCtrl", function (){
 
         rootScope = $rootScope;
 
-        _modal = $injector.get("$modal");
-
-        _dataStore = $injector.get("DataStore");
+        _cache = $injector.get("CacheService");
 
         _projects = {
             list: [],
             sticky: {}
         }
 
+        _jobs = {
+            list: []
+        }
+
         $controller("HomeCtrl", {
             $scope: scope,
             $rootScope: rootScope,
-            $modal: _modal,
-            DataStore: _dataStore,
-            projects: _projects
+            CacheService: _cache,
+            projects: _projects,
+            jobs: _jobs
         });
 
     }));

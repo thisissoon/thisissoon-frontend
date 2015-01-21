@@ -2,7 +2,7 @@
 
 describe("ProjectCtrl", function (){
 
-    var scope, _modal, _sce, _dataStore, _sections, _project, _projects;
+    var scope, _cache, _nav, _project, _projects;
 
 
     beforeEach(function(){
@@ -13,10 +13,8 @@ describe("ProjectCtrl", function (){
 
         scope = $rootScope.$new();
 
-        _modal = $injector.get("$modal");
-        _sce = $injector.get("$sce");
-        _dataStore = $injector.get("DataStore");
-        _sections = $injector.get("SECTIONS");
+        _cache = $injector.get("CacheService");
+        _nav = $injector.get("NAV");
 
         _project = {
             title: [""],
@@ -33,10 +31,8 @@ describe("ProjectCtrl", function (){
 
         $controller("ProjectCtrl", {
             $scope: scope,
-            $modal: _modal,
-            $sce: _sce,
-            DataStore: _dataStore,
-            SECTIONS: _sections,
+            CacheService: _cache,
+            NAV: _nav,
             project: _project,
             projects: _projects
         });
@@ -46,70 +42,6 @@ describe("ProjectCtrl", function (){
     it("should have a project detail object and projects array in scope", function (){
         expect(scope.project).toEqual(jasmine.any(Object));
         expect(scope.projects).toEqual([]);
-    });
-
-    it("should assign the correct numbers to sections", function (){
-        expect(scope.sections.info.no).toBe("01");
-        expect(scope.sections.judges.no).toBe("02");
-        expect(scope.sections.ideas.no).toBe("03");
-        expect(scope.sections.questions.no).toBe("04");
-        expect(scope.sections.stats.no).toBe("05");
-        expect(scope.sections.final.no).toBe("06");
-
-        angular.extend(scope.sections, {
-            "info2": {
-                "no": null,
-                "data": "title",
-                "display": false
-            },
-            "judges2": {
-                "no": null,
-                "data": "judges_comments",
-                "display": false
-            },
-            "ideas2": {
-                "no": null,
-                "data": "early_ideas",
-                "display": false
-            },
-            "questions2": {
-                "no": null,
-                "data": "answers",
-                "display": false
-            },
-            "stats2": {
-                "no": null,
-                "data": "project_stats",
-                "display": false
-            },
-            "final2": {
-                "no": null,
-                "data": "screenshots",
-                "display": false
-            }
-        });
-        scope.assignSectionNo()
-
-        expect(scope.sections.info2.no).toBe("07");
-        expect(scope.sections.judges2.no).toBe("08");
-        expect(scope.sections.ideas2.no).toBe("09");
-        expect(scope.sections.questions2.no).toBe("10");
-        expect(scope.sections.stats2.no).toBe("11");
-        expect(scope.sections.final2.no).toBe("12");
-    });
-
-    it("should assign the correct numbers to sections with some section data missing", function (){
-        _project.judges_comments = [];
-        _project.project_stats = [];
-
-        scope.assignSectionNo()
-
-        expect(scope.sections.info.no).toBe("01");
-        expect(scope.sections.judges.no).toBe(null);
-        expect(scope.sections.ideas.no).toBe("02");
-        expect(scope.sections.questions.no).toBe("03");
-        expect(scope.sections.stats.no).toBe(null);
-        expect(scope.sections.final.no).toBe("04");
     });
 
     it("should convert hex to valid rgba value", function (){
