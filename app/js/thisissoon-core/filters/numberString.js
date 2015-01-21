@@ -10,25 +10,25 @@ angular.module("thisissoon.core").filter("numberString", [
         return function(input){
             switch(input){
                 case 1:
-                    return 'one';
+                    return "one";
                 case 2:
-                    return 'two';
+                    return "two";
                 case 3:
-                    return 'three';
+                    return "three";
                 case 4:
-                    return 'four';
+                    return "four";
                 case 5:
-                    return 'five';
+                    return "five";
                 case 6:
-                    return 'six';
+                    return "six";
                 case 7:
-                    return 'seven';
+                    return "seven";
                 case 8:
-                    return 'eight';
+                    return "eight";
                 case 9:
-                    return 'nine';
+                    return "nine";
                 case 10:
-                    return 'ten';
+                    return "ten";
             }
         }
     }

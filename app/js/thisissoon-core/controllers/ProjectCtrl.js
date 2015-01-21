@@ -44,7 +44,7 @@ angular.module("thisissoon.core").controller("ProjectCtrl", [
             $scope.setNextPrevious();
 
             if ($scope.project.link) {
-                $scope.project.linkText = $scope.project.link.split('/')[2].split('www.')[1];
+                $scope.project.linkText = $scope.project.link.split("/")[2].split("www.")[1];
             }
         }
 
@@ -70,7 +70,12 @@ angular.module("thisissoon.core").controller("ProjectCtrl", [
                 }
             })
 
-            $rootScope.$broadcast("currentProject", { id: $scope.project.id, currentCount: $scope.current, next: $scope.next, previous: $scope.previous });
+            $rootScope.$broadcast("currentProject", {
+                id: $scope.project.id,
+                currentCount: $scope.current,
+                next: $scope.next,
+                previous: $scope.previous
+            });
         }
 
         /**
