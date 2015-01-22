@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="testApp">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <title>SOON_ Modules - Animation</title>
+
+        <base href="/app/">
+        <link rel="stylesheet" href="css/all.css"/>
+
+        <style>
+
+            body {
+                position: relative;
+                height: 100%;
+                background-color: #23afe2;
+                color: #FFFFFF;
+            }
+
+            pre {
+                color: #000000;
+            }
+
+        </style>
+
+    </head>
+    <body>
+        <main ng-controller="AppCtrl">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <h2>VelocityJs Icon Demos</h2>
+
+                        <div velocity data-src="'img/icons/burger.svg'" data-keyframes="keyframes" data-bind="'click'" data-toggle="true"></div>
+
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <script src="components/jquery/dist/jquery.js"></script>
+        <script src="components/angular/angular.js"></script>
+        <script src="components/velocity/velocity.js"></script>
+
+        <script src="js/velocity/app.js"></script>
+        <script src="js/velocity/directives/velocity.js"></script>
+        <script>
+            angular.module("testApp", [
+                "velocity"
+            ])
+
+            .controller("AppCtrl", [
+                "$scope",
+                function($scope){
+                    $scope.keyframes = {
+                        "#burger-top": [
+                            {
+                                "props": { transformOrigin: "0%", rotateZ: "45deg", translateY: "-16px" },
+                                "options": { duration: 200 }
+                            }
+                        ],
+                        "#burger-middle": [
+                            {
+                                "props": { opacity: 0 },
+                                "options": { duration: 100 }
+                            }
+                        ],
+                        "#burger-bottom": [
+                            {
+                                "props": { transformOrigin: "0%", rotateZ: "-45deg", translateY: "16px" },
+                                "options": { duration: 200 }
+                            }
+                        ]
+                    }
+                }
+            ]);
+        </script>
+
+    </body>
+</html>
