@@ -61,6 +61,10 @@ angular.module("thisissoon.core").controller("HomeCtrl", [
             return CacheService.get("backgroundColor");
         }
 
+        $scope.toggleProjects = function toggleProjects(){
+            CacheService.put("projectList", true);
+        }
+
         /**
          * Gets current time to display in hero
          * @method currentTime
