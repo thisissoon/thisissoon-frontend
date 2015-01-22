@@ -8,18 +8,30 @@
 
     background-color: @dark-grey;
     display: none;
+    left: 0;
     min-height: 400px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1100;
 
     .project-list-open & {
         display: block;
-        position: relative;
-        z-index: 1100;
     }
 
     .project {
         position: relative;
         padding-bottom: 100px;
         padding-top: 100px;
+
+        .project-logo-container {
+            z-index: 99;
+        }
+
+        .project-hero {
+            position: relative;
+            left: -14%;
+        }
 
         .vertical-center {
             bottom: 0;

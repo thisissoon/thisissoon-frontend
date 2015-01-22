@@ -19,13 +19,13 @@
     <article class="project container-fluid" ng-repeat="project in projects" ng-style="{ 'background-color': '{{ project.background_colour }}', 'color': '{{ project.text_colour }}' }">
         <a href ng-href="#/projects/{{ project.id }}" ng-click="toggleProjects()">
             <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                    <div class="vertical-center">
-                       <img class="project-logo" ng-src="{{ project.logo }}" alt="{{ project.title }}">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <div class="vertical-center project-logo-container">
+                       <img class="project-logo" ng-src="{{ project.project_logo.huge.replace('/media', 'http://localdocker/media') }}" alt="{{ project.title }}">
                     </div>
                 </div>
-                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" >
-                    <img class="project-hero" ng-src="{{ project.hero_image.hero }}"><br>
+                <div class="col-lg-8 col-lg-offset-1 col-md-8 col-md-offset-1 col-sm-8 col-sm-offset-1 col-xs-8 col-xs-offset-1" >
+                    <img class="project-hero" ng-src="{{ project.hero_image.huge.replace('/media', 'http://localdocker/media') }}"><br>
                     {{ project.introduction }}
                 </div>
             </div>

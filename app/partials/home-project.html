@@ -1,13 +1,13 @@
-<div class="container-fluid content">
+<div class="container-fluid content project-hero" ng-style="{ 'background-color': projects[0].background_colour, 'color': projects[0].text_colour }">
 
     <article class="row">
         <div class="col-lg-8  col-lg-offset-4  col-md-8  col-md-offset-4  col-sm-12  col-sm-offset-0  col-xs-12  col-xs-offset-0">
             <h1 class="section-heading">Latest</h1>
-            <img ng-src="projects[0].hero">
+            <img class="hero-image" ng-src="{{ projects[0].hero_image.huge.replace('/media', 'http://localdocker/media') }}">
             <h6>{{ projects[0].title }}</h6>
             <p>{{ projects[0].introduction }}</p>
             <br>
-            <h2><a>All casestudies</a></h2>
+            <h2><a href>All casestudies</a></h2>
         </div>
     </article>
 
