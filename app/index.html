@@ -28,7 +28,7 @@
         <main class="main" ng-view autoscroll></main>
         <footer class="footer" ng-include="'partials/footer.html'"></footer>
 
-        <div class="loading" ng-include="'partials/loading.html'"></div>
+        <div class="loading" ng-include="'partials/loading.html'" ng-controller="LoadingCtrl"></div>
 
 
         <!-- Add this -->
@@ -44,6 +44,7 @@
         <script src="components/angular-sanitize/angular-sanitize.js"></script>
         <script src="components/angular-animate/angular-animate.js"></script>
         <script src="components/angular-addthis/dist/angular-addthis.js"></script>
+        <script src="components/velocity/velocity.js"></script>
 
         <script src="js/soon-ui/app.js"></script>
         <script src="js/soon-ui/directives/fixed.js"></script>
@@ -52,6 +53,9 @@
         <script src="js/soon-ui/directives/video.js"></script>
         <script src="js/soon-ui/services/ResizeService.js"></script>
         <script src="js/soon-ui/services/ScrollService.js"></script>
+
+        <script src="js/velocity/app.js"></script>
+        <script src="js/velocity/directives/velocity.js"></script>
 
         <script src="js/env.js"></script>
 
@@ -64,6 +68,7 @@
         <script src="js/thisissoon-core/controllers/HeaderCtrl.js"></script>
         <script src="js/thisissoon-core/controllers/HomeCtrl.js"></script>
         <script src="js/thisissoon-core/controllers/ProjectCtrl.js"></script>
+        <script src="js/thisissoon-core/controllers/LoadingCtrl.js"></script>
         <script src="js/thisissoon-core/directives/header.js"></script>
         <script src="js/thisissoon-core/directives/heroVideo.js"></script>
         <script src="js/thisissoon-core/directives/navbar.js"></script>

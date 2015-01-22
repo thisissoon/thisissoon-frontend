@@ -15,7 +15,8 @@ angular.module("thisissoon.core", [
     "ngSanitize",
     "ngAnimate",
     "soon.ui",
-    "thisissoon.api"
+    "thisissoon.api",
+    "velocity"
 ])
 
 .run([

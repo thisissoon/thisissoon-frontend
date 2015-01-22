@@ -1,12 +1,13 @@
 {
     "vendor": [
         "app/components/jquery/dist/jquery.js",
-        "components/bootstrap/js/scrollspy.js",
+        "app/components/bootstrap/js/scrollspy.js",
         "app/components/angular/angular.js",
         "app/components/angular-animate/angular-animate.js",
         "app/components/angular-route/angular-route.js",
         "app/components/angular-sanitize/angular-sanitize.js",
-        "components/angular-addthis/dist/angular-addthis.js",
+        "app/components/angular-addthis/dist/angular-addthis.js",
+        "app/components/velocity/velocity.js",
         "app/js/soon-ui/app.js",
         "app/js/soon-ui/controllers/ModalCtrl.js",
         "app/js/soon-ui/directives/fixed.js",
@@ -14,7 +15,9 @@
         "app/js/soon-ui/directives/scrollTo.js",
         "app/js/soon-ui/directives/video.js",
         "app/js/soon-ui/services/ResizeService.js",
-        "app/js/soon-ui/services/ScrollService.js"
+        "app/js/soon-ui/services/ScrollService.js",
+        "app/js/velocity/app.js",
+        "app/js/velocity/directives/velocity.js"
     ],
     "application": [
         "app/js/env.js",
