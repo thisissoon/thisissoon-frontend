@@ -1,9 +1,8 @@
 <nav soon-navbar class="navbar navbar-light navbar-fixed-top" ng-class="{ 'home': !cache.get('projectView'), 'projects': cache.get('projectView') }">
 
     <div class="navbar-header">
-        <button type="button" class="btn btn-icon-sm navbar-toggle" ng-click="toggleNav($event)">
+        <button type="button" class="btn btn-icon-sm navbar-toggle" ng-click="toggleNav($event)" velocity data-src="'img/icons/burger.svg'" data-keyframes="iconAnimations.burger" data-bind="'click'" data-toggle="true">
             <span class="sr-only">Toggle navigation</span>
-            <i class="icon icon-burger"></i>
             <span class="btn-label">Close</span>
         </button>
         <img class="navbar-brand" src="img/header/SOON.svg" height="45">

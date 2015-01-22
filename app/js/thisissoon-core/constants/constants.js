@@ -131,3 +131,26 @@ angular.module("thisissoon.core")
         }
     })
 
+    .constant("ICONS", {
+        "burger": {
+            "#burger-top": [
+                {
+                    "props": { transformOrigin: "0%", rotateZ: "45deg", translateY: "-16px" },
+                    "options": { duration: 150 }
+                }
+            ],
+            "#burger-bottom": [
+                {
+                    "props": { transformOrigin: "0%", rotateZ: "-45deg", translateY: "16px" },
+                    "options": { duration: 150 }
+                }
+            ],
+            "#burger-middle": [
+                {
+                    "props": { opacity: 0 },
+                    "options": { duration: 50 }
+                }
+            ]
+        }
+    })
+

@@ -12,14 +12,16 @@ angular.module("thisissoon.core").controller("HeaderCtrl", [
     "ThisissoonAPI",
     "NAV",
     "SOON_LOGO",
+    "ICONS",
     /**
      * @constructor
      * @param {Object}  $scope        Scope of the controller
      * @param {Service} CacheService  Stores data to share between controllers
      * @param {Object}  ThisissoonAPI Provides access to api which contains all project case studies
      * @param {Object}  NAV           Provides lists of nav menu items for each view
+     * @param {Object}  ICONS         Icon animation config constant
      */
-    function ($scope, CacheService, ThisissoonAPI, NAV, SOON_LOGO) {
+    function ($scope, CacheService, ThisissoonAPI, NAV, SOON_LOGO, ICONS) {
 
         /**
          * List of projects from thisissoon API
@@ -48,6 +50,13 @@ angular.module("thisissoon.core").controller("HeaderCtrl", [
          * @type     {Function}
          */
         $scope.logoAnimation = SOON_LOGO.full;
+
+        /**
+         * Expose icon animation object on scope
+         * @property iconAnimation
+         * @type     {Object}
+         */
+        $scope.iconAnimations = ICONS;
 
         /**
          * Toggles the state of the project list menu by updating
