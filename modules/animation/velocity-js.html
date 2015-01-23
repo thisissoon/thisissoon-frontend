@@ -28,7 +28,22 @@
                         <h2>VelocityJs SVG Demos</h2>
                         <br>
 
-                        <velocity data-src="'img/header/SOON.svg'" data-keyframes="keyframes"></velocity>
+                        <div velocity="anim1">
+                            <div style="height: 20px; width: 20px; background: black;"></div>
+                        </div>
+
+                        <div velocity="anim2">
+                            <div style="height: 20px; width: 20px; background: black;"></div>
+                        </div>
+
+                        <div velocity-group="anim3">
+                            <div id="1" style="height: 20px; width: 20px; background: black;"></div>
+                            <div id="2" style="height: 20px; width: 20px; background: black;"></div>
+                        </div>
+
+                        <h3>Soon Logo Animation</h3>
+
+                        <div velocity-group="soonLogo" ng-include="'img/header/SOON.svg'"></div>
 
                     </div>
                 </div>
@@ -41,6 +56,7 @@
 
         <script src="js/velocity/app.js"></script>
         <script src="js/velocity/directives/velocity.js"></script>
+        <script src="js/velocity/directives/velocity-group.js"></script>
         <script>
             angular.module("testApp", [
                 "velocity"
@@ -49,64 +65,88 @@
             .controller("AppCtrl", [
                 "$scope",
                 function($scope){
-                    $scope.keyframes = {
+                    $scope.anim1 = [{
+                        "properties": { opacity: 0 },
+                        "options": { duration: 1000 }
+                    }];
+                    $scope.anim2 = [{
+                        "properties": { opacity: 0 },
+                        "options": { duration: 1000 }
+                    },{
+                        "properties": { opacity: 1 },
+                        "options": { duration: 1000 }
+                    }];
+                    $scope.anim3 = {
+                        "#1": [{
+                            "properties": { "margin-left": "+=100" },
+                            "options": { duration: 1000 }
+                        },{
+                            "properties": { "margin-left": "+=100" },
+                            "options": { duration: 1000, delay: 500 }
+                        }],
+                        "#2": [{
+                            "properties": { opacity: 0 },
+                            "options": { duration: 500, loop: true }
+                        }]
+                    };
+                    $scope.soonLogo = {
                         "#s": [
                             {
-                                "props": { opacity: 0 },
+                                "properties": { opacity: 0 },
                                 "options": { duration: 0 }
                             },{
-                                "props": { opacity: 1 },
-                                "options": { duration: 0, delay: 1000 }
+                                "properties": { opacity: 1 },
+                                "options": { duration: 0, delay: 1150 }
                             }
                         ],
                         "#o-1": [
                             {
-                                "props": { opacity: 0 },
+                                "properties": { opacity: 0 },
                                 "options": { duration: 0 }
                             },{
-                                "props": { opacity: 1 },
-                                "options": { duration: 0, delay: 1150 }
+                                "properties": { opacity: 1 },
+                                "options": { duration: 0, delay: 1300 }
                             }
                         ],
                         "#o-2": [
                             {
-                                "props": { opacity: 0 },
+                                "properties": { opacity: 0 },
                                 "options": { duration: 0 }
                             },{
-                                "props": { opacity: 1 },
-                                "options": { duration: 0, delay: 1300 }
+                                "properties": { opacity: 1 },
+                                "options": { duration: 0, delay: 1450 }
                             }
                         ],
                         "#n": [
                             {
-                                "props": { opacity: 0 },
+                                "properties": { opacity: 0 },
                                 "options": { duration: 0 }
                             },{
-                                "props": { opacity: 1 },
-                                "options": { duration: 0, delay: 1450 }
+                                "properties": { opacity: 1 },
+                                "options": { duration: 0, delay: 1600 }
                             }
                         ],
                         "#underscore": [
                             {
-                                "props": { opacity: 1, x: "0" },
+                                "properties": { opacity: 1, x: "0" },
                                 "options": { duration: 0 }
                             },{
-                                "props": { opacity: 0 },
+                                "properties": { opacity: 0 },
                                 "options": { duration: 0, delay: 100, loop: 5 }
                             },{
-                                "props": { x: "+=100" },
+                                "properties": { x: "+=100" },
                                 "options": { duration: 0, delay: 150 }
                             },{
-                                "props": { x: "+=100" },
+                                "properties": { x: "+=100" },
                                 "options": { duration: 0, delay: 150 }
                             },{
-                                "props": { x: "+=100" },
+                                "properties": { x: "+=100" },
                                 "options": { duration: 0, delay: 150 }
                             },{
-                                "props": { x: "+=100" },
+                                "properties": { x: "+=100" },
                                 "options": { duration: 0, delay: 150 }
                             },{
-                                "props": { opacity: 0 },
+                                "properties": { opacity: 0 },
                                 "options": { duration: 0, delay: 300, loop: 3 }
                             }
                         ]
