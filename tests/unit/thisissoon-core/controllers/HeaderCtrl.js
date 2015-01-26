@@ -2,7 +2,7 @@
 
 describe("HeaderCtrl", function (){
 
-    var scope, _cache, _thisissoonAPI;
+    var scope, rootScope, _cache, _thisissoonAPI;
 
     beforeEach(function(){
         module("thisissoon.core");
@@ -11,6 +11,7 @@ describe("HeaderCtrl", function (){
     beforeEach(inject(function ($rootScope, $injector, $controller) {
 
         scope = $rootScope.$new();
+        rootScope = $rootScope;
 
         _cache = $injector.get("CacheService");
 
@@ -18,13 +19,14 @@ describe("HeaderCtrl", function (){
 
         $controller("HeaderCtrl", {
             $scope: scope,
+            $rootScope: rootScope,
             CacheService: _cache,
             ThisissoonAPI: _thisissoonAPI
         });
 
     }));
 
-    it("should toogle projectsList boolean when calling toggleProjects function", function (){
+    it("should toogle projectList boolean when calling toggleProjects function", function (){
         scope.cache.put("projectList", false);
         scope.toggleProjects();
         expect(scope.cache.get("projectList")).toBe(true);
