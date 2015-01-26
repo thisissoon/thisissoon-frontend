@@ -66,7 +66,6 @@ angular.module("thisissoon.core").directive("soonNavbar",[
                  * @method navClick
                  */
                 $scope.navClick = function navClick(){
-                    angular.element("nav .icon-burger").removeClass("close");
                     CacheService.put("navOpen", false);
                 }
 
@@ -76,7 +75,6 @@ angular.module("thisissoon.core").directive("soonNavbar",[
                  * @method toggleNav
                  */
                 $scope.toggleNav = function toggleNav($event){
-                    angular.element($event.currentTarget).find(".icon-burger").toggleClass("close");
                     CacheService.put("navOpen", !CacheService.get("navOpen"));
                 }
 
