@@ -21,7 +21,9 @@
         width: 12px;
     }
 
-    li.active a,
+    li.active a:link,
+    li.active a:active,
+    li.active a:visited,
     li a:hover {
         background-color: @white;
     }
@@ -36,7 +38,7 @@
     }
 
     .count-text {
-        color: @light-trans;
+        color: @white;
         transform: rotate(-90deg);
         transform-origin: top left;
         margin-left: 8px;
@@ -56,6 +58,10 @@
         li.active a,
         li a:hover {
             background-color: @black;
+        }
+
+        .count-text {
+            color: @black;
         }
 
     }
