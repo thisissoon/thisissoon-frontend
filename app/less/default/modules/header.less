@@ -13,8 +13,27 @@
     right: 0;
     z-index: 1;
 
+    .fixed {
+        left: 0;
+        position: fixed;
+        top: -1px;
+        right: 0;
+    }
+
     .logo {
         top: 254px;
         position: relative;
     }
+}
+
+// overlay
+body.project-list-open::after {
+    display: block;
+    content: "";
+    background-color: rgba(0,0,0,0.8);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
