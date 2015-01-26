@@ -28,22 +28,22 @@
                         <h2>VelocityJs SVG Demos</h2>
                         <br>
 
-                        <div velocity="anim1">
+                        <sn-velocity data-keyframes="anim1">
                             <div style="height: 20px; width: 20px; background: black;"></div>
-                        </div>
+                        </sn-velocity>
 
-                        <div velocity="anim2">
+                        <sn-velocity data-keyframes="anim2">
                             <div style="height: 20px; width: 20px; background: black;"></div>
-                        </div>
+                        </sn-velocity>
 
-                        <div velocity-group="anim3">
+                        <sn-velocity-group data-keyframes="anim3">
                             <div id="1" style="height: 20px; width: 20px; background: black;"></div>
                             <div id="2" style="height: 20px; width: 20px; background: black;"></div>
-                        </div>
+                        </sn-velocity-group>
 
                         <h3>Soon Logo Animation</h3>
 
-                        <div velocity-group="soonLogo" ng-include="'img/header/SOON.svg'"></div>
+                        <sn-velocity-group data-keyframes="soonLogo" ng-include="'img/header/SOON.svg'"></sn-velocity-group>
 
                     </div>
                 </div>
@@ -54,12 +54,12 @@
         <script src="components/angular/angular.js"></script>
         <script src="components/velocity/velocity.js"></script>
 
-        <script src="js/velocity/app.js"></script>
-        <script src="js/velocity/directives/velocity.js"></script>
-        <script src="js/velocity/directives/velocity-group.js"></script>
+        <script src="js/sn-velocity/sn.velocity.js"></script>
+        <script src="js/sn-velocity/directives/snVelocity.js"></script>
+        <script src="js/sn-velocity/directives/snVelocityGroup.js"></script>
         <script>
             angular.module("testApp", [
-                "velocity"
+                "sn.velocity"
             ])
 
             .controller("AppCtrl", [

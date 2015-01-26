@@ -2,7 +2,10 @@
 /**
  * Angular wrapper for velocityjs animation library
  * @requires velocityjs {@link https://github.com/julianshapiro/velocity}
- * @module velocity
+ * @module sn.velocity
  * @author SOON_
  */
-angular.module("velocity", [])
+angular.module("sn.velocity", [
+    "sn.velocity.snVelocity",
+    "sn.velocity.snVelocityGroup"
+])

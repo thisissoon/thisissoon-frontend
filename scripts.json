@@ -16,8 +16,9 @@
         "app/js/soon-ui/directives/video.js",
         "app/js/soon-ui/services/ResizeService.js",
         "app/js/soon-ui/services/ScrollService.js",
-        "app/js/velocity/app.js",
-        "app/js/velocity/directives/velocity.js"
+        "app/js/sn-velocity/sn.velocity.js",
+        "app/js/sn-velocity/directives/snVelocity.js",
+        "app/js/sn-velocity/directives/snVelocityGroup.js"
     ],
     "application": [
         "app/js/env.js",

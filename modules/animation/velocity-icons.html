@@ -31,7 +31,7 @@
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <h2>VelocityJs Icon Demos</h2>
 
-                        <div velocity data-src="'img/icons/burger.svg'" data-keyframes="keyframes" data-bind="'click'" data-toggle="true"></div>
+                        <div velocity-group="keyframes" ng-include="'img/icons/burger.svg'" data-bind="'click'" data-toggle="true"></div>
 
                     </div>
                 </div>
@@ -42,11 +42,12 @@
         <script src="components/angular/angular.js"></script>
         <script src="components/velocity/velocity.js"></script>
 
-        <script src="js/velocity/app.js"></script>
-        <script src="js/velocity/directives/velocity.js"></script>
+        <script src="js/sn-velocity/sn.velocity.js"></script>
+        <script src="js/sn-velocity/directives/snVelocity.js"></script>
+        <script src="js/sn-velocity/directives/snVelocityGroup.js"></script>
         <script>
             angular.module("testApp", [
-                "velocity"
+                "sn.velocity"
             ])
 
             .controller("AppCtrl", [
@@ -55,19 +56,19 @@
                     $scope.keyframes = {
                         "#burger-top": [
                             {
-                                "props": { transformOrigin: "0%", rotateZ: "45deg", translateY: "-16px" },
+                                "properties": { transformOrigin: "0%", rotateZ: "45deg", translateY: "-16px" },
                                 "options": { duration: 200 }
                             }
                         ],
                         "#burger-middle": [
                             {
-                                "props": { opacity: 0 },
+                                "properties": { opacity: 0 },
                                 "options": { duration: 100 }
                             }
                         ],
                         "#burger-bottom": [
                             {
-                                "props": { transformOrigin: "0%", rotateZ: "-45deg", translateY: "16px" },
+                                "properties": { transformOrigin: "0%", rotateZ: "-45deg", translateY: "16px" },
                                 "options": { duration: 200 }
                             }
                         ]

@@ -16,7 +16,7 @@ angular.module("thisissoon.core", [
     "ngAnimate",
     "soon.ui",
     "thisissoon.api",
-    "velocity"
+    "sn.velocity"
 ])
 
 .run([
