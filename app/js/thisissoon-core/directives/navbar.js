@@ -7,6 +7,7 @@
  */
 angular.module("thisissoon.core").directive("soonNavbar",[
     "$timeout",
+    "$rootScope",
     "ScrollService",
     "CacheService",
     /**
@@ -14,7 +15,7 @@ angular.module("thisissoon.core").directive("soonNavbar",[
      * @param {Service} $timeout      angular wrapper for setTimeout
      * @param {Service} ScrollService handles scroll events
      */
-    function ($timeout, ScrollService, CacheService){
+    function ($timeout, $rootScope, ScrollService, CacheService){
         return {
             restrict: "A",
             link: function($scope, $element) {
@@ -78,6 +79,25 @@ angular.module("thisissoon.core").directive("soonNavbar",[
                     CacheService.put("navOpen", !CacheService.get("navOpen"));
                 }
 
+                /**
+                 * Switchs navbar style from navbar-light to navbar-dark
+                 * @param {String}  navStyle  "dark"|"light"
+                 * @method switchNavStyle
+                 */
+                $scope.switchNavStyle = function switchNavStyle(navStyle) {
+                    switch(navStyle) {
+                        case "dark":
+                            $element.removeClass("navbar-light");
+                            $element.addClass("navbar-dark");
+                            CacheService.put("navStyle", "dark");
+                            break;
+                        default:
+                            $element.removeClass("navbar-dark");
+                            $element.addClass("navbar-light");
+                            CacheService.put("navStyle", "light");
+                    }
+                }
+
                 ScrollService.add($scope.$id, onScroll);
 
                 /**
@@ -88,17 +108,8 @@ angular.module("thisissoon.core").directive("soonNavbar",[
                 // on bootstrap scrollspy event set navigation style
                 $("nav.navbar").on("activate.bs.scrollspy", function (event) {
                     var navStyle = angular.element(event.target).find("a").attr("data-nav-style");
-                    $scope.$emit("scrollSpyChanged", event);
-
-                    switch(navStyle) {
-                        case "dark":
-                            $element.removeClass("navbar-light");
-                            $element.addClass("navbar-dark");
-                            break;
-                        default:
-                            $element.removeClass("navbar-dark");
-                            $element.addClass("navbar-light");
-                    }
+                    $rootScope.$broadcast("scrollSpyChanged",  { event: event, navStyle: navStyle });
+                    $scope.switchNavStyle(navStyle);
                 })
 
             }

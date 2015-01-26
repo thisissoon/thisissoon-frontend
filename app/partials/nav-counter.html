@@ -1,8 +1,6 @@
-<div class="nav-counter" ng-if="sections">
-    <div class="count-text">{{ sectionCurrent | numberString }} of {{ sections.length | numberString }}</div>
-    <ul class="nav">
-        <li ng-repeat="section in sections">
-            <a ng-href="#{{ section.id }}" soon-scroll-to="{{ section.id }}"></a>
-        </li>
-    </ul>
-</div>
+<div class="count-text">{{ sectionCurrent | numberString }} of {{ sections.length | numberString }}</div>
+<ul class="nav">
+    <li ng-repeat="section in sections">
+        <a ng-href="#{{ section.id }}" soon-scroll-to="{{ section.id }}"></a>
+    </li>
+</ul>

@@ -13,7 +13,7 @@ angular.module("thisissoon.core").directive("navCounter",[
      */
     function ($timeout, ScrollService){
         return {
-            restrict: "E",
+            restrict: "EAC",
             templateUrl: "partials/nav-counter.html",
             link: function($scope, $element) {
 
@@ -22,8 +22,7 @@ angular.module("thisissoon.core").directive("navCounter",[
                 var activeNav, activeLi, activeIndex, ul;
 
                 $scope.$on("scrollSpyChanged", function (event, data) {
-
-                    activeNav = angular.element(data.target).find("a").attr("href");
+                    activeNav = angular.element(data.event.target).find("a").attr("href");
 
                     ul = $element.find("li");
                     ul.removeClass("active");

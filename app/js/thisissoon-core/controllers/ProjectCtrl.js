@@ -41,6 +41,7 @@ angular.module("thisissoon.core").controller("ProjectCtrl", [
          */
         $scope.init = function init(){
             CacheService.put("projectView", true);
+            CacheService.put("backgroundColor", project.background_colour);
             $scope.setNextPrevious();
 
             if ($scope.project.link) {
@@ -114,6 +115,7 @@ angular.module("thisissoon.core").controller("ProjectCtrl", [
 
         $scope.$on("$destroy", function(){
             CacheService.remove("projectView");
+            CacheService.remove("backgroundColor");
         })
 
         $scope.init();

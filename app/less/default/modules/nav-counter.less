@@ -15,10 +15,15 @@
     }
 
     li {
-        border: 1px solid @light-trans;
+        border: 1px solid @white;
         height: 7px;
         margin-top: 4px;
         width: 12px;
+    }
+
+    li.active a,
+    li a:hover {
+        background-color: @white;
     }
 
     li a:link,
@@ -28,11 +33,6 @@
         height: 100%;
         padding: 0;
         width: 100%;
-    }
-
-    li.active a,
-    li a:hover {
-        background-color: @light-trans;
     }
 
     .count-text {
@@ -45,5 +45,18 @@
 
     .project-view & {
         display: none;
+    }
+
+    &.dark {
+
+        li {
+            border-color: @black;
+        }
+
+        li.active a,
+        li a:hover {
+            background-color: @black;
+        }
+
     }
 }

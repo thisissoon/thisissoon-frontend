@@ -1,4 +1,5 @@
-<nav soon-navbar class="navbar navbar-light navbar-fixed-top" ng-class="{ 'home': !cache.get('projectView'), 'projects': cache.get('projectView') }">
+<nav soon-navbar class="navbar navbar-light navbar-fixed-top"
+    ng-class="{ 'home': !cache.get('projectView'), 'projects': cache.get('projectView'), 'navbar-dark': (navStyle === 'dark') }">
 
     <div class="navbar-header">
         <button type="button" class="btn btn-icon-sm navbar-toggle" ng-click="toggleNav($event)" velocity data-src="'img/icons/burger.svg'" data-keyframes="iconAnimations.burger" data-bind="'click'" data-toggle="true">
@@ -14,7 +15,7 @@
                 <a href="#{{ section.id }}" data-nav-style="{{ section.navStyle }}" soon-scroll-to="{{ section.id }}" ng-click="navClick()" ng-if="section.id !== 'project'">
                     <span class="text">{{ section.title }}</span>
                 </a>
-                <a href ng-if="section.id === 'project'"ng-click="toggleProjects($event)"><!-- Casestudies -->
+                <a href="#{{ section.id }}" data-nav-style="{{ section.navStyle }}" soon-scroll-to="{{ sections[0].id }}" ng-if="section.id === 'project'" ng-click="toggleProjects($event)"><!-- Casestudies -->
                     <i class="{{ section.icon }}"></i>
                     <span class="text">{{ section.title }}</span>
                 </a>
@@ -27,7 +28,7 @@
         <ul class="nav navbar-nav">
             <li><a href="#/" ng-click="navClick()"><span class="text">Home</span></a></li>
             <li>
-                <a href ng-click="toggleProjects($event)">
+                <a href ng-click="toggleProjects($event)" soon-scroll-to="{{ sections[0].id }}">
                     <i class="icon-casestudies"></i>
                     <span class="text">All casestudies</span>
                 </a>

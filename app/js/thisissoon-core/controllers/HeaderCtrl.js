@@ -8,6 +8,7 @@
  */
 angular.module("thisissoon.core").controller("HeaderCtrl", [
     "$scope",
+    "$rootScope",
     "CacheService",
     "ThisissoonAPI",
     "NAV",
@@ -21,7 +22,7 @@ angular.module("thisissoon.core").controller("HeaderCtrl", [
      * @param {Object}  NAV           Provides lists of nav menu items for each view
      * @param {Object}  ICONS         Icon animation config constant
      */
-    function ($scope, CacheService, ThisissoonAPI, NAV, SOON_LOGO, ICONS) {
+    function ($scope, $rootScope, CacheService, ThisissoonAPI, NAV, SOON_LOGO, ICONS) {
 
         /**
          * List of projects from thisissoon API
@@ -59,6 +60,13 @@ angular.module("thisissoon.core").controller("HeaderCtrl", [
         $scope.iconAnimations = ICONS;
 
         /**
+         * Track navbar colour in project view
+         * @propert  navStyle
+         * @property {String}
+         */
+        $scope.navStyle = "light";
+
+        /**
          * Toggles the state of the project list menu by updating
          * the "projectList" value in the CacheService service
          * @method toggleProjects
@@ -72,6 +80,34 @@ angular.module("thisissoon.core").controller("HeaderCtrl", [
         }
 
         /**
+         * Checks hexidecimal color value to determine whether it is light or dark
+         * @method hexIsLight
+         * @param   {String}  hexcolor hexidecimal color value
+         * @returns {Boolean} true if color is light
+         */
+        $scope.hexIsLight = function hexIsLight(hexcolor) {
+            var r = parseInt(hexcolor.substr(1,2),16);
+            var g = parseInt(hexcolor.substr(3,2),16);
+            var b = parseInt(hexcolor.substr(5,2),16);
+            var yiq = ((r*299)+(g*587)+(b*114))/1000;
+            return (yiq >= 128) ? true : false;
+        }
+
+        /**
+         * On project load set nav style
+         * @method onProjectLoad
+         */
+        $scope.onProjectLoad = function(data) {
+            if(!$rootScope.$$phase){
+                $scope.$apply(function(){
+                    $scope.navStyle =  $scope.hexIsLight( CacheService.get("backgroundColor") ) ? "dark" : "light";
+                })
+            } else {
+                $scope.navStyle =  $scope.hexIsLight( CacheService.get("backgroundColor") ) ? "dark" : "light";
+            }
+        }
+
+        /**
          * Load list of projects data on initialisation
          * @method init
          */
@@ -79,6 +115,7 @@ angular.module("thisissoon.core").controller("HeaderCtrl", [
             ThisissoonAPI.getProjects()
                 .then(function (response){
                     $scope.projects = response.list;
+                    $scope.sections[1].navStyle = $scope.hexIsLight(response.list[0].background_colour) ? "dark" : "light";
                 })
         }
 
@@ -88,8 +125,12 @@ angular.module("thisissoon.core").controller("HeaderCtrl", [
             $scope.currentProject = data.currentCount;
             $scope.prevProject = data.previous;
             $scope.nextProject = data.next;
+            $scope.onProjectLoad(data);
         });
 
+        $scope.$on("scrollSpyChanged", function(event, data){
+            $scope.navStyle = data.navStyle;
+        });
     }
 
 ]);
