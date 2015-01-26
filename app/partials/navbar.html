@@ -10,12 +10,12 @@
     </div>
 
     <div class="collapse navbar-collapse" ng-if="!cache.get('projectView')">
-        <ul class="nav navbar-nav">
-            <li ng-repeat="section in sections">
-                <a href="#{{ section.id }}" data-nav-style="{{ section.navStyle }}" soon-scroll-to="{{ section.id }}" ng-click="navClick()" ng-if="section.id !== 'project'">
+        <ul class="nav navbar-nav" du-spy-context>
+            <li ng-repeat="section in sections" du-scrollspy="{{ section.id }}">
+                <a href="#{{ section.id }}" data-nav-style="{{ section.navStyle }}" du-smooth-scroll ng-click="navClick()" ng-if="section.id !== 'project'">
                     <span class="text">{{ section.title }}</span>
                 </a>
-                <a href="#{{ section.id }}" data-nav-style="{{ section.navStyle }}" soon-scroll-to="{{ sections[0].id }}" ng-if="section.id === 'project'" ng-click="toggleProjects($event)"><!-- Casestudies -->
+                <a href="#hero" data-nav-style="{{ section.navStyle }}" du-smooth-scroll ng-if="section.id === 'project'" ng-click="toggleProjects($event)"><!-- Casestudies -->
                     <i class="{{ section.icon }}"></i>
                     <span class="text">{{ section.title }}</span>
                 </a>
@@ -28,7 +28,7 @@
         <ul class="nav navbar-nav">
             <li><a href="#/" ng-click="navClick()"><span class="text">Home</span></a></li>
             <li>
-                <a href ng-click="toggleProjects($event)" soon-scroll-to="{{ sections[0].id }}">
+                <a href="#hero" ng-click="toggleProjects($event)" du-smooth-scroll>
                     <i class="icon-casestudies"></i>
                     <span class="text">All casestudies</span>
                 </a>

@@ -4,11 +4,12 @@
  * @author SOON_
  * @requires ngRoute {@link https://docs.angularjs.org/api/ngRoute}
  * @requires ngAnimate: {@link https://docs.angularjs.org/api/ngAnimate}
- * @requires ngAnimate: {@link https://docs.angularjs.org/api/ngAnimate}
  * @requires ui-bootstrap: {@link http://angular-ui.github.io/bootstrap}
  * @requires soon.ui
  * @requires soon.utils
  * @requires thisissoon.api
+ * @requires sn.velocity
+ * @requires duScroll
  */
 angular.module("thisissoon.core", [
     "ngRoute",
@@ -16,7 +17,8 @@ angular.module("thisissoon.core", [
     "ngAnimate",
     "soon.ui",
     "thisissoon.api",
-    "sn.velocity"
+    "sn.velocity",
+    "duScroll"
 ])
 
 .run([

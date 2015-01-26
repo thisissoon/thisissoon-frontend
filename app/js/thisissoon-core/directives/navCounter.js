@@ -22,15 +22,16 @@ angular.module("thisissoon.core").directive("navCounter",[
                 var activeNav, activeLi, activeIndex, ul;
 
                 $scope.$on("scrollSpyChanged", function (event, data) {
-                    activeNav = angular.element(data.event.target).find("a").attr("href");
+                    activeNav = angular.element(data.event).find("a").attr("href");
 
-                    ul = $element.find("li");
+                    ul = $element.find("ul").children();
                     ul.removeClass("active");
 
-                    activeLi = $element.find("li a[href='" + activeNav + "']").parent();
+                    activeLi = angular.element($element[0].querySelector("li a[href='" + activeNav + "']")).parent();
                     activeLi.addClass("active");
 
-                    $scope.sectionCurrent = activeLi.index() + 1;
+                    var ulNodeList = Array.prototype.slice.call(ul);
+                    $scope.sectionCurrent = ulNodeList.indexOf(activeLi[0]) + 1;
                 });
 
             }

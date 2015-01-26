@@ -8,6 +8,7 @@
 angular.module("thisissoon.core").directive("soonNavbar",[
     "$timeout",
     "$rootScope",
+    "$location",
     "ScrollService",
     "CacheService",
     /**
@@ -15,7 +16,7 @@ angular.module("thisissoon.core").directive("soonNavbar",[
      * @param {Service} $timeout      angular wrapper for setTimeout
      * @param {Service} ScrollService handles scroll events
      */
-    function ($timeout, $rootScope, ScrollService, CacheService){
+    function ($timeout, $rootScope, $location, ScrollService, CacheService){
         return {
             restrict: "A",
             link: function($scope, $element) {
@@ -26,7 +27,9 @@ angular.module("thisissoon.core").directive("soonNavbar",[
                  */
                 var lastScroll = {
                     time: 0,
-                    position: {}
+                    position: {
+                        px: 0
+                    }
                 }
 
                 /**
@@ -40,9 +43,8 @@ angular.module("thisissoon.core").directive("soonNavbar",[
                         delay = 500;
 
                     // hide navigation on scroll action
-                    if (lastScroll.time !== 0) {
-                        $element.removeClass("navbar-show");
-                        $element.addClass("navbar-hide");
+                    if (lastScroll.time !== 0 && lastScroll.position.px < scrollPosition.px) {
+                        $element.removeClass("navbar-show").addClass("navbar-hide");
                     }
 
                     // track lastScroll properties
@@ -54,8 +56,7 @@ angular.module("thisissoon.core").directive("soonNavbar",[
                     // show nav once scrolling has stopped for 800ms
                     $timeout(function() {
                         if (timeNow === lastScroll.time) {
-                            $element.removeClass("navbar-hide");
-                            $element.addClass("navbar-show");
+                            $element.removeClass("navbar-hide").addClass("navbar-show");
                         }
                     }, delay);
                 }
@@ -65,7 +66,7 @@ angular.module("thisissoon.core").directive("soonNavbar",[
                  * @method navClick
                  */
                 $scope.navClick = function navClick(){
-                    angular.element("nav").find(".icon-burger").removeClass("close");
+                    angular.element("nav .icon-burger").removeClass("close");
                     CacheService.put("navOpen", false);
                 }
 
@@ -87,30 +88,25 @@ angular.module("thisissoon.core").directive("soonNavbar",[
                 $scope.switchNavStyle = function switchNavStyle(navStyle) {
                     switch(navStyle) {
                         case "dark":
-                            $element.removeClass("navbar-light");
-                            $element.addClass("navbar-dark");
+                            $element.removeClass("navbar-light").addClass("navbar-dark");
                             CacheService.put("navStyle", "dark");
                             break;
                         default:
-                            $element.removeClass("navbar-dark");
-                            $element.addClass("navbar-light");
+                            $element.removeClass("navbar-dark").addClass("navbar-light");
                             CacheService.put("navStyle", "light");
                     }
                 }
 
                 ScrollService.add($scope.$id, onScroll);
 
-                /**
-                 * Initialise scrollspy
-                 */
-                $("body").scrollspy({ target: "nav.navbar" });
-
                 // on bootstrap scrollspy event set navigation style
-                $("nav.navbar").on("activate.bs.scrollspy", function (event) {
-                    var navStyle = angular.element(event.target).find("a").attr("data-nav-style");
-                    $rootScope.$broadcast("scrollSpyChanged",  { event: event, navStyle: navStyle });
+                $rootScope.$on("duScrollspy:becameActive", function($event, $element){
+                    var anchor = angular.element($element).find("a");
+                    var navStyle = anchor[0].dataset.navStyle;
+
+                    $rootScope.$broadcast("scrollSpyChanged",  { event: $element, navStyle: navStyle });
                     $scope.switchNavStyle(navStyle);
-                })
+                });
 
             }
         }

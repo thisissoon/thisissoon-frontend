@@ -1,6 +1,6 @@
 <div class="count-text">{{ sectionCurrent | numberString }} of {{ sections.length | numberString }}</div>
 <ul class="nav">
     <li ng-repeat="section in sections">
-        <a ng-href="#{{ section.id }}" soon-scroll-to="{{ section.id }}"></a>
+        <a ng-href="#{{ section.id }}" du-smooth-scroll></a>
     </li>
 </ul>
