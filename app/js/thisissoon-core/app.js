@@ -14,7 +14,6 @@
 angular.module("thisissoon.core", [
     "ngRoute",
     "ngSanitize",
-    "ngAnimate",
     "soon.ui",
     "thisissoon.api",
     "sn.velocity",
