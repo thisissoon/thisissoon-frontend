@@ -27,7 +27,7 @@ angular.module("sn.velocity.snVelocityGroup", [
             link: function($scope, $element){
 
                 angular.forEach($scope.keyframes, function(keyframes, key){
-                    var animateElement = $element.find(key);
+                    var animateElement = angular.element($element[0].querySelector(key));
                     var scope = $rootScope.$new();
                     scope.keyframes = keyframes;
 

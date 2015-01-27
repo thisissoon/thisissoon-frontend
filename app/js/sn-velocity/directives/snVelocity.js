@@ -12,14 +12,14 @@ angular.module("sn.velocity.snVelocity", []).directive("snVelocity",[
      */
     function() {
         return {
-            restrict: "AE",
+            restrict: "A",
             scope: {
                 "keyframes": "="
             },
             link: function($scope, $element){
 
-                angular.forEach($scope.keyframes, function(value, index){
-                    $element.velocity(value);
+                angular.forEach($scope.keyframes, function(value){
+                    Velocity($element, value.properties, value.options);
                 });
 
             }

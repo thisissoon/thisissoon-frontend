@@ -8,17 +8,13 @@ angular.module("thisissoon.core")
 
     .constant("SOON_LOGO", {
         "full": {
-            "path,polygon,rect": [{
-                "properties": { fill: "#FFFFFF" },
-                "options": { duration: 0 }
-            }],
             "#s": [
                 {
                     "properties": { opacity: 0 },
                     "options": { duration: 0 }
                 },{
                     "properties": { opacity: 1 },
-                    "options": { duration: 0, delay: 1300 }
+                    "options": { duration: 0, delay: 1150 }
                 }
             ],
             "#o-1": [
@@ -27,7 +23,7 @@ angular.module("thisissoon.core")
                     "options": { duration: 0 }
                 },{
                     "properties": { opacity: 1 },
-                    "options": { duration: 0, delay: 1450 }
+                    "options": { duration: 0, delay: 1300 }
                 }
             ],
             "#o-2": [
@@ -36,7 +32,7 @@ angular.module("thisissoon.core")
                     "options": { duration: 0 }
                 },{
                     "properties": { opacity: 1 },
-                    "options": { duration: 0, delay: 1600 }
+                    "options": { duration: 0, delay: 1450 }
                 }
             ],
             "#n": [
@@ -45,7 +41,7 @@ angular.module("thisissoon.core")
                     "options": { duration: 0 }
                 },{
                     "properties": { opacity: 1 },
-                    "options": { duration: 0, delay: 1750 }
+                    "options": { duration: 0, delay: 1600 }
                 }
             ],
             "#underscore": [
@@ -69,30 +65,22 @@ angular.module("thisissoon.core")
                     "options": { duration: 0, delay: 150 }
                 },{
                     "properties": { opacity: 0 },
-                    "options": { duration: 0, delay: 300, loop: 2 }
+                    "options": { duration: 0, delay: 300, loop: 3 }
                 }
             ]
         },
-        "blinking": {
-            "path,polygon,rect": [{
-                "properties": { fill: "#FFFFFF" },
-                "options": { duration: 0 }
-            }],
-            "#underscore": [
-                {
-                    "properties": { opacity: 0 },
-                    "options": { duration: 0, delay: 300, loop: true }
-                }
-            ]
-        },
-        "underscore": {
-            "#underscore": [
-                {
-                    "properties": { opacity: 0 },
-                    "options": { duration: 0, delay: 100, loop: true }
-                }
-            ]
-        }
+        "blinking": [
+            {
+                "properties": { opacity: 0 },
+                "options": { duration: 0, delay: 300, loop: true }
+            }
+        ],
+        "underscore": [
+            {
+                "properties": { opacity: 0 },
+                "options": { duration: 0, delay: 100, loop: true }
+            }
+        ]
     })
 
     .constant("ICONS", {

@@ -28,17 +28,17 @@
                         <h2>VelocityJs SVG Demos</h2>
                         <br>
 
-                        <sn-velocity data-keyframes="anim1">
+                        <div sn-velocity data-keyframes="anim1">
                             <div style="height: 20px; width: 20px; background: black;"></div>
-                        </sn-velocity>
+                        </div>
 
-                        <sn-velocity data-keyframes="anim2">
+                        <div sn-velocity data-keyframes="anim2">
                             <div style="height: 20px; width: 20px; background: black;"></div>
-                        </sn-velocity>
+                        </div>
 
                         <sn-velocity-group data-keyframes="anim3">
-                            <div id="1" style="height: 20px; width: 20px; background: black;"></div>
-                            <div id="2" style="height: 20px; width: 20px; background: black;"></div>
+                            <div id="block1" style="height: 20px; width: 20px; background: black;"></div>
+                            <div id="block2" style="height: 20px; width: 20px; background: black;"></div>
                         </sn-velocity-group>
 
                         <h3>Soon Logo Animation</h3>
@@ -50,7 +50,7 @@
             </div>
         </main>
 
-        <script src="components/jquery/dist/jquery.js"></script>
+<!--        <script src="components/jquery/dist/jquery.js"></script>-->
         <script src="components/angular/angular.js"></script>
         <script src="components/velocity/velocity.js"></script>
 
@@ -67,7 +67,7 @@
                 function($scope){
                     $scope.anim1 = [{
                         "properties": { opacity: 0 },
-                        "options": { duration: 1000 }
+                        "options": { duration: 1000, loop: true }
                     }];
                     $scope.anim2 = [{
                         "properties": { opacity: 0 },
@@ -77,14 +77,14 @@
                         "options": { duration: 1000 }
                     }];
                     $scope.anim3 = {
-                        "#1": [{
+                        "#block1": [{
                             "properties": { "margin-left": "+=100" },
                             "options": { duration: 1000 }
                         },{
                             "properties": { "margin-left": "+=100" },
                             "options": { duration: 1000, delay: 500 }
                         }],
-                        "#2": [{
+                        "#block2": [{
                             "properties": { opacity: 0 },
                             "options": { duration: 500, loop: true }
                         }]
