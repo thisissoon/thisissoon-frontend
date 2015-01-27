@@ -1,13 +1,17 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-2 col-md-2 hidden-sm hidden-xs">
-           <sn-velocity-group data-keyframes="logoAnimation" class="logo {{ navStyle }}" ng-include="'img/header/SOON.svg'"></sn-velocity-group>
+           <sn-velocity-group data-keyframes="logoAnimation" class="logo logo-top {{ navStyle }}" ng-include="'img/header/SOON.svg'"></sn-velocity-group>
         </div>
         <div class="col-lg-6 col-lg-offset-2 col-md-6 col-md-offset-2 col-sm-6 col-sm-offset-2 col-xs-12 col-xs-offset-0">
             <div ng-include="'partials/navbar.html'"></div>
         </div>
         <div class="nav-counter" ng-if="sections" ng-class="{ 'dark': (navStyle === 'dark'), 'light': (navStyle === 'light') }"></div>
     </div>
+</div>
+
+<div class="brand hidden-lg hidden-md">
+    <div class="logo {{ navStyle }}" ng-include="'img/header/SOON.svg'"></div>
 </div>
 
 <div class="project-list">
