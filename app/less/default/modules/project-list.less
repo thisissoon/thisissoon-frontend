@@ -7,16 +7,19 @@
 .project-list {
 
     background-color: @dark-grey;
-    display: none;
     left: 0;
     min-height: 400px;
+    opacity: 0;
     position: absolute;
     right: 0;
     top: 0;
+    visibility: hidden;
     z-index: 1100;
+    .transition(~"visibility 0.5s ease, opacity 0.5s ease");
 
     .project-list-open & {
-        display: block;
+        opacity: 1;
+        visibility: visible;
     }
 
     .project {
@@ -68,9 +71,21 @@
     }
 }
 
-.overlay-mask {
-    background-color: @dark-trans;
-    height: 100%;
-    position: relative;
-    width: 100%;
+// dimmed body overlay
+body.project-list-open::after {
+    background-color: rgba(0,0,0,0.8);
+    visibility: visible;
+}
+
+body::after {
+    .transition(~"background 0.5s ease, visibility 0.5s ease");
+    background-color: rgba(0,0,0,0);
+    bottom: 0;
+    content: "";
+    display: block;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    visibility: hidden;
 }
