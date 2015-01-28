@@ -1,0 +1,30 @@
+/**
+ *  @class          logo
+ *  @author         SOON_
+ *  @description    logo styling
+ */
+
+.logo {
+    top: 78px;
+    position: relative;
+
+    & svg {
+        max-width: 180px;
+    }
+
+    &.dark svg * {
+        fill: #000000;
+    }
+
+    &.light svg * {
+        fill: #FFFFFF;
+    }
+
+    .hero & {
+        top: 206px;
+    }
+
+    .project-view & {
+        top: 203px;
+    }
+}

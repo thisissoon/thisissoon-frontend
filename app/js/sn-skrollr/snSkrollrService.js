@@ -26,7 +26,9 @@ angular.module("sn.skrollr").service("snSkrollrService", [
             // Load skrollr.js in the browser
             $rootScope.$apply(function() {
                 var s = $window.skrollr.init({
-                        forceHeight: false
+                        forceHeight: false,
+                        smoothScrolling: true,
+                        mobileDeceleration: 0.004
                     });
                 defer.resolve(s);
             });

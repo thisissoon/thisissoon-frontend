@@ -17,6 +17,7 @@ angular.module("thisissoon.core", [
     "soon.ui",
     "thisissoon.api",
     "sn.velocity",
+    "sn.skrollr",
     "duScroll"
 ])
 

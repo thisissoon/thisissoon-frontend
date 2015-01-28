@@ -61,6 +61,10 @@ angular.module("thisissoon.core").controller("HomeCtrl", [
             return CacheService.get("backgroundColor");
         }
 
+        /**
+         * Toggle projects list
+         * @method toggleProjects
+         */
         $scope.toggleProjects = function toggleProjects(){
             CacheService.put("projectList", true);
         }
