@@ -12,6 +12,7 @@ angular.module("thisissoon.core").controller("HomeCtrl", [
     "CacheService",
     "projects",
     "jobs",
+    "GREETINGS",
     /**
      * @constructor
      * @param {Object}  $scope
@@ -20,7 +21,7 @@ angular.module("thisissoon.core").controller("HomeCtrl", [
      * @param {Object}  projects   List of projects from api
      * @param {Object}  jobs       List of jobs from api
      */
-    function ($scope, $rootScope, $timeout, CacheService, projects, jobs) {
+    function ($scope, $rootScope, $timeout, CacheService, projects, jobs, GREETINGS) {
 
         /**
          * List of projects from thisissoon api
@@ -42,6 +43,12 @@ angular.module("thisissoon.core").controller("HomeCtrl", [
          * @type     {Object}
          */
         $scope.jobs = jobs.list;
+
+        /**
+         * Current greetings
+         * @property greeting
+         */
+        $scope.greeting = "";
 
         /**
          * Get background image for hero section
@@ -88,10 +95,40 @@ angular.module("thisissoon.core").controller("HomeCtrl", [
          * @property timeBoundaries
          */
         $scope.timeBoundaries = {
-            morning: new Date().setHours(5),
-            afternoon: new Date().setHours(12),
-            evening: new Date().setHours(18),
-            night: new Date().setHours(23)
+            am: new Date().setHours(0),
+            pm: new Date().setHours(12),
+            eve: new Date().setHours(18),
+            tomo: new Date().setHours(24)
+        }
+
+        /**
+         * Return random item from array
+         * @param   {Array}  array array to parse
+         * @returns {String} random item
+         */
+        $scope.randomItem = function randomItem(array) {
+            return array[(Math.floor(Math.random() * array.length))];
+        }
+
+        /**
+         * Returns time based greeting from GREETINGS
+         * @returns {String} greeting string
+         * @method getGreeting
+         */
+        $scope.getGreeting = function getGreeting() {
+
+            var time = $scope.currentTime.value.getTime(),
+                am = time >= $scope.timeBoundaries.am && time < $scope.timeBoundaries.pm,
+                pm = time >= $scope.timeBoundaries.pm && time < $scope.timeBoundaries.eve,
+                eve = time >= $scope.timeBoundaries.eve && time < $scope.timeBoundaries.tomo;
+
+            if (am) {
+                return $scope.randomItem(GREETINGS.am);
+            } else if (pm) {
+                return $scope.randomItem(GREETINGS.pm);
+            } else if (eve) {
+                return $scope.randomItem(GREETINGS.eve);
+            }
         }
 
         /**
@@ -100,6 +137,7 @@ angular.module("thisissoon.core").controller("HomeCtrl", [
          */
         $scope.init = function() {
             $scope.currentTime.get();
+            $scope.greeting = $scope.getGreeting();
         }
 
         $scope.init();

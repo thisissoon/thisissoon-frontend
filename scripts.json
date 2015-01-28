@@ -27,6 +27,7 @@
         "app/js/thisissoon-core/config.js",
         "app/js/thisissoon-core/constants/animation.js",
         "app/js/thisissoon-core/constants/nav.js",
+        "app/js/thisissoon-core/constants/greetings.js",
         "app/js/thisissoon-core/controllers/HeaderCtrl.js",
         "app/js/thisissoon-core/controllers/HomeCtrl.js",
         "app/js/thisissoon-core/controllers/ProjectCtrl.js",
