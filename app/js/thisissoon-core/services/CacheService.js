@@ -10,8 +10,9 @@
  * @author SOON_
  * @class  CacheService
  */
-angular.module("thisissoon.core").service("CacheService",
+angular.module("thisissoon.core").service("CacheService", [
+    "$cacheFactory",
     function($cacheFactory){
         return $cacheFactory("cache");
     }
-)
+])
