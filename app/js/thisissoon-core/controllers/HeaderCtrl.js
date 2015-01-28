@@ -101,9 +101,11 @@ angular.module("thisissoon.core").controller("HeaderCtrl", [
             if(!$rootScope.$$phase){
                 $scope.$apply(function(){
                     $scope.navStyle =  $scope.hexIsLight( CacheService.get("backgroundColor") ) ? "dark" : "light";
+                    CacheService.put("navStyle", $scope.navStyle);
                 })
             } else {
                 $scope.navStyle =  $scope.hexIsLight( CacheService.get("backgroundColor") ) ? "dark" : "light";
+                CacheService.put("navStyle", $scope.navStyle);
             }
         }
 
