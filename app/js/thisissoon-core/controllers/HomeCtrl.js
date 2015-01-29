@@ -117,7 +117,7 @@ angular.module("thisissoon.core").controller("HomeCtrl", [
          */
         $scope.getGreeting = function getGreeting() {
 
-            var time = $scope.currentTime.value.getTime(),
+            var time = $scope.currentTime.value,
                 am = time >= $scope.timeBoundaries.am && time < $scope.timeBoundaries.pm,
                 pm = time >= $scope.timeBoundaries.pm && time < $scope.timeBoundaries.eve,
                 eve = time >= $scope.timeBoundaries.eve && time < $scope.timeBoundaries.tomo;

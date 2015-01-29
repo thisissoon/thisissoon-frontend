@@ -1,7 +1,6 @@
 "use strict";
 /**
- * Controller for "/projects" view of app. Displays project
- * infomation and tells project story.
+ * Loading view
  * @module thisissoon.core
  * @author SOON_
  * @class  LoadingCtrl
