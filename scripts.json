@@ -1,12 +1,43 @@
 {
     "vendor": [
         "app/components/angular/angular.js",
-        "app/components/angular-route/angular-route.js"
+        "app/components/angular-route/angular-route.js",
+        "app/components/angular-sanitize/angular-sanitize.js",
+        "app/components/angular-addthis/dist/angular-addthis.js",
+        "app/components/angular-scroll/angular-scroll.js",
+        "app/components/velocity/velocity.js",
+        "app/js/soon-ui/app.js",
+        "app/js/soon-ui/directives/fixed.js",
+        "app/js/soon-ui/directives/fullscreen.js",
+        "app/js/soon-ui/directives/video.js",
+        "app/js/soon-ui/services/ResizeService.js",
+        "app/js/soon-ui/services/ScrollService.js",
+        "app/js/sn-velocity/sn.velocity.js",
+        "app/js/sn-velocity/directives/snVelocity.js",
+        "app/js/sn-velocity/directives/snVelocityGroup.js",
+        "app/js/sn-skrollr/snSkrollr.js",
+        "app/js/sn-skrollr/snSkrollrService.js"
     ],
     "application": [
-        "app/js/soon-example/app.js",
-        "app/js/soon-example/config.js",
-        "app/js/soon-example/controllers/SearchCtrl.js",
-        "app/js/soon-example/controllers/ResultsCtrl.js"
+        "app/js/env.js",
+        "app/js/thisissoon-api/app.js",
+        "app/js/thisissoon-api/services/ThisissoonAPI.js",
+        "app/js/thisissoon-core/app.js",
+        "app/js/thisissoon-core/config.js",
+        "app/js/thisissoon-core/constants/animation.js",
+        "app/js/thisissoon-core/constants/nav.js",
+        "app/js/thisissoon-core/constants/greetings.js",
+        "app/js/thisissoon-core/controllers/HeaderCtrl.js",
+        "app/js/thisissoon-core/controllers/HomeCtrl.js",
+        "app/js/thisissoon-core/controllers/LoadingCtrl.js",
+        "app/js/thisissoon-core/controllers/ProjectCtrl.js",
+        "app/js/thisissoon-core/directives/header.js",
+        "app/js/thisissoon-core/directives/heroVideo.js",
+        "app/js/thisissoon-core/directives/navbar.js",
+        "app/js/thisissoon-core/directives/navCounter.js",
+        "app/js/thisissoon-core/directives/snLogo.js",
+        "app/js/thisissoon-core/filters/currentDate.js",
+        "app/js/thisissoon-core/filters/numberString.js",
+        "app/js/thisissoon-core/services/CacheService.js"
     ]
 }

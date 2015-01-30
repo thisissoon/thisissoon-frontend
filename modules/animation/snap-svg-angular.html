@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="SnapDemo">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <title>SOON_</title>
+
+        <base href="/app/">
+        <link rel="stylesheet" href="css/all.css"/>
+
+	    <style type="text/css">
+
+            body {
+                position: relative;
+                height: 100%;
+                background-color: #23afe2;
+                color: #FFFFFF;
+            }
+
+            pre {
+                color: #000000;
+            }
+
+        </style>
+    </head>
+
+    <body class="container-fluid" ng-controller="AppCtrl">
+
+        <h2>Snap SVG Icon Demos</h2>
+        <p>Using snap-icon angular directive</p>
+        <code>&lt;svg snap-icon data-config="icons.burgerCross" &gt;&lt;/svg&gt;</code>
+
+        <div>
+
+            <svg snap-icon data-config="icons.burgerCross" ></svg>
+        </div>
+
+        <script src="components/jquery/dist/jquery.js"></script>
+        <script src="components/angular/angular.js"></script>
+        <script src="components/snap.svg/dist/snap.svg.js"></script>
+
+        <script src="js/snap-svg/app.js"></script>
+        <script src="js/snap-svg/directives/snap-icon.js"></script>
+
+        <script type="text/javascript">
+            angular.module("SnapDemo", ["snap.svg"]).controller("AppCtrl", [
+                "$scope",
+                function($scope){
+
+                    $scope.icons = {
+                        burgerCross : {
+                            url : 'img/icons/burger.svg',
+                            animation : [
+                                {
+                                    el : 'path:nth-child(1)',
+                                    animProperties : {
+                                        from : { val : '{"path" : "m 5.0916789,20.818994 53.8166421,0"}' },
+                                        to : { val : '{"path" : "M 12.972944,50.936147 51.027056,12.882035"}' }
+                                    }
+                                },
+                                {
+                                    el : 'path:nth-child(2)',
+                                    animProperties : {
+                                        from : { val : '{"transform" : "s1 1", "opacity" : 1}', before : '{"transform" : "s0 0"}' },
+                                        to : { val : '{"opacity" : 0}' }
+                                    }
+                                },
+                                {
+                                    el : 'path:nth-child(3)',
+                                    animProperties : {
+                                        from : { val : '{"path" : "m 5.0916788,42.95698 53.8166422,0"}' },
+                                        to : { val : '{"path" : "M 12.972944,12.882035 51.027056,50.936147"}' }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+
+                }
+            ]);
+
+        </script>
+
+    </body>
+
+</html>

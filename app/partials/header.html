@@ -1,0 +1,36 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-6 col-lg-offset-4 col-md-6 col-md-offset-4 col-sm-6 col-sm-offset-2 col-xs-12 col-xs-offset-0">
+            <div ng-include="'partials/navbar.html'"></div>
+        </div>
+        <div class="nav-counter" ng-if="sections" ng-class="{ 'dark': (navStyle === 'dark'), 'light': (navStyle === 'light') }"></div>
+    </div>
+</div>
+
+<div class="brand hidden-lg hidden-md">
+    <div class="logo {{ navStyle }}" ng-include="'img/header/SOON.svg'"></div>
+</div>
+
+<div class="project-list">
+    <div class="actions">
+        <button class="btn btn-icon-sm icon-close" ng-click="toggleProjects($event)">
+            <img class="icon icon-close" src="img/icons/close.svg">
+        </button>
+    </div>
+    <article class="project container-fluid" ng-repeat="project in projects" ng-style="{ 'background-color': '{{ project.background_colour }}', 'color': '{{ project.text_colour }}' }">
+        <a href ng-href="#/projects/{{ project.id }}" ng-click="toggleProjects()">
+            <div class="row">
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    <div class="vertical-center project-logo-container">
+                       <img class="project-logo" ng-src="{{ project.project_logo.small.replace('/media', 'http://localdocker/media') }}" alt="{{ project.title }}">
+                    </div>
+                </div>
+                <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2" >
+                    <img class="project-hero" ng-src="{{ project.overview_image.medium.replace('/media', 'http://localdocker/media') }}"><br>
+                    <div class="project-desc">{{ project.introduction }}</div>
+                </div>
+            </div>
+        </a>
+    </article>
+</div>
+

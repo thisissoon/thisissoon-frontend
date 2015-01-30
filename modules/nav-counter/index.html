@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="thisissoon.core">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <title>SOON_</title>
+
+        <base href="/app/">
+        <link rel="stylesheet" href="css/all.css"/>
+
+        <style>
+
+            body {
+                background-color: #666;
+            }
+
+            pagination {
+                position: absolute;
+                right: 5px;
+                top: 50%;
+                width: 40px;
+            }
+
+            pagination li {
+                border: 1px solid white;
+                height: 7px;
+                margin-top: 4px;
+                width: 12px;
+            }
+
+            pagination li.active {
+                background-color: white;
+            }
+
+            pagination .text {
+                color: white;
+                transform: rotate(-90deg);
+                transform-origin: top left;
+                margin-left: 8px;
+                width: 200px;
+            }
+        </style>
+
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <pagination>
+                    <div class="text">one of six</div>
+                    <ul>
+                        <li class="active"></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </pagination>
+            </div>
+        </div>
+
+    </body>
+</html>

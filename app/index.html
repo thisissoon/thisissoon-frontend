@@ -1,36 +1,86 @@
 <!DOCTYPE html>
-<!-- build:[ng-app]:e2e sn.example.e2e -->
-<html lang="en" ng-app="sn.example">
-<!-- /build -->
+<html lang="en" ng-app="thisissoon.core">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-        <meta name="fragment" content="!" />
-        <title>SOON_ AngularJS Template</title>
-        <!-- build:template:production
+        <title>SOON_</title>
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Nixie+One" />
+        <!-- build:template
         <base href="/">
         /build -->
-        <!-- build:remove:production -->
+        <!-- build:remove -->
         <base href="/app/">
         <!-- /build -->
-        <!-- build:css:production css/all.min.css -->
+        <!-- build:css css/all.min.css -->
         <link rel="stylesheet" href="css/all.css"/>
         <!-- /build -->
     </head>
-    <body>
+    <body ng-class="{
+            'nav-open': cache.get('navOpen'),
+            'project-list-open': cache.get('projectList'),
+            'loading-active': cache.get('loading'),
+            'project-view': cache.get('projectView')
+          }"
+          class="loading-active"
+    >
 
-        <ng-view></ng-view>
+        <header class="header"></header>
+        <main class="main" ng-view autoscroll></main>
+        <footer class="footer" ng-include="'partials/footer.html'"></footer>
 
-        <!-- build:js:production js/app.min.js -->
+        <div class="loading" ng-include="'partials/loading.html'" ng-controller="LoadingCtrl"></div>
+
+
+        <!-- Add this -->
+        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-545b3f957aee3425&domready=1" async="async"></script>
+
+        <!-- build:js js/app.min.js -->
+
+        <!-- build:remove -->
         <script src="components/angular/angular.js"></script>
         <script src="components/angular-route/angular-route.js"></script>
+        <script src="components/angular-sanitize/angular-sanitize.js"></script>
+        <script src="components/angular-scroll/angular-scroll.js"></script>
+        <script src="components/angular-addthis/dist/angular-addthis.js"></script>
+        <script src="components/velocity/velocity.js"></script>
 
-        <script src="js/soon-example/app.js"></script>
-        <script src="js/soon-example/config.js"></script>
-        <script src="js/soon-example/controllers/SearchCtrl.js"></script>
-        <script src="js/soon-example/controllers/ResultsCtrl.js"></script>
+        <script src="js/soon-ui/app.js"></script>
+        <script src="js/soon-ui/directives/fixed.js"></script>
+        <script src="js/soon-ui/directives/fullscreen.js"></script>
+        <script src="js/soon-ui/directives/video.js"></script>
+        <script src="js/soon-ui/services/ResizeService.js"></script>
+        <script src="js/soon-ui/services/ScrollService.js"></script>
+
+        <script src="js/sn-velocity/sn.velocity.js"></script>
+        <script src="js/sn-velocity/directives/snVelocity.js"></script>
+        <script src="js/sn-velocity/directives/snVelocityGroup.js"></script>
+
+        <script src="js/sn-skrollr/snSkrollr.js"></script>
+        <script src="js/sn-skrollr/snSkrollrService.js"></script>
+
+        <script src="js/env.js"></script>
+
+        <script src="js/thisissoon-api/app.js"></script>
+        <script src="js/thisissoon-api/services/ThisissoonAPI.js"></script>
+
+        <script src="js/thisissoon-core/app.js"></script>
+        <script src="js/thisissoon-core/config.js"></script>
+        <script src="js/thisissoon-core/constants/animation.js"></script>
+        <script src="js/thisissoon-core/constants/nav.js"></script>
+        <script src="js/thisissoon-core/constants/greetings.js"></script>
+        <script src="js/thisissoon-core/controllers/HeaderCtrl.js"></script>
+        <script src="js/thisissoon-core/controllers/HomeCtrl.js"></script>
+        <script src="js/thisissoon-core/controllers/ProjectCtrl.js"></script>
+        <script src="js/thisissoon-core/controllers/LoadingCtrl.js"></script>
+        <script src="js/thisissoon-core/directives/header.js"></script>
+        <script src="js/thisissoon-core/directives/heroVideo.js"></script>
+        <script src="js/thisissoon-core/directives/navbar.js"></script>
+        <script src="js/thisissoon-core/directives/navCounter.js"></script>
+        <script src="js/thisissoon-core/directives/snLogo.js"></script>
+        <script src="js/thisissoon-core/filters/currentDate.js"></script>
+        <script src="js/thisissoon-core/filters/numberString.js"></script>
+        <script src="js/thisissoon-core/services/CacheService.js"></script>
         <!-- /build -->
-        <!-- build:include:e2e ../tests/e2e/scripts.html --><!-- /build -->
 
     </body>
 </html>

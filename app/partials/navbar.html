@@ -1,0 +1,48 @@
+<nav soon-navbar class="navbar navbar-light navbar-fixed-top"
+    ng-class="{ 'home': !cache.get('projectView'), 'projects': cache.get('projectView'), 'navbar-dark': (navStyle === 'dark') }">
+
+    <div class="navbar-header">
+        <button type="button" class="btn btn-icon-sm navbar-toggle" ng-click="toggleNav($event)" velocity data-src="'img/icons/burger.svg'" data-keyframes="iconAnimations.burger" data-bind="'click'" data-toggle="true">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="btn-label">Close</span>
+        </button>
+        <img class="navbar-brand" src="img/header/SOON.svg">
+    </div>
+
+    <div class="collapse navbar-collapse" ng-if="!cache.get('projectView')">
+        <ul class="nav navbar-nav" du-spy-context>
+            <li ng-repeat="section in sections" du-scrollspy="{{ section.id }}">
+                <a href="#{{ section.id }}" data-nav-style="{{ section.navStyle }}" du-smooth-scroll ng-click="navClick()" ng-if="section.id !== 'project'">
+                    <span class="text">{{ section.title }}</span>
+                </a>
+                <a href="#hero" data-nav-style="{{ section.navStyle }}" du-smooth-scroll ng-if="section.id === 'project'" ng-click="toggleProjects($event)"><!-- Casestudies -->
+                    <i class="{{ section.icon }}"></i>
+                    <span class="text">{{ section.title }}</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Project navigation -->
+    <div class="collapse navbar-collapse" ng-if="cache.get('projectView')">
+        <ul class="nav navbar-nav">
+            <li><a href="#/" ng-click="navClick()"><span class="text">Home</span></a></li>
+            <li>
+                <a href="#hero" ng-click="toggleProjects($event)" du-smooth-scroll>
+                    <i class="icon-casestudies"></i>
+                    <span class="text">All casestudies</span>
+                </a>
+            </li>
+            <li ng-class="{ 'disabled': !prevProject }">
+                <a href ng-href="#/projects/{{ prevProject }}" ng-if="prevProject"><span class="text">Previous</span></a>
+                <a href ng-if="!prevProject"><span class="text">Previous</span></a>
+            </li>
+            <li class="active"><a href><span class="text">{{ currentProject }} / {{ projects.length }}</span></a></li>
+            <li ng-class="{ 'disabled': !nextProject }">
+                <a ng-href="#/projects/{{ nextProject }}" ng-if="nextProject"><span class="text">Next</span></a>
+                <a href ng-if="!nextProject"><span class="text">Next</span></a>
+            </li>
+        </ul>
+    </div>
+
+</nav>

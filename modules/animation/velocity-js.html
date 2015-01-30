@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="testApp">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <title>SOON_ Modules - Animation</title>
+
+        <base href="/app/">
+        <link rel="stylesheet" href="css/all.css"/>
+
+        <style>
+
+            body {
+                position: relative;
+                height: 100%;
+                background-color: #23afe2;
+                color: #FFFFFF;
+            }
+
+        </style>
+
+    </head>
+    <body>
+        <main ng-controller="AppCtrl">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <h2>VelocityJs SVG Demos</h2>
+                        <br>
+
+                        <div sn-velocity data-keyframes="anim1">
+                            <div style="height: 20px; width: 20px; background: black;"></div>
+                        </div>
+
+                        <div sn-velocity data-keyframes="anim2">
+                            <div style="height: 20px; width: 20px; background: black;"></div>
+                        </div>
+
+                        <sn-velocity-group data-keyframes="anim3">
+                            <div id="block1" style="height: 20px; width: 20px; background: black;"></div>
+                            <div id="block2" style="height: 20px; width: 20px; background: black;"></div>
+                        </sn-velocity-group>
+
+                        <h3>Soon Logo Animation</h3>
+
+                        <sn-velocity-group data-keyframes="soonLogo" ng-include="'img/header/SOON.svg'"></sn-velocity-group>
+
+                    </div>
+                </div>
+            </div>
+        </main>
+
+<!--        <script src="components/jquery/dist/jquery.js"></script>-->
+        <script src="components/angular/angular.js"></script>
+        <script src="components/velocity/velocity.js"></script>
+
+        <script src="js/sn-velocity/sn.velocity.js"></script>
+        <script src="js/sn-velocity/directives/snVelocity.js"></script>
+        <script src="js/sn-velocity/directives/snVelocityGroup.js"></script>
+        <script>
+            angular.module("testApp", [
+                "sn.velocity"
+            ])
+
+            .controller("AppCtrl", [
+                "$scope",
+                function($scope){
+                    $scope.anim1 = [{
+                        "properties": { opacity: 0 },
+                        "options": { duration: 1000, loop: true }
+                    }];
+                    $scope.anim2 = [{
+                        "properties": { opacity: 0 },
+                        "options": { duration: 1000 }
+                    },{
+                        "properties": { opacity: 1 },
+                        "options": { duration: 1000 }
+                    }];
+                    $scope.anim3 = {
+                        "#block1": [{
+                            "properties": { "margin-left": "+=100" },
+                            "options": { duration: 1000 }
+                        },{
+                            "properties": { "margin-left": "+=100" },
+                            "options": { duration: 1000, delay: 500 }
+                        }],
+                        "#block2": [{
+                            "properties": { opacity: 0 },
+                            "options": { duration: 500, loop: true }
+                        }]
+                    };
+                    $scope.soonLogo = {
+                        "#s": [
+                            {
+                                "properties": { opacity: 0 },
+                                "options": { duration: 0 }
+                            },{
+                                "properties": { opacity: 1 },
+                                "options": { duration: 0, delay: 1150 }
+                            }
+                        ],
+                        "#o-1": [
+                            {
+                                "properties": { opacity: 0 },
+                                "options": { duration: 0 }
+                            },{
+                                "properties": { opacity: 1 },
+                                "options": { duration: 0, delay: 1300 }
+                            }
+                        ],
+                        "#o-2": [
+                            {
+                                "properties": { opacity: 0 },
+                                "options": { duration: 0 }
+                            },{
+                                "properties": { opacity: 1 },
+                                "options": { duration: 0, delay: 1450 }
+                            }
+                        ],
+                        "#n": [
+                            {
+                                "properties": { opacity: 0 },
+                                "options": { duration: 0 }
+                            },{
+                                "properties": { opacity: 1 },
+                                "options": { duration: 0, delay: 1600 }
+                            }
+                        ],
+                        "#underscore": [
+                            {
+                                "properties": { opacity: 1, x: "0" },
+                                "options": { duration: 0 }
+                            },{
+                                "properties": { opacity: 0 },
+                                "options": { duration: 0, delay: 100, loop: 5 }
+                            },{
+                                "properties": { x: "+=100" },
+                                "options": { duration: 0, delay: 150 }
+                            },{
+                                "properties": { x: "+=100" },
+                                "options": { duration: 0, delay: 150 }
+                            },{
+                                "properties": { x: "+=100" },
+                                "options": { duration: 0, delay: 150 }
+                            },{
+                                "properties": { x: "+=100" },
+                                "options": { duration: 0, delay: 150 }
+                            },{
+                                "properties": { opacity: 0 },
+                                "options": { duration: 0, delay: 300, loop: 3 }
+                            }
+                        ]
+                    }
+                }
+            ]);
+        </script>
+
+    </body>
+</html>

@@ -6,7 +6,7 @@
 
     // Enforcing
     "bitwise"       : true,     // true: Prohibit bitwise operators (&, |, ^, etc.)
-    "camelcase"     : true,     // true: Identifiers must be in camelCase
+    "camelcase"     : false,     // true: Identifiers must be in camelCase
     "curly"         : true,     // true: Require {} for every new block or scope
     "eqeqeq"        : true,     // true: Require triple equals (===) for comparison
     "freeze"        : true,     // true: prohibits overwriting prototypes of native objects such as Array, Date etc.
@@ -26,16 +26,16 @@
                                 //   "single" : require single quotes
                                 //   "double" : require double quotes
     "undef"         : true,     // true: Require all non-global variables to be declared (prevents global leaks)
-    "unused"        : true,     // true: Require all defined variables be used
+    "unused"        : false,     // true: Require all defined variables be used
     "strict"        : true,     // true: Requires all functions run in ES5 Strict Mode
     "maxparams"     : false,    // {int} Max number of formal params allowed per function
     "maxdepth"      : false,    // {int} Max depth of nested blocks (within functions)
     "maxstatements" : false,    // {int} Max number statements per function
     "maxcomplexity" : false,    // {int} Max cyclomatic complexity per function
-    "maxlen"        : 80,       // {int} Max number of characters per line
+    "maxlen"        : 130,       // {int} Max number of characters per line
 
     // Relaxing
-    "asi"           : false,     // true: Tolerate Automatic Semicolon Insertion (no semicolons)
+    "asi"           : true,     // true: Tolerate Automatic Semicolon Insertion (no semicolons)
     "boss"          : false,     // true: Tolerate assignments where comparisons would be expected
     "debug"         : false,     // true: Allow debugger statements e.g. browser breakpoints.
     "eqnull"        : false,     // true: Tolerate use of `== null`
