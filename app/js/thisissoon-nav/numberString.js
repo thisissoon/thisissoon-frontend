@@ -1,11 +1,13 @@
 "use strict";
 /**
  * Returns a string representation of a number between 1 and 10
- * @module thisissoon.core
+ * @module thisissoon.nav.snNumberString
  * @author SOON_
- * @class  numberString
+ * @class  snNumberString
  **/
-angular.module("thisissoon.core").filter("numberString", [
+angular.module("thisissoon.nav.snNumberString", [])
+
+.filter("snNumberString", [
     function() {
         return function(input){
             switch(input){

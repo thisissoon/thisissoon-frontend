@@ -16,8 +16,10 @@ angular.module("thisissoon.core", [
     "ngSanitize",
     "soon.ui",
     "thisissoon.api",
+    "thisissoon.nav",
+    "thisissoon.cache",
+    "thisissoon.animation",
     "sn.velocity",
-    "sn.skrollr",
     "duScroll"
 ])
 

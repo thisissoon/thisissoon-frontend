@@ -1,18 +1,16 @@
 "use strict";
 /**
- * @module thisissoon.core
+ * @module thisissoon.nav.config
  * @author SOON_
- * @class  NAV
  */
-angular.module("thisissoon.core")
+angular.module("thisissoon.nav.config", [])
 
     /**
      * List of sections in each view
      * @name NAV
      * @type {Object}
      */
-    .constant("NAV", {
-        "home": [
+    .constant("NAV", [
             {
                 "id": "hero",
                 "title": "Hello",
@@ -39,5 +37,4 @@ angular.module("thisissoon.core")
                 "title": "Contact",
                 "navStyle": "light"
             }
-        ]
-    })
+    ])

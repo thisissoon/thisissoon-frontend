@@ -24,7 +24,6 @@
         "app/js/thisissoon-api/services/ThisissoonAPI.js",
         "app/js/thisissoon-core/app.js",
         "app/js/thisissoon-core/config.js",
-        "app/js/thisissoon-core/constants/nav.js",
         "app/js/thisissoon-core/constants/greetings.js",
         "app/js/thisissoon-core/controllers/HeaderCtrl.js",
         "app/js/thisissoon-core/controllers/HomeCtrl.js",
@@ -32,14 +31,19 @@
         "app/js/thisissoon-core/controllers/ProjectCtrl.js",
         "app/js/thisissoon-core/directives/header.js",
         "app/js/thisissoon-core/directives/heroVideo.js",
-        "app/js/thisissoon-core/directives/navbar.js",
-        "app/js/thisissoon-core/directives/navCounter.js",
         "app/js/thisissoon-core/filters/currentDate.js",
-        "app/js/thisissoon-core/filters/numberString.js",
         "app/js/thisissoon-animation/app.js",
         "app/js/thisissoon-animation/config.js",
         "app/js/thisissoon-animation/snLogo.js",
         "app/js/thisissoon-animation/snLogoParallax.js",
-        "app/js/thisissoon-cache/CacheService.js"
+        "app/js/thisissoon-cache/CacheService.js",
+        "app/js/thisissoon-nav/app.js",
+        "app/js/thisissoon-nav/config.js",
+        "app/js/thisissoon-nav/navbar/app.js",
+        "app/js/thisissoon-nav/navbar/navbar.js",
+        "app/js/thisissoon-nav/navbar/NavbarCtrl.js",
+        "app/js/thisissoon-nav/navCounter.js",
+        "app/js/thisissoon-nav/numberString.js",
+        "app/js/thisissoon-nav/hexShade.js"
     ]
 }
