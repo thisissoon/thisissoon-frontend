@@ -1,7 +1,7 @@
 {
   "AWSEBDockerrunVersion": "1",
   "Image": {
-    "Name": "soon/thisissoon-frontend",
+    "Name": "soon/thisissoon-frontend:develop",
     "Update": "true"
   },
   "Ports": [
