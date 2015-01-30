@@ -1,10 +1,9 @@
 "use strict";
 /**
- * @module thisissoon.core
+ * @module thisissoon.animation
  * @author SOON_
- * @class  animation
  */
-angular.module("thisissoon.core")
+angular.module("thisissoon.animation")
 
     .constant("SOON_LOGO", {
         "full": {
