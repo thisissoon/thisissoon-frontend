@@ -36,10 +36,10 @@
         "app/js/thisissoon-core/directives/navCounter.js",
         "app/js/thisissoon-core/filters/currentDate.js",
         "app/js/thisissoon-core/filters/numberString.js",
-        "app/js/thisissoon-core/services/CacheService.js"
         "app/js/thisissoon-animation/app.js",
         "app/js/thisissoon-animation/config.js",
         "app/js/thisissoon-animation/snLogo.js",
-        "app/js/thisissoon-animation/snLogoParallax.js"
+        "app/js/thisissoon-animation/snLogoParallax.js",
+        "app/js/thisissoon-cache/CacheService.js"
     ]
 }

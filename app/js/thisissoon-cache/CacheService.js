@@ -6,11 +6,13 @@
  * data we want to store. You can then retrieve any data by using:
  * CacheService.get("foo") which will return the value of the key "foo" in
  * the service.
- * @module thisissoon.core
+ * @module thisissoon.cache
  * @author SOON_
  * @class  CacheService
  */
-angular.module("thisissoon.core").service("CacheService", [
+angular.module("thisissoon.cache", [])
+
+.service("CacheService", [
     "$cacheFactory",
     function($cacheFactory){
         return $cacheFactory("cache");
