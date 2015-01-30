@@ -23,6 +23,12 @@ dependencies:
     - npm -d install
     - npm install -g grunt-cli
 
+# Test Commands
+
+test:
+  override:
+    - grunt test
+
 # Push to Docker Hub
 
 deployment:
