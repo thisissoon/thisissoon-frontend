@@ -36,7 +36,7 @@ angular.module("thisissoon.api").service("ThisissoonAPI", [
         this.getProjectDetail = function getProjectDetail(id){
             var deferred = $q.defer();
 
-            $http.get(ENV.SERVER_ADDRESS + "projects/" + id + "/")
+            $http.get(ENV.API_ADDRESS + "projects/" + id + "/")
                 .success(function (data) {
                     deferred.resolve(data);
                 })
@@ -67,7 +67,7 @@ angular.module("thisissoon.api").service("ThisissoonAPI", [
         this.getProjects = function getProjects(){
             var deferred = $q.defer();
 
-            $http.get(ENV.SERVER_ADDRESS + "projects/")
+            $http.get(ENV.API_ADDRESS + "projects/")
                 .success(function (data) {
                     deferred.resolve(data);
                 })
@@ -98,7 +98,7 @@ angular.module("thisissoon.api").service("ThisissoonAPI", [
         this.getCategories = function getCategories(){
             var deferred = $q.defer();
 
-            $http.get(ENV.SERVER_ADDRESS + "categories/")
+            $http.get(ENV.API_ADDRESS + "categories/")
                 .success(function (data) {
                     deferred.resolve(data);
                 })
@@ -128,7 +128,7 @@ angular.module("thisissoon.api").service("ThisissoonAPI", [
         this.getJobs = function getCategories(){
             var deferred = $q.defer();
 
-            $http.get(ENV.SERVER_ADDRESS + "jobs/")
+            $http.get(ENV.API_ADDRESS + "jobs/")
                 .success(function (data) {
                     deferred.resolve(data);
                 })

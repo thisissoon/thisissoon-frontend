@@ -5,6 +5,7 @@ var modRewrite = require("connect-modrewrite");
 module.exports = function (grunt) {
 
     var base = grunt.option("baseDir") || "",
+        env = grunt.option("env") || "production",
         protractorConf = grunt.option("ci") ?
                         "tests/e2e/protractor.saucelabs.conf.js" :
                         "tests/e2e/protractor.conf.js" ;
@@ -16,6 +17,7 @@ module.exports = function (grunt) {
         config: {
             outputDir: "dist/",
             applicationFiles: grunt.file.readJSON("scripts.json").application,
+            env: grunt.file.readJSON("env.json")[env],
             vendorFiles: grunt.file.readJSON("scripts.json").vendor
         },
 
@@ -198,7 +200,9 @@ module.exports = function (grunt) {
                     "<%= config.outputDir %>js/app.min.js":
                     [
                         "<%= config.vendorFiles %>",
-                        "<%= config.applicationFiles %>"
+                        "<%= config.applicationFiles %>",
+                        "!app/js/config.js",
+                        "<%= config.outputDir %>js/config.js"
                     ]
                 }
             }
@@ -272,8 +276,18 @@ module.exports = function (grunt) {
                     outdir: "docs/"
                 }
             }
-        }
+        },
 
+        ngconstant: {
+            options: {
+                name: "config",
+                dest: "<%= config.outputDir %>js/config.js",
+                constants: {
+                    ENV: "<%= config.env %>"
+                }
+            },
+            production: {}
+        },
 
     });
 
@@ -290,10 +304,12 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks("grunt-protractor-runner");
     grunt.loadNpmTasks("grunt-protractor-webdriver");
     grunt.loadNpmTasks("grunt-processhtml");
+    grunt.loadNpmTasks('grunt-ng-constant');
 
     grunt.registerTask("build", [
         "clean:beforeBuild",
         "jshint",
+        "ngconstant:production",
         "uglify",
         "jasmine:production",
         "less:production",
@@ -327,6 +343,7 @@ module.exports = function (grunt) {
     ]);
 
     grunt.registerTask("e2e", [
+        "ngconstant:production",
         "uglify",
         "less:production",
         "copy",

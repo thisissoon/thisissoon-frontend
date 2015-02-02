@@ -15,13 +15,13 @@ describe("ThisissoonAPI", function (){
         ENV = $injector.get("ENV");
 
         $httpBackend
-            .when("GET", ENV.SERVER_ADDRESS + "projects/1/")
+            .when("GET", ENV.API_ADDRESS + "projects/1/")
             .respond({
                 "id": 1
             });
 
         $httpBackend
-            .when("GET", ENV.SERVER_ADDRESS + "projects/")
+            .when("GET", ENV.API_ADDRESS + "projects/")
             .respond([{
                 "id": 1
             },{
@@ -29,7 +29,7 @@ describe("ThisissoonAPI", function (){
             }]);
 
         $httpBackend
-            .when("GET", ENV.SERVER_ADDRESS + "categories/")
+            .when("GET", ENV.API_ADDRESS + "categories/")
             .respond({
                 "categories": [{
                     "title": "Advertising",
@@ -65,7 +65,7 @@ describe("ThisissoonAPI", function (){
     });
 
     it("should reject the promise when the server returns an error on getProjectDetail service call", function (){
-        $httpBackend.when("GET", ENV.SERVER_ADDRESS + "projects/1/").respond(500,"");
+        $httpBackend.when("GET", ENV.API_ADDRESS + "projects/1/").respond(500,"");
 
         var response;
         service.getProjectDetail(1).catch(function (data){
@@ -89,7 +89,7 @@ describe("ThisissoonAPI", function (){
     });
 
     it("should reject the promise when the server returns an error on getProjects service call", function (){
-        $httpBackend.when("GET", ENV.SERVER_ADDRESS + "projects/").respond(500,"");
+        $httpBackend.when("GET", ENV.API_ADDRESS + "projects/").respond(500,"");
 
         var response;
         service.getProjects().catch(function (data){
@@ -114,7 +114,7 @@ describe("ThisissoonAPI", function (){
     });
 
     it("should reject the promise when the server returns an error on getCategories service call", function (){
-        $httpBackend.when("GET", ENV.SERVER_ADDRESS + "categories/").respond(500,"");
+        $httpBackend.when("GET", ENV.API_ADDRESS + "categories/").respond(500,"");
 
         var response;
         service.getCategories().catch(function (data){

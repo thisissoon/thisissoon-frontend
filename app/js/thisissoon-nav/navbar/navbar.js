@@ -2,23 +2,27 @@
 /**
  * Directive for site navigation.
  * @author SOON_
- * @module thisissoon.core
- * @class  soonNavbar
+ * @module thisissoon.nav
+ * @class  snNavbar
  */
-angular.module("thisissoon.core").directive("soonNavbar",[
+angular.module("thisissoon.nav.snNavbar").directive("snNavbar",[
     "$timeout",
     "$rootScope",
-    "$location",
+    "$filter",
     "ScrollService",
     "CacheService",
+    "NAV",
     /**
      * @constructor
      * @param {Service} $timeout      angular wrapper for setTimeout
      * @param {Service} ScrollService handles scroll events
      */
-    function ($timeout, $rootScope, $location, ScrollService, CacheService){
+    function ($timeout, $rootScope, $filter, ScrollService, CacheService){
         return {
-            restrict: "A",
+            restrict: "E",
+            scope: {},
+            templateUrl: "partials/navbar.html",
+            controller: "NavbarCtrl",
             link: function($scope, $element) {
 
                 /**
@@ -44,7 +48,7 @@ angular.module("thisissoon.core").directive("soonNavbar",[
 
                     // hide navigation on scroll action
                     if (lastScroll.time !== 0 && lastScroll.position.px < scrollPosition.px) {
-                        $element.removeClass("navbar-show").addClass("navbar-hide");
+                        $element.find("nav").addClass("navbar-hide");
                     }
 
                     // track lastScroll properties
@@ -56,56 +60,35 @@ angular.module("thisissoon.core").directive("soonNavbar",[
                     // show nav once scrolling has stopped for 800ms
                     $timeout(function() {
                         if (timeNow === lastScroll.time) {
-                            $element.removeClass("navbar-hide").addClass("navbar-show");
+                            $element.find("nav").removeClass("navbar-hide");
                         }
                     }, delay);
                 }
 
                 /**
-                 * Hide the fullscreen navigation on selecting an item
-                 * @method navClick
+                 * Set navbar style from backgroundColor
+                 * @method setNavStyle
                  */
-                $scope.navClick = function navClick(){
-                    CacheService.put("navOpen", false);
-                }
+                $scope.setNavStyle = function setNavStyle(navStyle) {
 
-                /**
-                 * Toggles the state of the main nav menu by updating
-                 * the "navOpen" value in the CacheService service
-                 * @method toggleNav
-                 */
-                $scope.toggleNav = function toggleNav($event){
-                    CacheService.put("navOpen", !CacheService.get("navOpen"));
-                }
+                    if (navStyle && navStyle.charAt(0) === "#") {
+                        $scope.navStyle = $filter("snHexShade")(navStyle, true);
+                    } else if (navStyle) {
+                        $scope.navStyle = navStyle;
+                    }
 
-                /**
-                 * Switchs navbar style from navbar-light to navbar-dark
-                 * @param {String}  navStyle  "dark"|"light"
-                 * @method switchNavStyle
-                 */
-                $scope.switchNavStyle = function switchNavStyle(navStyle) {
-                    switch(navStyle) {
+                    switch($scope.navStyle) {
                         case "dark":
-                            $element.removeClass("navbar-light").addClass("navbar-dark");
+                            $element.find("nav").addClass("navbar-dark").removeClass("navbar-light");
                             CacheService.put("navStyle", "dark");
                             break;
                         default:
-                            $element.removeClass("navbar-dark").addClass("navbar-light");
+                            $element.find("nav").removeClass("navbar-dark").addClass("navbar-light");
                             CacheService.put("navStyle", "light");
                     }
                 }
 
                 ScrollService.add($scope.$id, onScroll);
-
-                // on bootstrap scrollspy event set navigation style
-                $rootScope.$on("duScrollspy:becameActive", function($event, $element){
-                    var anchor = angular.element($element).find("a");
-                    var navStyle = anchor[0].dataset.navStyle;
-
-                    $rootScope.$broadcast("scrollSpyChanged",  { event: $element, navStyle: navStyle });
-                    $scope.switchNavStyle(navStyle);
-                });
-
             }
         }
     }

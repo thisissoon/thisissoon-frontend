@@ -44,6 +44,7 @@ angular.module("thisissoon.core").controller("ProjectCtrl", [
             CacheService.put("backgroundColor", project.background_colour);
             $scope.setNextPrevious();
 
+            // remove "www" from beginning of link for display
             if ($scope.project.link) {
                 $scope.project.linkText = $scope.project.link.split("/")[2].split("www.")[1];
             }
@@ -54,28 +55,32 @@ angular.module("thisissoon.core").controller("ProjectCtrl", [
          * @method setNextPrevious
          */
         $scope.setNextPrevious = function setNextPrevious(){
-            var index = 0;
+            var index = 0,
+                current = 0,
+                next = 0,
+                previous = 0;
 
             angular.forEach($scope.projects, function (project, key){
                 if ($scope.project.id === project.id) {
                     index = key;
-                    $scope.current = key + 1;
 
                     if (typeof $scope.projects[key + 1] !== "undefined"){
-                        $scope.next = $scope.projects[key + 1].id;
+                        next = $scope.projects[key + 1].id;
                     }
 
                     if (typeof $scope.projects[key - 1] !== "undefined"){
-                        $scope.previous = $scope.projects[key - 1].id;
+                        previous = $scope.projects[key - 1].id;
                     }
                 }
             })
 
-            $rootScope.$broadcast("currentProject", {
+            $rootScope.$broadcast("thisissoon:projectChanged", {
                 id: $scope.project.id,
-                currentCount: $scope.current,
-                next: $scope.next,
-                previous: $scope.previous
+                current: index + 1,
+                next: next,
+                previous: previous,
+                count: projects.list.length,
+                backgroundColor: project.background_colour
             });
         }
 

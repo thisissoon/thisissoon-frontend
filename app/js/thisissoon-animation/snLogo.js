@@ -2,10 +2,12 @@
 /**
  * Directive for SOON logo
  * @author SOON_
- * @module thisissoon.core
+ * @module thisissoon.animation.snLogo
  * @class  snLogo
  */
-angular.module("thisissoon.core").directive("snLogo",[
+angular.module("thisissoon.animation.snLogo", [])
+
+.directive("snLogo",[
     "SOON_LOGO",
     /**
      * @constructor
@@ -14,8 +16,7 @@ angular.module("thisissoon.core").directive("snLogo",[
         return {
             restrict: "E",
             scope: {
-                style: "@",
-                section: "@"
+                style: "@"
             },
             templateUrl: "partials/logo.html",
             link: function($scope, $element) {

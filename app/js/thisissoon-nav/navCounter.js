@@ -1,27 +1,37 @@
 "use strict";
 /**
- * Directive for section pagination.
+ * Directive for displaying current section.
  * @author SOON_
- * @module thisissoon.core
- * @class  soonPagination
+ * @module thisissoon.nav.snNavCounter
+ * @class  snNavCounter
  */
-angular.module("thisissoon.core").directive("navCounter",[
+angular.module("thisissoon.nav.snNavCounter", [
+    "thisissoon.nav.config",
+    "thisissoon.nav.snNumberString"
+])
+
+.directive("snNavCounter",[
     "$timeout",
     "ScrollService",
+    "NAV",
     /**
      * @constructor
      */
-    function ($timeout, ScrollService){
+    function ($timeout, ScrollService, NAV){
         return {
-            restrict: "EAC",
+            restrict: "E",
             templateUrl: "partials/nav-counter.html",
+            scope: {
+                "style": "="
+            },
             link: function($scope, $element) {
 
+                $scope.sections = NAV;
                 $scope.sectionCurrent = 1;
 
                 var activeNav, activeLi, activeIndex, ul;
 
-                $scope.$on("scrollSpyChanged", function (event, data) {
+                $scope.$on("snNavbar:scrollSectionChanged", function (event, data) {
                     activeNav = angular.element(data.event).find("a").attr("href");
 
                     ul = $element.find("ul").children();
