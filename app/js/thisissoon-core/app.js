@@ -18,6 +18,7 @@ angular.module("thisissoon.core", [
     "thisissoon.api",
     "sn.velocity",
     "sn.skrollr",
+    "sn.addthis",
     "duScroll"
 ])
 
