@@ -21,6 +21,8 @@ angular.module("thisissoon.core", [
     "thisissoon.cache",
     "thisissoon.animation",
     "sn.velocity",
+    "sn.skrollr",
+    "sn.addthis",
     "duScroll"
 ])
 

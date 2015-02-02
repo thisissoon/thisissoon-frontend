@@ -7,6 +7,7 @@
 .btn {
     background-color: @yellow;
     border: none;
+    border-radius: 0;
     color: @black;
     font-family: @font-sans-serif;
     font-size: 1.286em; // 18px
@@ -163,6 +164,45 @@
         .nav-open & {
             display: block;
         }
+    }
+
+    &.btn-share {
+        color: @white;
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: 0.9em;
+        height: 26px;
+        line-height: 23px;
+
+        .icon {
+            position: relative;
+            font-size: 1.2em;
+            height: 17px;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+
+        .share-text {
+            margin-right: 8px;
+        }
+
+        &:hover {
+            background-color: @white;
+            color: @black;
+        }
+    }
+
+    &.btn-twitter {
+        background-color: @twitter-blue;
+    }
+    &.btn-facebook {
+        background-color: @facebook-blue;
+    }
+    &.btn-google-plus {
+        background-color: @google-red;
+    }
+    &.btn-pinterest {
+        background-color: @google-red;
     }
 
 }
