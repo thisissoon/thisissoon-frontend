@@ -22,11 +22,11 @@
             <div class="row">
                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                     <div class="vertical-center project-logo-container">
-                       <img class="project-logo" ng-src="{{ project.project_logo.small.replace('/media', 'http://localdocker/media') }}" alt="{{ project.title }}">
+                       <img class="project-logo" ng-src="{{ env.SERVER_ADDRESS + project.project_logo.small }}" alt="{{ project.title }}">
                     </div>
                 </div>
                 <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2" >
-                    <img class="project-hero" ng-src="{{ project.overview_image.medium.replace('/media', 'http://localdocker/media') }}"><br>
+                    <img class="project-hero" ng-src="{{ env.SERVER_ADDRESS + project.overview_image.medium }}"><br>
                     <div class="project-desc">{{ project.introduction }}</div>
                 </div>
             </div>

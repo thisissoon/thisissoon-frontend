@@ -29,6 +29,13 @@ angular.module("thisissoon.core").controller("HeaderCtrl", [
     function ($scope, $rootScope, $document, $filter, CacheService, ThisissoonAPI, ICONS, NAV) {
 
         /**
+         * Expose env in isolate scope
+         * @property env
+         * @type     {Object}
+         */
+        $scope.env = $rootScope.env;
+
+        /**
          * List of projects from thisissoon API
          * @property projects
          * @type     {Array}

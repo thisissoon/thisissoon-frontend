@@ -9,7 +9,7 @@
                 <h1>{{ project.title }}</h1>
             </div>
             <h2>{{ project.introduction }}</h2>
-            <img class="hero-image" ng-src="{{ project.hero_image.huge.replace('/media', 'http://localdocker/media') }}">
+            <img class="hero-image" ng-src="{{ env.SERVER_ADDRESS + project.hero_image.huge }}">
         </div>
     </div>
 

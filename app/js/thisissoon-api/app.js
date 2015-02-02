@@ -5,4 +5,4 @@
  * @module thisissoon.api
  * @author SOON_
  */
-angular.module("thisissoon.api", ["env"])
+angular.module("thisissoon.api", ["config"])

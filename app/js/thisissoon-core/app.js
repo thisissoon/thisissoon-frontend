@@ -12,6 +12,7 @@
  * @requires duScroll
  */
 angular.module("thisissoon.core", [
+    "config",
     "ngRoute",
     "ngSanitize",
     "soon.ui",
@@ -26,14 +27,16 @@ angular.module("thisissoon.core", [
 .run([
     "$rootScope",
     "CacheService",
+    "ENV",
     /**
      * @constructor
      * @param {Service} $rootScope
      * @param {Service} CacheService
      */
-    function ($rootScope, CacheService) {
+    function ($rootScope, CacheService, ENV) {
 
         $rootScope.cache = CacheService;
+        $rootScope.env = ENV;
 
         CacheService.put("navOpen", false);
         CacheService.put("loading", true);

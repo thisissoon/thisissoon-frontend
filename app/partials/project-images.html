@@ -1,5 +1,5 @@
 <div class="container-fluid-max-width project-images" ng-repeat="image in project.stacked_images">
-    <img ng-src="{{ image.huge.replace('/media', 'http://localdocker/media') }}">
+    <img ng-src="{{ env.SERVER_ADDRESS + image.huge }}">
     <div class="caption">
         <div class="container-fluid">
             <div class="row">

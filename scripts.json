@@ -17,7 +17,7 @@
         "app/js/sn-skrollr/snSkrollrService.js"
     ],
     "application": [
-        "app/js/env.js",
+        "app/js/config.js",
         "app/js/thisissoon-api/app.js",
         "app/js/thisissoon-api/services/ThisissoonAPI.js",
         "app/js/thisissoon-core/app.js",
