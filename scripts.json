@@ -7,6 +7,7 @@
         "app/components/angular-scroll/angular-scroll.js",
         "app/components/velocity/velocity.js",
         "app/components/angular-velocity-animate/dist/angular-velocity.js",
+        "app/components/skrollr/dist/skrollr.min.js",
         "app/components/angular-skrollr/dist/angular-skrollr.js",
         "app/js/soon-ui/app.js",
         "app/js/soon-ui/directives/fixed.js",
