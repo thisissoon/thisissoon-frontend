@@ -18,8 +18,8 @@ machine:
 
 dependencies:
   pre:
-    - pip install awscli
-    - pip install awsebcli
+    - sudo pip install awscli
+    - sudo pip install awsebcli
     - sed "s/<EMAIL>/$DOCKER_EMAIL/;s/<AUTH>/$DOCKER_AUTH/" < .dockercfg.template > ~/.dockercfg
   override:
     - npm -d install
