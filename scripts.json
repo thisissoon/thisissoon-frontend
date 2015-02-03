@@ -30,6 +30,7 @@
         "app/js/thisissoon-core/directives/header.js",
         "app/js/thisissoon-core/directives/heroVideo.js",
         "app/js/thisissoon-core/filters/currentDate.js",
+        "app/js/thisissoon-core/filters/linkDisplay.js",
         "app/js/thisissoon-animation/app.js",
         "app/js/thisissoon-animation/config.js",
         "app/js/thisissoon-animation/snLogo.js",

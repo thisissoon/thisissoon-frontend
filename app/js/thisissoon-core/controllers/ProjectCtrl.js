@@ -9,17 +9,20 @@
 angular.module("thisissoon.core").controller("ProjectCtrl", [
     "$scope",
     "$rootScope",
+    "$filter",
     "CacheService",
     "project",
     "projects",
     /**
      * @constructor
-     * @param {Object}  $scope     Scope of the controller
-     * @param {Service} CacheService  Stores data to share between controllers
-     * @param {Object}  project    Project detail object from thisissoon API
-     * @param {Object}  projects   List of projects from api
+     * @param   {Object}  $scope       Scope of the controller
+     * @param   {Object}  $rootScope   application root scope
+     * @param   {Service} $filter      angular filter service; selects a subset of items from array and returns it as a new array.
+     * @param   {Service} CacheService Stores data to share between controllers
+     * @param   {Object}  project      Project detail object from thisissoon API
+     * @param   {Object}  projects     List of projects from api
      */
-    function ($scope, $rootScope, CacheService, project, projects) {
+    function ($scope, $rootScope, $filter, CacheService, project, projects) {
 
         /**
          * List of projects from thisissoon API
@@ -44,9 +47,9 @@ angular.module("thisissoon.core").controller("ProjectCtrl", [
             CacheService.put("backgroundColor", project.background_colour);
             $scope.setNextPrevious();
 
-            // remove "www" from beginning of link for display
+            // format link for display
             if ($scope.project.link) {
-                $scope.project.linkText = $scope.project.link.split("/")[2].split("www.")[1];
+                $scope.project.linkText = $filter("linkDisplay")($scope.project.link);
             }
         }
 
@@ -65,11 +68,11 @@ angular.module("thisissoon.core").controller("ProjectCtrl", [
                     index = key;
 
                     if (typeof $scope.projects[key + 1] !== "undefined"){
-                        next = $scope.projects[key + 1].id;
+                        $scope.next = $scope.projects[key + 1].id;
                     }
 
                     if (typeof $scope.projects[key - 1] !== "undefined"){
-                        previous = $scope.projects[key - 1].id;
+                        $scope.previous = $scope.projects[key - 1].id;
                     }
                 }
             })
@@ -77,8 +80,8 @@ angular.module("thisissoon.core").controller("ProjectCtrl", [
             $rootScope.$broadcast("thisissoon:projectChanged", {
                 id: $scope.project.id,
                 current: index + 1,
-                next: next,
-                previous: previous,
+                next: $scope.next,
+                previous: $scope.previous,
                 count: projects.list.length,
                 backgroundColor: project.background_colour
             });
