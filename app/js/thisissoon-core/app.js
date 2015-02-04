@@ -29,13 +29,16 @@ angular.module("thisissoon.core", [
 .run([
     "$rootScope",
     "CacheService",
+    "snSkrollr",
     "ENV",
     /**
      * @constructor
      * @param {Service} $rootScope
      * @param {Service} CacheService
      */
-    function ($rootScope, CacheService, ENV) {
+    function ($rootScope, CacheService, snSkrollr, ENV) {
+
+        snSkrollr.init();
 
         $rootScope.cache = CacheService;
         $rootScope.env = ENV;

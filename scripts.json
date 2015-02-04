@@ -7,14 +7,14 @@
         "app/components/angular-scroll/angular-scroll.js",
         "app/components/velocity/velocity.js",
         "app/components/angular-velocity-animate/dist/angular-velocity.js",
+        "app/components/skrollr/dist/skrollr.min.js",
+        "app/components/angular-skrollr/dist/angular-skrollr.js",
         "app/js/soon-ui/app.js",
         "app/js/soon-ui/directives/fixed.js",
         "app/js/soon-ui/directives/fullscreen.js",
         "app/js/soon-ui/directives/video.js",
         "app/js/soon-ui/services/ResizeService.js",
-        "app/js/soon-ui/services/ScrollService.js",
-        "app/js/sn-skrollr/snSkrollr.js",
-        "app/js/sn-skrollr/snSkrollrService.js"
+        "app/js/soon-ui/services/ScrollService.js"
     ],
     "application": [
         "app/js/config.js",
