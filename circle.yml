@@ -49,6 +49,6 @@ deployment:
   develop:
     branch: develop
     commands:
-      - grunt build
+      - grunt build --env=stage
       - docker build -t $REPO:$TAG .
       - docker push $REPO:$TAG
