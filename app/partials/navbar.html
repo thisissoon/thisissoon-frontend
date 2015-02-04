@@ -12,11 +12,11 @@
     <div class="collapse navbar-collapse" ng-if="!cache.get('projectView')">
         <ul class="nav navbar-nav" du-spy-context>
             <li ng-repeat="section in sections" du-scrollspy="{{ section.id }}">
-                <a href="#{{ section.id }}" data-nav-style="{{ section.navStyle }}" data-event="{{ section.id }}" ng-click="navClick($event)" du-smooth-scroll ng-if="section.id !== 'project'">
+                <a ng-href="#{{ section.id }}" data-nav-style="{{ section.navStyle }}" data-event="{{ section.id }}" ng-click="navClick($event)" du-smooth-scroll ng-if="section.id !== 'project'">
                     <i class="{{ section.icon }}" ng-if="section.icon"></i>
                     <span class="text">{{ section.title }}</span>
                 </a>
-                <a href="#{{ section.id }}" data-nav-style="{{ section.navStyle }}" data-event="{{ section.id }}" ng-click="navClick($event)" ng-if="section.id === 'project'">
+                <a ng-href="#{{ section.id }}" data-nav-style="{{ section.navStyle }}" data-event="{{ section.id }}" ng-click="navClick($event)" ng-if="section.id === 'project'">
                     <i class="{{ section.icon }}" ng-if="section.icon"></i>
                     <span class="text">{{ section.title }}</span>
                 </a>
@@ -35,7 +35,7 @@
                 </a>
             </li>
             <li ng-class="{ 'disabled': !prevProject }">
-                <a href ng-href="#/projects/{{ prevProject }}" ng-if="prevProject"><span class="text">Previous</span></a>
+                <a ng-href="#/projects/{{ prevProject }}" ng-if="prevProject"><span class="text">Previous</span></a>
                 <a href ng-if="!prevProject"><span class="text">Previous</span></a>
             </li>
             <li class="active"><a href><span class="text">{{ currentProject }} / {{ projectCount }}</span></a></li>
