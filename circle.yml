@@ -38,6 +38,10 @@ deployment:
     branch: master
     commands:
       - grunt build
+      - docker build -t $REPO:$TAG .
+      - docker push $REPO:$TAG
+      - eb deploy:
+          timeout: 600
   release:
     branch: /release\/.*/
     commands:
@@ -48,4 +52,3 @@ deployment:
       - grunt build
       - docker build -t $REPO:$TAG .
       - docker push $REPO:$TAG
-      - eb deploy
