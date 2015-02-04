@@ -15,11 +15,12 @@ angular.module("thisissoon.core").controller("HomeCtrl", [
     "GREETINGS",
     /**
      * @constructor
-     * @param {Object}  $scope
-     * @param {Object}  $rootScope
-     * @param {Service} CacheService  Stores data to share between controllers
-     * @param {Object}  projects   List of projects from api
-     * @param {Object}  jobs       List of jobs from api
+     * @param {Object}  $scope       date in controller scope
+     * @param {Object}  $rootScope   application root scope
+     * @param {Object}  $timeout     angular wrapper for timeout
+     * @param {Service} CacheService Stores data to share between controllers
+     * @param {Object}  projects     List of projects from api
+     * @param {Object}  jobs         List of jobs from api
      */
     function ($scope, $rootScope, $timeout, CacheService, projects, jobs, GREETINGS) {
 
@@ -49,15 +50,6 @@ angular.module("thisissoon.core").controller("HomeCtrl", [
          * @property greeting
          */
         $scope.greeting = "";
-
-        /**
-         * Get background image for hero section
-         * @property getBackgroundImage
-         * @type     {String}
-         */
-        $scope.getBackgroundImage = function getBackgroundImage(){
-            return CacheService.get("backgroundImage");
-        }
 
         /**
          * Get background color for hero section
@@ -105,8 +97,9 @@ angular.module("thisissoon.core").controller("HomeCtrl", [
          * Return random item from array
          * @param   {Array}  array array to parse
          * @returns {String} random item
+         * @method randomItemFromArray
          */
-        $scope.randomItem = function randomItem(array) {
+        $scope.randomItemFromArray = function randomItemFromArray(array) {
             return array[(Math.floor(Math.random() * array.length))];
         }
 
@@ -123,11 +116,11 @@ angular.module("thisissoon.core").controller("HomeCtrl", [
                 eve = time >= $scope.timeBoundaries.eve && time < $scope.timeBoundaries.tomo;
 
             if (am) {
-                return $scope.randomItem(GREETINGS.am);
-            } else if (pm) {
-                return $scope.randomItem(GREETINGS.pm);
+                return $scope.randomItemFromArray(GREETINGS.am);
             } else if (eve) {
-                return $scope.randomItem(GREETINGS.eve);
+                return $scope.randomItemFromArray(GREETINGS.eve);
+            } else {
+                return $scope.randomItemFromArray(GREETINGS.pm);
             }
         }
 

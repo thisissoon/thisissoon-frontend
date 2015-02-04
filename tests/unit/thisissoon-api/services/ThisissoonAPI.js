@@ -47,6 +47,26 @@ describe("ThisissoonAPI", function (){
                 }]
             });
 
+        $httpBackend
+            .when("GET", ENV.API_ADDRESS + "jobs/")
+            .respond({
+                "list": [
+                    {
+                        "id":1,
+                        "title":"Backend Developer",
+                        "blurb":"Are you an experienced Python dev looking to make new moves?",
+                        "pdf":null,
+                        "email":""
+                    },{
+                        "id":2,
+                        "title":"Freelancers",
+                        "blurb":"We’re always keen to hear from the best specialist freelancers. Drop us a line at:",
+                        "pdf":null,
+                        "email":"freelancers@thisissoon.com"
+                    }
+                ]
+            });
+
     }));
 
     afterEach(function() {
@@ -119,6 +139,30 @@ describe("ThisissoonAPI", function (){
         var response;
         service.getCategories().catch(function (data){
             response = data;
+        });
+        $httpBackend.flush();
+        expect(response).toEqual(undefined);
+
+    });
+
+    it("should return an array of jobs on getJobs service call", function (){
+        var jobList;
+        service.getJobs().then(function (response){
+            jobList = response.list;
+        });
+        $httpBackend.flush();
+        expect(jobList.length).toBe(2);
+        expect(jobList.length).not.toBe(1);
+        expect(jobList[0].id).toEqual(1);
+        expect(jobList[1].id).toEqual(2);
+    });
+
+    it("should reject the promise when the server returns an error on getJobs service call", function (){
+        $httpBackend.when("GET", ENV.API_ADDRESS + "jobs/").respond(500,"");
+
+        var response;
+        service.getJobs().catch(function (data){
+            data = response;
         });
         $httpBackend.flush();
         expect(response).toEqual(undefined);
