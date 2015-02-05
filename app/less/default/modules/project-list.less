@@ -32,8 +32,9 @@
         }
 
         .project-hero {
+            .transition(left 0.5s);
             position: relative;
-            left: -18%;
+            left: -9%;
         }
 
         .project-desc {
@@ -43,10 +44,19 @@
         .vertical-center {
             bottom: 0;
             left: 0;
-            margin-top: 50%;
+            margin-top: 30%;
             position: absolute;
             right: 0;
             top: 0;
+        }
+
+        &:hover {
+            .project-hero {
+                left: -4%;
+            }
+            .view-project {
+                left: 30%;
+            }
         }
     }
 
@@ -68,6 +78,13 @@
         .btn {
             margin: 0;
         }
+    }
+
+    .view-project {
+        .transition(left 0.5s);
+        left: 100%;
+        position: absolute;
+        top: 42%;
     }
 }
 
