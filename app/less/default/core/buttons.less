@@ -9,15 +9,13 @@
     border: none;
     border-radius: 0;
     color: @black;
-    font-family: @font-sans-serif;
-    font-size: 1.286em; // 18px
+    font-size: 2.5714em; // 36px
     font-weight: 400;
-    line-height: 45px;
-    height: 45px;
-    padding: 0px 25px;
+    line-height: 48px;
+    padding: 5px 5px;
     position: relative;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 0;
+    margin-bottom: 0;
     .transition(all .2s);
 
     & + .btn {
@@ -130,8 +128,8 @@
     &.active:focus {
         .box-shadow(none);
         border-color: white;
-        background-color: @yellow;
-        color: @white;
+        background-color: @white;
+        color: @black;
 
         svg [fill] {
             fill: @white;
