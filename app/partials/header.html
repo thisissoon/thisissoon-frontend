@@ -17,8 +17,9 @@
             <img class="icon icon-close" src="img/icons/close.svg">
         </button>
     </div>
-    <article class="project container-fluid" ng-repeat="project in projects" ng-style="{ 'background-color': '{{ project.background_colour }}', 'color': '{{ project.text_colour }}' }">
-        <a href ng-href="#/projects/{{ project.id }}" ng-click="toggleProjects()">
+    <a href ng-href="#/projects/{{ project.id }}" ng-click="toggleProjects()">
+        <article class="project container-fluid" ng-repeat="project in projects" ng-style="{ 'background-color': '{{ project.background_colour }}', 'color': '{{ project.text_colour }}' }">
+
             <div class="row">
                 <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                     <div class="vertical-center project-logo-container">
@@ -29,8 +30,10 @@
                     <img class="project-hero" ng-src="{{ env.SERVER_ADDRESS + project.overview_image.medium }}"><br>
                     <div class="project-desc">{{ project.introduction }}</div>
                 </div>
+                <div class="btn view-project">View project</div>
             </div>
-        </a>
-    </article>
+
+        </article>
+    </a>
 </div>
 
