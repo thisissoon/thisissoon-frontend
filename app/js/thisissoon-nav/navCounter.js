@@ -29,7 +29,7 @@ angular.module("thisissoon.nav.snNavCounter", [
                 $scope.sections = NAV;
                 $scope.sectionCurrent = 1;
 
-                var activeNav, activeLi, activeIndex, ul;
+                var activeLi, activeIndex, ul;
 
                 /**
                  * Set nav style, active class and section index for current section
@@ -37,18 +37,16 @@ angular.module("thisissoon.nav.snNavCounter", [
                  * @param {Object} data  data object { event: js event from duScroll, navStyle: sections nav style }
                  */
                 $scope.$on("snNavbar:scrollSectionChanged", function (event, data) {
-                    // set nav style
+                    // set nav style and active section
                     $scope.style = data.navStyle;
-
-                    // store active section href
-                    activeNav = angular.element(data.event).find("a").attr("href");
+                    $scope.active = data.section;
 
                     // cache nav list items
                     ul = $element.find("ul").children();
                     ul.removeClass("active");
 
                     // set active class on active nav item
-                    activeLi = angular.element($element[0].querySelector("li a[href='" + activeNav + "']")).parent();
+                    activeLi = angular.element($element[0].querySelector("li a[href='" + $scope.active + "']")).parent();
                     activeLi.addClass("active");
 
                     // set current section index for 'x of x' display
