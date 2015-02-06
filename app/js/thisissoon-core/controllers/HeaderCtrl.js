@@ -43,13 +43,6 @@ angular.module("thisissoon.core").controller("HeaderCtrl", [
         $scope.projects = [];
 
         /**
-         * Expose icon animation object on scope
-         * @property iconAnimation
-         * @type     {Object}
-         */
-        $scope.iconAnimations = ICONS;
-
-        /**
          * Track navbar colour in project view
          * @propert  navStyle
          * @property {String}

@@ -8,7 +8,7 @@
 </div>
 
 <div class="brand hidden-lg hidden-md">
-    <div class="logo {{ navStyle }}" ng-include="'img/header/SOON.svg'"></div>
+    <sn-logo class="logo" data-style="light"></sn-logo>
 </div>
 
 <div class="project-list">
@@ -17,8 +17,8 @@
             <img class="icon icon-close" src="img/icons/close.svg">
         </button>
     </div>
-    <a href ng-href="#/projects/{{ project.id }}" ng-click="toggleProjects()">
-        <article class="project container-fluid" ng-repeat="project in projects" ng-style="{ 'background-color': '{{ project.background_colour }}', 'color': '{{ project.text_colour }}' }">
+    <a href ng-href="#/projects/{{ project.id }}" ng-repeat="project in projects" ng-click="toggleProjects()">
+        <article class="project container-fluid" ng-style="{ 'background-color': '{{ project.background_colour }}', 'color': '{{ project.text_colour }}' }">
 
             <div class="vertical-center project-logo-container">
                 <img class="project-logo" ng-src="{{ env.SERVER_ADDRESS + project.project_logo.small }}" alt="{{ project.title }}">

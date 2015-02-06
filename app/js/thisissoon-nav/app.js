@@ -8,5 +8,7 @@ angular.module("thisissoon.nav", [
     "thisissoon.nav.snNavbar",
     "thisissoon.nav.snNavCounter",
     "thisissoon.nav.snNumberString",
-    "thisissoon.nav.snHexShade"
+    "thisissoon.nav.snHexShade",
+
+    "thisissoon.animation"
 ])

@@ -67,10 +67,13 @@ angular.module("thisissoon.nav.snNavbar").controller("NavbarCtrl", [
          * @param {Object} $element anchor element for active section
          */
         $rootScope.$on("duScrollspy:becameActive", function($event, $element){
-            var anchor = angular.element($element).find("a");
-            var navStyle = anchor[0].dataset.navStyle;
+            var anchor = angular.element($element).find("a"),
+                navStyle = anchor[0].dataset.navStyle;
 
-            $rootScope.$broadcast("snNavbar:scrollSectionChanged",  { event: $element, navStyle: navStyle });
+            $rootScope.$broadcast("snNavbar:scrollSectionChanged",  {
+                section: anchor.attr("href"),
+                navStyle: navStyle
+            });
             $scope.setNavStyle(navStyle);
         });
 
