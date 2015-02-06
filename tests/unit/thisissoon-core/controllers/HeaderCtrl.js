@@ -2,7 +2,7 @@
 
 describe("HeaderCtrl", function (){
 
-    var scope, rootScope, _filter , _cache, _thisissoonAPI, _ICONS, _projects;
+    var scope, rootScope, _filter , _cache, _thisissoonAPI, _projects;
 
     beforeEach(function(){
         module("thisissoon.core");
@@ -16,8 +16,6 @@ describe("HeaderCtrl", function (){
         _filter = $injector.get("$filter");
 
         _cache = $injector.get("CacheService");
-
-        _ICONS = {};
 
         _projects = {
             list: [
@@ -38,8 +36,7 @@ describe("HeaderCtrl", function (){
             $rootScope: rootScope,
             $filter: _filter,
             CacheService: _cache,
-            ThisissoonAPI: _thisissoonAPI,
-            ICONS: _ICONS
+            ThisissoonAPI: _thisissoonAPI
         });
 
     }));
@@ -47,7 +44,6 @@ describe("HeaderCtrl", function (){
     it("should declare variables in scope", function (){
         expect(scope.env).toEqual(jasmine.any(Object));
         expect(scope.projects).toEqual(jasmine.any(Array));
-        expect(scope.iconAnimations).toEqual(_ICONS);
         expect(scope.navStyle).toEqual(jasmine.any(String));
         expect(scope.toggleProjects).toEqual(jasmine.any(Function));
     });
