@@ -28,6 +28,7 @@ angular.module("thisissoon.core", [
 
 .run([
     "$rootScope",
+    "$window",
     "CacheService",
     "snSkrollr",
     "ENV",
@@ -36,9 +37,11 @@ angular.module("thisissoon.core", [
      * @param {Service} $rootScope
      * @param {Service} CacheService
      */
-    function ($rootScope, CacheService, snSkrollr, ENV) {
+    function ($rootScope, $window, CacheService, snSkrollr, ENV) {
 
-        snSkrollr.init();
+        if ($window.innerWidth > 1023) {
+            snSkrollr.init();
+        }
 
         $rootScope.cache = CacheService;
         $rootScope.env = ENV;
