@@ -20,17 +20,19 @@
     <a href ng-href="#/projects/{{ project.id }}" ng-click="toggleProjects()">
         <article class="project container-fluid" ng-repeat="project in projects" ng-style="{ 'background-color': '{{ project.background_colour }}', 'color': '{{ project.text_colour }}' }">
 
+            <div class="vertical-center project-logo-container">
+                <img class="project-logo" ng-src="{{ env.SERVER_ADDRESS + project.project_logo.small }}" alt="{{ project.title }}">
+            </div>
+
             <div class="row">
                 <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                    <div class="vertical-center project-logo-container">
-                       <img class="project-logo" ng-src="{{ env.SERVER_ADDRESS + project.project_logo.small }}" alt="{{ project.title }}">
-                    </div>
+
                 </div>
                 <div class="col-lg-8 col-lg-offset-1 col-md-8 col-md-offset-1 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0" >
                     <img class="project-hero" ng-src="{{ env.SERVER_ADDRESS + project.overview_image.medium }}"><br>
                     <div class="project-desc">{{ project.introduction }}</div>
                 </div>
-                <div class="btn view-project">View project</div>
+                <h2 class="btn view-project">View project</h2>
             </div>
 
         </article>
