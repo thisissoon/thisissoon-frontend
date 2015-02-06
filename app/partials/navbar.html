@@ -2,7 +2,7 @@
     ng-class="{ 'home': !cache.get('projectView'), 'projects': cache.get('projectView') }">
 
     <div class="navbar-header">
-        <button type="button" class="btn btn-icon-sm navbar-toggle" ng-click="toggleNav($event)" velocity data-src="'img/icons/burger.svg'" data-keyframes="iconAnimations.burger" data-bind="'click'" data-toggle="true">
+        <button type="button" class="btn btn-icon-sm navbar-toggle" ng-click="toggleNav($event)" ng-include="'img/icons/burger.svg'">
             <span class="sr-only">Toggle navigation</span>
             <span class="btn-label">Close</span>
         </button>
