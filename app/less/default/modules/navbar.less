@@ -22,7 +22,9 @@ nav.navbar {
         position: relative;
     }
 
-    li a {
+    a:link,
+    a:visited,
+    a:focus {
         background-color: transparent;
         display: block;
         height: 100%;
@@ -30,16 +32,16 @@ nav.navbar {
         padding: 30px 29px 11px 5px;
     }
 
+    a:hover,
+    a:active {
+        background-color: @yellow;
+        color: @black;
+    }
+
     li a i {
         display: block;
         position: absolute;
         top: 20px;
-    }
-
-    li a:hover,
-    li a:active {
-        background-color: @yellow;
-        color: @black;
     }
 
     li.disabled {
