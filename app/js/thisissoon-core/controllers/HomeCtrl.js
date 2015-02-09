@@ -9,6 +9,7 @@ angular.module("thisissoon.core").controller("HomeCtrl", [
     "$scope",
     "$rootScope",
     "$timeout",
+    "$filter",
     "CacheService",
     "projects",
     "jobs",
@@ -18,11 +19,12 @@ angular.module("thisissoon.core").controller("HomeCtrl", [
      * @param {Object}  $scope       date in controller scope
      * @param {Object}  $rootScope   application root scope
      * @param {Object}  $timeout     angular wrapper for timeout
+     * @param {Object}  $filter      angular filter service
      * @param {Service} CacheService Stores data to share between controllers
      * @param {Object}  projects     List of projects from api
      * @param {Object}  jobs         List of jobs from api
      */
-    function ($scope, $rootScope, $timeout, CacheService, projects, jobs, GREETINGS) {
+    function ($scope, $rootScope, $timeout, $filter, CacheService, projects, jobs, GREETINGS) {
 
         /**
          * List of projects from thisissoon api
@@ -36,7 +38,7 @@ angular.module("thisissoon.core").controller("HomeCtrl", [
          * @property sticky
          * @type     {Object}
          */
-        $scope.sticky = projects.sticky;
+        $scope.sticky = projects.list[0];
 
         /**
          * List of jobs from thisissoonapi
@@ -131,6 +133,7 @@ angular.module("thisissoon.core").controller("HomeCtrl", [
         $scope.init = function() {
             $scope.currentTime.get();
             $scope.greeting = $scope.getGreeting();
+            $scope.sticky.navStyle = $filter("snHexShade")($scope.sticky.background_colour, true);
         }
 
         $scope.init();

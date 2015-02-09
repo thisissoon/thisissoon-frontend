@@ -2,7 +2,7 @@
 
 describe("HomeCtrl", function (){
 
-    var scope, rootScope, _timeout, _cache, _projects, _jobs, _GREETINGS;
+    var scope, rootScope, _timeout, _filter, _cache, _projects, _jobs, _GREETINGS;
 
     beforeEach(function(){
         module("thisissoon.core");
@@ -15,14 +15,22 @@ describe("HomeCtrl", function (){
         rootScope = $rootScope;
 
         _timeout = $injector.get("$timeout");
+        _filter = $injector.get("$filter");
 
         _cache = $injector.get("CacheService");
         spyOn(_cache, "get");
         spyOn(_cache, "put");
 
         _projects = {
-            list: [],
-            sticky: {}
+            list: [
+                {
+                    title: "A project title",
+                    background_colour: "#FFFFFF"
+                },{
+                    title: "Another project's title",
+                    background_colour: "#000000"
+                }
+            ]
         }
 
         _jobs = {
@@ -39,6 +47,7 @@ describe("HomeCtrl", function (){
             $scope: scope,
             $rootScope: rootScope,
             $timeout: _timeout,
+            $filter: _filter,
             CacheService: _cache,
             projects: _projects,
             jobs: _jobs,
@@ -62,7 +71,7 @@ describe("HomeCtrl", function (){
 
     it("should have projects array and sticky object in scope", function (){
         expect(scope.projects).toEqual(_projects.list);
-        expect(scope.sticky).toEqual(_projects.sticky);
+        expect(scope.sticky).toEqual(_projects.list[0]);
     });
 
     it("should get background colour from cache", function (){
@@ -73,6 +82,11 @@ describe("HomeCtrl", function (){
     it("should toggle project list view on call to toggleProjects", function (){
         scope.toggleProjects();
         expect(_cache.put).toHaveBeenCalledWith("projectList", true);
+    });
+
+    it("should set sticky project style", function (){
+        scope.init();
+        expect(scope.sticky.navStyle).toEqual("dark");
     });
 
     it("should return correct greeting based on time", function (){
