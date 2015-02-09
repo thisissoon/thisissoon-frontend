@@ -1,12 +1,12 @@
 <div class="container-fluid content project-hero" ng-style="{ 'background-color': projects[0].background_colour, 'color': projects[0].text_colour }">
 
     <article class="row">
-        <div class="col-lg-2 col-md-2 hidden-sm hidden-xs">
+        <div class="col-lg-2 col-md-2 hidden-sm hidden-xs logo-container">
            <sn-logo-parallax data-logo-style="dark" data-section="project"></sn-logo-parallax>
         </div>
         <div class="col-lg-8  col-lg-offset-2 col-md-8  col-md-offset-2  col-sm-12  col-sm-offset-0  col-xs-12  col-xs-offset-0">
             <h1 class="section-heading">Latest</h1>
-            <img class="hero-image" ng-src="{{ env.SERVER_ADDRESS + projects[0].overview_image.medium }}">
+            <img class="hero-image" ng-src="{{ env.SERVER_ADDRESS + projects[0].hero_image.huge }}">
             <h6>{{ projects[0].title }}</h6>
             <p>{{ projects[0].introduction }}</p>
             <br>
