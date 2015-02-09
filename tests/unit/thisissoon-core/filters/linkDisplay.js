@@ -14,8 +14,18 @@ describe("linkDisplay", function() {
 
     }));
 
-    it("should return link without 'http://www'", function(){
+    it("should return link without 'http://www.'", function(){
         var result = filter("http://www.thisissoon.com");
+        expect(result).toEqual("thisissoon.com");
+    });
+
+    it("should return link without 'http://'", function(){
+        var result = filter("http://thisissoon.com");
+        expect(result).toEqual("thisissoon.com");
+    });
+
+    it("should return link without 'www.'", function(){
+        var result = filter("www.thisissoon.com");
         expect(result).toEqual("thisissoon.com");
     });
 
