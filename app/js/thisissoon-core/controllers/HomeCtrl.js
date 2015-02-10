@@ -131,6 +131,11 @@ angular.module("thisissoon.core").controller("HomeCtrl", [
         $scope.init = function() {
             $scope.currentTime.get();
             $scope.greeting = $scope.getGreeting();
+
+            $rootScope.socialMeta = {
+                description: "We design and build digital products, services and brands.",
+                image: "img/header/SOON.svg"
+            };
         }
 
         $scope.init();

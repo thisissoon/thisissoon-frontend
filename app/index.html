@@ -15,16 +15,22 @@
         <link rel="stylesheet" href="css/all.css"/>
         <!-- /build -->
 
-         <!-- Facebook  -->
-        <meta name="og:site_name" content="SOON_" />
-        <meta name="og:description" content="We design and build digital products, services and brands." />
+        <!-- Twitter Card data -->
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:url" content="{{ socialMeta.url || 'http://www.thisissoon.com' }}">
+        <meta name="twitter:site" content="@soonlondon">
+        <meta name="twitter:title" content="{{ socialMeta.title || 'SOON_' }}">
+        <meta name="twitter:description" content="{{ socialMeta.description }}">
+        <meta name="twitter:creator" content="@soonlondon">
+        <meta name="twitter:image:src" content="{{ socialMeta.image }}">
 
-        <!-- Twitter  -->
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:site" content="@soonlondon" />
-        <meta name="twitter:title" content="SOON_" />
-        <meta name="twitter:description" content="We design and build digital products, services and brands." />
-        <meta name="twitter:url" content="http://thisissoon.com" />
+        <!-- Open Graph data -->
+        <meta property="og:title" content="{{ socialMeta.title || 'SOON_' }}" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="{{ socialMeta.url || 'http://www.thisissoon.com' }}"/>
+        <meta property="og:image" content="{{ socialMeta.image }}" />
+        <meta property="og:description" content="{{ socialMeta.description }}" />
+        <meta property="og:site_name" content="SOON_" />
 
         <!-- Google Plus  -->
         <meta itemprop="name" content="SOON_">
@@ -35,8 +41,8 @@
             'project-list-open': cache.get('projectList'),
             'loading-active': cache.get('loading'),
             'project-view': cache.get('projectView')
-          }"
-          class="loading-active"
+        }"
+        class="loading-active"
     >
 
         <header class="header"></header>
@@ -47,7 +53,7 @@
 
 
         <!-- Add this -->
-        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-545b3f957aee3425&domready=1" async="async"></script>
+        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-54da2c451489176b&domready=1" async="async"></script>
 
         <!-- build:js js/app.min.js -->
 
