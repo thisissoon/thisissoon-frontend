@@ -217,6 +217,14 @@ module.exports = function (grunt) {
                     dest: "<%= config.outputDir %>img/"
                 }]
             },
+            fonts: {
+                files: [{
+                    expand: true,
+                    cwd: "app/fonts",
+                    src: ["**/*", "!test/**"],
+                    dest: "<%= config.outputDir %>fonts/"
+                }]
+            },
             partials: {
                 files: [{
                     expand: true,
@@ -314,6 +322,7 @@ module.exports = function (grunt) {
         "jasmine:production",
         "less:production",
         "copy:images",
+        "copy:fonts",
         "copy:partials",
         "processhtml:production",
         "yuidoc"
