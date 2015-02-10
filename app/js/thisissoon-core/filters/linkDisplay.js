@@ -9,7 +9,7 @@ angular.module("thisissoon.core").filter("linkDisplay", [
     "$filter",
     function($filter) {
         return function(input) {
-            return input.replace("http://", "").replace("www.", "");
+            return input.replace("http://", "").replace("https://", "").replace("www.", "");
         };
     }
 ])
