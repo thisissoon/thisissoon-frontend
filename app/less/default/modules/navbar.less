@@ -22,14 +22,17 @@ nav.navbar {
         position: relative;
     }
 
+    a {
+        display: block;
+        height: 100%;
+        padding: 30px 29px 11px 5px;
+        .transition(~"background 0.2s, color 0.2s");
+    }
+
     a:link,
     a:visited,
     a:focus {
         background-color: transparent;
-        display: block;
-        height: 100%;
-        .transition(~"background 0.2s, color 0.2s");
-        padding: 30px 29px 11px 5px;
     }
 
     a:hover,
@@ -84,6 +87,10 @@ nav.navbar {
 .navbar-fixed-top {
     left: inherit;
     right: inherit;
+
+    .navbar-collapse {
+        max-height: none;
+    }
 }
 
 .navbar-hide {
