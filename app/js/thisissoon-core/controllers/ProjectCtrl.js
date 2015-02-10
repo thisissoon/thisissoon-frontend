@@ -10,6 +10,7 @@ angular.module("thisissoon.core").controller("ProjectCtrl", [
     "$scope",
     "$rootScope",
     "$filter",
+    "$location",
     "CacheService",
     "project",
     "projects",
@@ -22,7 +23,7 @@ angular.module("thisissoon.core").controller("ProjectCtrl", [
      * @param   {Object}  project      Project detail object from thisissoon API
      * @param   {Object}  projects     List of projects from api
      */
-    function ($scope, $rootScope, $filter, CacheService, project, projects) {
+    function ($scope, $rootScope, $filter, $location, CacheService, project, projects) {
 
         /**
          * List of projects from thisissoon API
@@ -51,6 +52,13 @@ angular.module("thisissoon.core").controller("ProjectCtrl", [
             if ($scope.project.link) {
                 $scope.project.linkText = $filter("linkDisplay")($scope.project.link);
             }
+
+            $rootScope.socialMeta = {
+                description: $scope.project.introduction,
+                title: $scope.project.title,
+                image: $rootScope.env.SERVER_ADDRESS + $scope.project.hero_image.huge,
+                url: $location.absUrl()
+            };
         }
 
         /**
