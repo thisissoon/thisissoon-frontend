@@ -28,6 +28,8 @@ angular.module("thisissoon.core", [
 
 .run([
     "$rootScope",
+    "ResizeService",
+    "$window",
     "CacheService",
     "snSkrollr",
     "ENV",
@@ -36,9 +38,17 @@ angular.module("thisissoon.core", [
      * @param {Service} $rootScope
      * @param {Service} CacheService
      */
-    function ($rootScope, CacheService, snSkrollr, ENV) {
+    function ($rootScope, ResizeService, $window, CacheService, snSkrollr, ENV) {
 
-        snSkrollr.init();
+        ResizeService.add($rootScope.$id, function(event, size) {
+            if (size.width >= 1024 && !$rootScope.skrollrInitialised) {
+                snSkrollr.init();
+                $rootScope.skrollrInitialised = true;
+            } else if (size.width < 1024 && $rootScope.skrollrInitialised) {
+                $rootScope.skrollrInitialised = false;
+                snSkrollr.destroy();
+            }
+        });
 
         $rootScope.cache = CacheService;
         $rootScope.env = ENV;
@@ -56,6 +66,9 @@ angular.module("thisissoon.core", [
         // close nav menu when changing views
         $rootScope.$on("$routeChangeSuccess", function() {
             CacheService.put("loading", false);
+            if ($rootScope.skrollrInitialised) {
+                snSkrollr.refresh();
+            }
         });
 
     }

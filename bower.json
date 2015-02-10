@@ -15,7 +15,7 @@
     "velocity": "1.2.1",
     "angular-scroll": "0.6.4",
     "angular-velocity-animate": "~0.0.1",
-    "angular-skrollr": "~0.0.1",
+    "angular-skrollr": "~0.0.3",
     "skrollr": "~0.6.29"
   },
   "devDependencies": {

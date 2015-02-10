@@ -15,12 +15,11 @@ angular.module("thisissoon.core").config([
      */
     function ($routeProvider, $httpProvider, snSkrollrProvider) {
 
-        snSkrollrProvider.init = {
+        snSkrollrProvider.config = {
             forceHeight: false,
             smoothScrolling: true,
             mobileDeceleration: 0.004
         };
-
 
         $httpProvider.defaults.cache = false;
 
