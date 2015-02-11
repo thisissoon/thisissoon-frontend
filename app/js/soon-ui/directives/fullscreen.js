@@ -16,7 +16,9 @@ angular.module("soon.ui").directive("soonFullscreen",[
     function (ResizeService){
         return {
             restrict: "A",
-            scope: {},
+            scope: {
+                "offset": "="
+            },
             link: function($scope, $element, attrs) {
 
                 /**
@@ -48,7 +50,13 @@ angular.module("soon.ui").directive("soonFullscreen",[
                  */
                 var makeFullScreen = function makeFullScreen($event, windowSize){
                     var cssProperty = attrs.soonFullscreen ? "height" : "min-height";
-                    $element.css(cssProperty, (windowSize.height+"px"));
+                    var height = windowSize.height;
+
+                    if (typeof $scope.offset === "number") {
+                        height = windowSize.height + $scope.offset;
+                    }
+
+                    $element.css(cssProperty, (height+"px"));
                 }
 
                 /**

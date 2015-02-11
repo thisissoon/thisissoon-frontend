@@ -32,7 +32,7 @@
         }
 
         .project-hero {
-            .transition(left 0.3s);
+            .transition(~"transform 0.3s");
             position: relative;
             left: -11%;
         }
@@ -45,16 +45,18 @@
 
         &:hover {
             .project-hero {
-                left: -4%;
-            }
-            .view-project {
-                left: 30%;
+                .scale(1.1);
             }
         }
     }
 
     .project-hero {
         max-height: 420px;
+    }
+
+    .project-desc {
+        position: relative;
+        z-index: 10;
     }
 
     a {
@@ -73,13 +75,6 @@
         }
     }
 
-    .view-project {
-        .transition(left 0.3s);
-        left: 100%;
-        position: absolute;
-        top: 50%;
-        .translate(0, -50%);
-    }
 }
 
 // dimmed body overlay
