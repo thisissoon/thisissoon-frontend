@@ -26,7 +26,10 @@ describe("ProjectCtrl", function (){
             answers: [""],
             project_stats: [""],
             screenshots: [""],
-            link: "http://thisissoon.com"
+            link: "http://thisissoon.com",
+            hero_image: {
+                huge: ""
+            }
         };
 
         _projects = {
