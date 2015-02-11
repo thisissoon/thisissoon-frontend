@@ -29,4 +29,9 @@ describe("linkDisplay", function() {
         expect(result).toEqual("thisissoon.com");
     });
 
+    it("should return only the domain without any routes", function(){
+        var result = filter("https://www.thisissoon.com/projects?search=web");
+        expect(result).toEqual("thisissoon.com");
+    });
+
 });
