@@ -62,6 +62,13 @@ angular.module("thisissoon.nav.snNavbar").directive("snNavbar",[
                         if (timeNow === lastScroll.time) {
                             $element.find("nav").removeClass("navbar-hide");
                         }
+
+                        // set 'scrolled' class if page has been scrolled
+                        if (lastScroll.position.px !== 0) {
+                            $element.addClass("scrolled");
+                        } else {
+                            $element.removeClass("scrolled");
+                        }
                     }, delay);
                 }
 
