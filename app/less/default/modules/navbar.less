@@ -6,7 +6,9 @@
 
 nav.navbar {
 
-    .transition(top 0.5s);
+    height: 53px;
+    width: 100%;
+    .transition(~"top 0.5s, background 0.3s");
 
     ul {
         height: 53px;
@@ -57,12 +59,24 @@ nav.navbar {
     }
 }
 
-.navbar-light li a {
-    color: @white;
+.navbar-light {
+    li a {
+        color: @white;
+    }
+
+    .scrolled & {
+        background-color: @dark-trans;
+    }
 }
 
-.navbar-dark li a {
-    color: @black;
+.navbar-dark {
+    li a {
+        color: @black;
+    }
+
+    .scrolled & {
+        background-color: @light-trans;
+    }
 }
 
 .navbar-header {
