@@ -134,6 +134,8 @@ angular.module("thisissoon.core").controller("HomeCtrl", [
             $scope.currentTime.get();
             $scope.greeting = $scope.getGreeting();
             $scope.sticky.navStyle = $filter("snHexShade")($scope.sticky.background_colour, true);
+
+            $rootScope.cache.put("navStyle", "light");
         }
 
         $scope.init();

@@ -34,14 +34,14 @@
                     <span class="text">All casestudies</span>
                 </a>
             </li>
-            <li ng-class="{ 'disabled': !prevProject }">
-                <a ng-href="#/projects/{{ prevProject }}" ng-if="prevProject"><span class="text">Previous</span></a>
-                <a href ng-if="!prevProject"><span class="text">Previous</span></a>
+            <li ng-class="{ 'disabled': !project.previous }">
+                <a ng-href="#/projects/{{ project.previous }}" ng-if="project.previous"><span class="text">Previous</span></a>
+                <a href ng-if="!project.previous"><span class="text">Previous</span></a>
             </li>
-            <li class="active"><a href><span class="text">{{ currentProject }} / {{ projectCount }}</span></a></li>
-            <li ng-class="{ 'disabled': !nextProject }">
-                <a ng-href="#/projects/{{ nextProject }}" ng-if="nextProject"><span class="text">Next</span></a>
-                <a href ng-if="!nextProject"><span class="text">Next</span></a>
+            <li class="active"><a href><span class="text">{{ project.current }} / {{ project.count }}</span></a></li>
+            <li ng-class="{ 'disabled': !project.next }">
+                <a ng-href="#/projects/{{ project.next }}" ng-if="project.next"><span class="text">Next</span></a>
+                <a href ng-if="!project.next"><span class="text">Next</span></a>
             </li>
         </ul>
     </div>

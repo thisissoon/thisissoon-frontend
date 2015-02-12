@@ -34,10 +34,16 @@ angular.module("thisissoon.nav.snNavbar").controller("NavbarCtrl", [
 
         /**
          * Track navbar colour in project view
-         * @propert  navStyle
-         * @property {String}
+         * @property navStyle
+         * @type     {String}
          */
         $scope.navStyle = "light";
+
+        /**
+         * Current project details
+         * @property {Object} project
+         */
+        $scope.project = {};
 
         /**
          * Hide the fullscreen navigation on selecting an item
@@ -78,16 +84,15 @@ angular.module("thisissoon.nav.snNavbar").controller("NavbarCtrl", [
         });
 
         /**
-         * On project change set next/previous and styles
-         * @param {Object} event js event object
-         * @param {Object} data  project data
+         * On project change set next/previous and nav style
+         * @param {Object} newProject project navigated too (current)
+         * @param {Object} oldProject project navigated away from
          */
-        $scope.$on("thisissoon:projectChanged", function(event, data){
-            $scope.currentProject = data.current;
-            $scope.prevProject = data.previous;
-            $scope.nextProject = data.next;
-            $scope.projectCount = data.count;
-            $scope.setNavStyle(data.backgroundColor);
+        $scope.$watch("cache.get('project')", function(newProject, oldProject){
+            if (newProject && newProject.backgroundColor) {
+                $scope.project = newProject;
+                $scope.setNavStyle(newProject.backgroundColor);
+            }
         });
     }
 ]);

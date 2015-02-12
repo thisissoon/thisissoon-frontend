@@ -29,6 +29,13 @@ angular.module("thisissoon.core").controller("HeaderCtrl", [
     function ($scope, $rootScope, $document, $filter, CacheService, ThisissoonAPI, ICONS, NAV) {
 
         /**
+         * Expose CacheService on scope
+         * @property cache
+         * @type     {Service}
+         */
+        $scope.cache = CacheService;
+
+        /**
          * Expose env in isolate scope
          * @property env
          * @type     {Object}
@@ -77,10 +84,31 @@ angular.module("thisissoon.core").controller("HeaderCtrl", [
 
         $scope.init();
 
+        /**
+         * Listen for project action broadcast from snNavbar and
+         * trigger toggleProjects to display the project list view
+         */
         $scope.$on("snNavbar:project", $scope.toggleProjects);
 
+        /**
+         * Listen for scrollSectionChanged event from snNavbar and
+         * set nav style accordingly
+         * @param {Object} event js event
+         * @param {Object} data  section data
+         */
         $scope.$on("snNavbar:scrollSectionChanged", function(event, data){
             $scope.navStyle = data.navStyle;
+        });
+
+        /**
+         * On project change set nav style from project background color
+         * @param {Object} newProject project navigated too (current)
+         */
+        $scope.$watch("cache.get('project')", function(newProject){
+            if (newProject && newProject.backgroundColor) {
+                $scope.navStyle = $filter("snHexShade")(newProject.backgroundColor, true);
+            }
+
         });
     }
 
