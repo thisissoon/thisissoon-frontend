@@ -79,7 +79,7 @@ angular.module("thisissoon.core").controller("HeaderCtrl", [
 
         $scope.$on("snNavbar:project", $scope.toggleProjects);
 
-        $scope.$on("snNavbar:styleChanged", function(event, data){
+        $scope.$on("snNavbar:scrollSectionChanged", function(event, data){
             $scope.navStyle = data.navStyle;
         });
     }
