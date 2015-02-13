@@ -30,6 +30,7 @@ angular.module("thisissoon.core", [
     "$rootScope",
     "ResizeService",
     "$window",
+    "$document",
     "CacheService",
     "snSkrollr",
     "ENV",
@@ -38,7 +39,7 @@ angular.module("thisissoon.core", [
      * @param {Service} $rootScope
      * @param {Service} CacheService
      */
-    function ($rootScope, ResizeService, $window, CacheService, snSkrollr, ENV) {
+    function ($rootScope, ResizeService, $window, $document, CacheService, snSkrollr, ENV) {
 
         ResizeService.add($rootScope.$id, function(event, size) {
             if (size.width >= 1024 && !$rootScope.skrollrInitialised) {
@@ -67,7 +68,7 @@ angular.module("thisissoon.core", [
         $rootScope.$on("$routeChangeSuccess", function() {
             CacheService.put("loading", false);
             if ($rootScope.skrollrInitialised) {
-                snSkrollr.refresh();
+                $document.ready(snSkrollr.refresh);
             }
         });
 
