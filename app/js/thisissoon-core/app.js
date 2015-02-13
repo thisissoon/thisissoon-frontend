@@ -30,7 +30,7 @@ angular.module("thisissoon.core", [
     "$rootScope",
     "ResizeService",
     "$window",
-    "$document",
+    "$timeout",
     "CacheService",
     "snSkrollr",
     "ENV",
@@ -39,7 +39,7 @@ angular.module("thisissoon.core", [
      * @param {Service} $rootScope
      * @param {Service} CacheService
      */
-    function ($rootScope, ResizeService, $window, $document, CacheService, snSkrollr, ENV) {
+    function ($rootScope, ResizeService, $window, $timeout, CacheService, snSkrollr, ENV) {
 
         ResizeService.add($rootScope.$id, function(event, size) {
             if (size.width >= 1024 && !$rootScope.skrollrInitialised) {
@@ -67,9 +67,7 @@ angular.module("thisissoon.core", [
         // close nav menu when changing views
         $rootScope.$on("$routeChangeSuccess", function() {
             CacheService.put("loading", false);
-            if ($rootScope.skrollrInitialised) {
-                $document.ready(snSkrollr.refresh);
-            }
+            $timeout(snSkrollr.refresh, 200);
         });
 
     }
