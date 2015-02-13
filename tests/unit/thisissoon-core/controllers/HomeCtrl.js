@@ -37,11 +37,18 @@ describe("HomeCtrl", function (){
             list: []
         }
 
-        _GREETINGS = {
-            am: ["Morning"],
-            pm: ["Afternoon"],
-            eve: ["Evening"]
-        }
+        _GREETINGS = [
+            {
+                "text": "Midnight",
+                "image": ""
+            },{
+                "text": "1",
+                "image": ""
+            },{
+                "text": "2",
+                "image": ""
+            }
+        ];
 
         $controller("HomeCtrl", {
             $scope: scope,
@@ -60,11 +67,9 @@ describe("HomeCtrl", function (){
         expect(scope.projects).toEqual(jasmine.any(Array));
         expect(scope.sticky).toEqual(jasmine.any(Object));
         expect(scope.jobs).toEqual(jasmine.any(Array));
-        expect(scope.greeting).toEqual(jasmine.any(String));
         expect(scope.getBackgroundColor).toEqual(jasmine.any(Function));
         expect(scope.toggleProjects).toEqual(jasmine.any(Function));
         expect(scope.currentTime).toEqual(jasmine.any(Object));
-        expect(scope.timeBoundaries).toEqual(jasmine.any(Object));
         expect(scope.getGreeting).toEqual(jasmine.any(Function));
         expect(scope.init).toEqual(jasmine.any(Function));
     });
@@ -89,21 +94,23 @@ describe("HomeCtrl", function (){
         expect(scope.sticky.navStyle).toEqual("dark");
     });
 
-    it("should return correct greeting based on time", function (){
+    it("should return correct greeting based on hour", function (){
 
-        scope.timeBoundaries = { am: 1422923338069, pm: 1422966538069, eve: 1422988138069, tomo: 1423009738069 }
-
-        scope.currentTime.value = 1422923338070;
+        scope.currentTime.value = {
+            getHours: function() {
+                return 1;
+            }
+        };
         var greeting = scope.getGreeting();
-        expect(greeting).toEqual("Morning");
+        expect(greeting.text).toEqual("1");
 
-        scope.currentTime.value = 1422966538070;
+        scope.currentTime.value = {
+            getHours: function() {
+                return 2;
+            }
+        };
         greeting = scope.getGreeting();
-        expect(greeting).toEqual("Afternoon");
-
-        scope.currentTime.value = 1422988138070;
-        greeting = scope.getGreeting();
-        expect(greeting).toEqual("Evening");
+        expect(greeting.text).toEqual("2");
     });
 
     it("should update currentTime.value", function (){
