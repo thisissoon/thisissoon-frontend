@@ -17,11 +17,6 @@
     z-index: 1100;
     .transition(~"visibility 0.5s ease, opacity 0.5s ease");
 
-    .project-list-open & {
-        opacity: 1;
-        visibility: visible;
-    }
-
     .project {
         position: relative;
         padding-bottom: 50px;
@@ -75,6 +70,21 @@
         }
     }
 
+}
+
+// when project list is "open"
+.project-list-open {
+
+    // show the project list
+    .project-list {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    // hide nav toggle icon
+    .navbar-toggle {
+        display: none;
+    }
 }
 
 // dimmed body overlay

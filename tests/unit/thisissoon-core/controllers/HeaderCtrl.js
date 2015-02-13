@@ -64,9 +64,16 @@ describe("HeaderCtrl", function (){
         expect(scope.projects).toEqual(_projects.list);
     });
 
-    it("should listen for styleChanged events from snNavbar and update scope", function (){
+    it("should listen for scrollSectionChanged events from snNavbar and update scope", function (){
         scope.navStyle = "light";
-        scope.$broadcast("snNavbar:styleChanged", { navStyle: "dark" })
+        scope.$broadcast("snNavbar:scrollSectionChanged", { navStyle: "dark" })
+        expect(scope.navStyle).toEqual("dark");
+    });
+
+    it("should watch project value in cache", function (){
+        _cache.put("project", { backgroundColor: "#FFFFFF" });
+        scope.$digest();
+
         expect(scope.navStyle).toEqual("dark");
     });
 

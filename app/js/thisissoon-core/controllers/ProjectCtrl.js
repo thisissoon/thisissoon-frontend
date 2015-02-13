@@ -80,7 +80,7 @@ angular.module("thisissoon.core").controller("ProjectCtrl", [
                 }
             })
 
-            $rootScope.$broadcast("thisissoon:projectChanged", {
+            CacheService.put("project", {
                 id: $scope.project.id,
                 current: index + 1,
                 next: $scope.next,
@@ -102,6 +102,7 @@ angular.module("thisissoon.core").controller("ProjectCtrl", [
         $scope.$on("$destroy", function(){
             CacheService.remove("projectView");
             CacheService.remove("backgroundColor");
+            CacheService.remove("project");
         })
 
         $scope.init();

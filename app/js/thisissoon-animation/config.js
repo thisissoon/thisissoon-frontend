@@ -60,7 +60,7 @@ angular.module("thisissoon.animation")
                     "properties": { x: "+=100" },
                     "options": { duration: 0, delay: 150 }
                 },{
-                    "properties": { x: "+=100" },
+                    "properties": { x: "+=110" },
                     "options": { duration: 0, delay: 150 }
                 },{
                     "properties": { opacity: 0 },
