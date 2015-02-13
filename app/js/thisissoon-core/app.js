@@ -67,7 +67,9 @@ angular.module("thisissoon.core", [
         // close nav menu when changing views
         $rootScope.$on("$routeChangeSuccess", function() {
             CacheService.put("loading", false);
-            $timeout(snSkrollr.refresh, 200);
+            if ($rootScope.skrollrInitialised) {
+                $timeout(snSkrollr.refresh, 200);
+            }
         });
 
     }
