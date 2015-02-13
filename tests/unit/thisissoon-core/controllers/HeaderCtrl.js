@@ -70,4 +70,11 @@ describe("HeaderCtrl", function (){
         expect(scope.navStyle).toEqual("dark");
     });
 
+    it("should watch project value in cache", function (){
+        _cache.put("project", { backgroundColor: "#FFFFFF" });
+        scope.$digest();
+
+        expect(scope.navStyle).toEqual("dark");
+    });
+
 });
