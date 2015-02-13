@@ -52,9 +52,8 @@ angular.module("thisissoon.nav.snNavbar").controller("NavbarCtrl", [
         $scope.navClick = function navClick(event){
             CacheService.put("navOpen", false);
 
-            if (event && event.path) {
-                var eventName = angular.element(event.path).find("a").attr("data-event");
-                $scope.$emit("snNavbar:" + eventName, event);
+            if (event) {
+                $scope.$emit("snNavbar:" + event);
             }
         }
 
