@@ -14,13 +14,15 @@
         <div class="col-lg-12 col-lg-offset-4 col-md-12 col-md-offset-4 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0">
             <div class="row">
                 <div
-                   ng-class="{ 'col-lg-2 col-md-2 col-sm-3 col-xs-6': jobs.length > 2, 'col-lg-4 col-md-4 col-sm-6 col-xs-6': jobs.length <= 2 }"
-                   ng-repeat="job in jobs"
+                    class="no-overflow"
+                    ng-class="{ 'col-lg-2 col-md-2 col-sm-3 col-xs-12': jobs.length > 2, 'col-lg-4 col-md-4 col-sm-6 col-xs-12': jobs.length <= 2 }"
+                    ng-repeat="job in jobs"
                 >
                     <h6>{{ job.title }}</h6>
                     <hr>
                     <p>
                         {{ job.blurb }}
+                        <br>
                         <a ng-href="{{ job.pdf }}" target="_blank" ng-if="job.pdf">View details</a>
                         <a ng-href="mailto:{{ job.email }}" ng-if="job.email">{{ job.email }}</a>
                     </p>
