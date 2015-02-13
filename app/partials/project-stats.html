@@ -5,9 +5,13 @@
         </div>
         <div class="col-lg-8  col-lg-offset-4  col-md-8  col-md-offset-4  col-sm-12  col-sm-offset-0  col-xs-12  col-xs-offset-0">
             <div class="row padding-full" ng-if="project.project_stats.length">
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-repeat="stat in project.project_stats">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" ng-repeat="stat in project.project_stats">
                     <div class="stats" >
-                        <p><span class="h1">{{ stat.value }}</span> {{ stat.stat.title }}</p>
+                        <p>
+                            <span class="h1">{{ stat.value }}</span>
+                            <span class="hidden-lg hidden-sm"><br>{{ stat.stat.title }}</span>
+                            <span class="hidden-md hidden-xs">{{ stat.stat.title }}</span>
+                        </p>
                     </div>
                 </div>
             </div>
