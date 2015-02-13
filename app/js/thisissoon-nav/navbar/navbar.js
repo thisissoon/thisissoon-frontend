@@ -29,7 +29,7 @@ angular.module("thisissoon.nav.snNavbar").directive("snNavbar",[
                  * @property lastScroll
                  * @type     {Object}
                  */
-                var lastScroll = {
+                $scope.lastScroll = {
                     time: 0,
                     position: {
                         px: 0
@@ -41,30 +41,30 @@ angular.module("thisissoon.nav.snNavbar").directive("snNavbar",[
                  * @param {Object} $event         scroll event
                  * @param {Object} scrollPosition data object with scroll postion
                  */
-                var onScroll = function($event, scrollPosition) {
+                $scope.onScroll = function onScroll($event, scrollPosition) {
 
                     var timeNow = (new Date()).getTime(),
                         delay = 500;
 
                     // hide navigation on scroll action
-                    if (lastScroll.time !== 0 && lastScroll.position.px < scrollPosition.px) {
+                    if ($scope.lastScroll.time !== 0 && $scope.lastScroll.position.px < scrollPosition.px) {
                         $element.find("nav").addClass("navbar-hide");
                     }
 
                     // track lastScroll properties
-                    lastScroll = {
+                    $scope.lastScroll = {
                         time: timeNow,
                         position: scrollPosition
                     }
 
                     // show nav once scrolling has stopped for 800ms
                     $timeout(function() {
-                        if (timeNow === lastScroll.time) {
+                        if (timeNow === $scope.lastScroll.time) {
                             $element.find("nav").removeClass("navbar-hide");
                         }
 
                         // set 'scrolled' class if page has been scrolled
-                        if (lastScroll.position.px !== 0) {
+                        if ($scope.lastScroll.position.px !== 0) {
                             $element.addClass("scrolled");
                         } else {
                             $element.removeClass("scrolled");
@@ -95,7 +95,7 @@ angular.module("thisissoon.nav.snNavbar").directive("snNavbar",[
                     }
                 }
 
-                ScrollService.add($scope.$id, onScroll);
+                ScrollService.add($scope.$id, $scope.onScroll);
             }
         }
     }
