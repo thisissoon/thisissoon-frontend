@@ -15,13 +15,13 @@
             <div class="collapse navbar-collapse" ng-if="!cache.get('projectView')">
                 <ul class="nav navbar-nav" du-spy-context>
                     <li ng-repeat="section in sections" du-scrollspy="{{ section.id }}">
-                        <a ng-href="#{{ section.id }}" data-nav-style="{{ section.navStyle }}" ng-click="navClick()" du-smooth-scroll ng-if="section.id !== 'project'">
+                        <a ng-href="#{{ section.id }}" data-nav-style="{{ section.navStyle }}" ng-click="navClick(section.id)" du-smooth-scroll ng-if="section.id !== 'project'">
                             <i class="{{ section.icon }}" ng-if="section.icon"></i>
                             <span class="text">{{ section.title }}</span>
                         </a>
                         <!-- Casestudies: hidden link allows scrollspy to track position without requiring href on actual link to fix iOS bug -->
                         <a ng-href="#{{ section.id }}" class="hidden" ng-if="section.id === 'project'"></a>
-                        <a href data-nav-style="{{ section.navStyle }}" ng-click="navClick('project')" ng-if="section.id === 'project'">
+                        <a href data-nav-style="{{ section.navStyle }}" ng-click="navClick(section.id)" ng-if="section.id === 'project'">
                             <i class="{{ section.icon }}" ng-if="section.icon"></i>
                             <span class="text">{{ section.title }}</span>
                         </a>
