@@ -58,10 +58,7 @@ angular.module("thisissoon.core").controller("ProjectCtrl", [
          * @method setNextPrevious
          */
         $scope.setNextPrevious = function setNextPrevious(){
-            var index = 0,
-                current = 0,
-                next = 0,
-                previous = 0;
+            var index = 0;
 
             angular.forEach($scope.projects, function (project, key){
                 if ($scope.project.id === project.id) {
@@ -69,10 +66,16 @@ angular.module("thisissoon.core").controller("ProjectCtrl", [
 
                     if (typeof $scope.projects[key + 1] !== "undefined"){
                         $scope.next = $scope.projects[key + 1].id;
+                    } else {
+                        // back to first project
+                        $scope.next = $scope.projects[0].id;
                     }
 
                     if (typeof $scope.projects[key - 1] !== "undefined"){
                         $scope.previous = $scope.projects[key - 1].id;
+                    } else {
+                        // back to last project
+                        $scope.previous = $scope.projects[$scope.projects.length - 1].id;
                     }
                 }
             })
