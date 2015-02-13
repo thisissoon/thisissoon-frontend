@@ -61,12 +61,8 @@ angular.module("thisissoon.core").controller("HeaderCtrl", [
          * the "projectList" value in the CacheService service
          * @method toggleProjects
          */
-        $scope.toggleProjects = function toggleProjects(event, navEvent){
+        $scope.toggleProjects = function toggleProjects(){
             CacheService.put("projectList", !CacheService.get("projectList"));
-
-            if(navEvent){
-                navEvent.preventDefault();
-            }
             $document.duScrollTop(0);
         }
 
