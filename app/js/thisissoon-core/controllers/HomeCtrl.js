@@ -51,7 +51,7 @@ angular.module("thisissoon.core").controller("HomeCtrl", [
          * Current greetings
          * @property greeting
          */
-        $scope.greeting = "";
+        $scope.greeting = {};
 
         /**
          * Get background color for hero section
@@ -85,45 +85,13 @@ angular.module("thisissoon.core").controller("HomeCtrl", [
         }
 
         /**
-         * Time boundaries for dynamic greeting
-         * @property timeBoundaries
-         */
-        $scope.timeBoundaries = {
-            am: new Date().setHours(0),
-            pm: new Date().setHours(12),
-            eve: new Date().setHours(18),
-            tomo: new Date().setHours(24)
-        }
-
-        /**
-         * Return random item from array
-         * @param   {Array}  array array to parse
-         * @returns {String} random item
-         * @method randomItemFromArray
-         */
-        $scope.randomItemFromArray = function randomItemFromArray(array) {
-            return array[(Math.floor(Math.random() * array.length))];
-        }
-
-        /**
          * Returns time based greeting from GREETINGS
          * @returns {String} greeting string
          * @method getGreeting
          */
         $scope.getGreeting = function getGreeting() {
-
-            var time = $scope.currentTime.value,
-                am = time >= $scope.timeBoundaries.am && time < $scope.timeBoundaries.pm,
-                pm = time >= $scope.timeBoundaries.pm && time < $scope.timeBoundaries.eve,
-                eve = time >= $scope.timeBoundaries.eve && time < $scope.timeBoundaries.tomo;
-
-            if (am) {
-                return $scope.randomItemFromArray(GREETINGS.am);
-            } else if (eve) {
-                return $scope.randomItemFromArray(GREETINGS.eve);
-            } else {
-                return $scope.randomItemFromArray(GREETINGS.pm);
-            }
+            var time = $scope.currentTime.value.getHours();
+            return GREETINGS[time];
         }
 
         /**
