@@ -14,7 +14,7 @@ describe("snNumberString", function() {
 
     }));
 
-    it("should return test representation of numbers between 1 and 10", function(){
+    it("should return text representation of numbers between 1 and 10", function(){
 
         var numberStrings = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"];
 
