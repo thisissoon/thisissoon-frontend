@@ -10,6 +10,7 @@ angular.module("thisissoon.core").controller("HomeCtrl", [
     "$rootScope",
     "$timeout",
     "$filter",
+    "$document",
     "CacheService",
     "projects",
     "jobs",
@@ -20,11 +21,13 @@ angular.module("thisissoon.core").controller("HomeCtrl", [
      * @param {Object}  $rootScope   application root scope
      * @param {Object}  $timeout     angular wrapper for timeout
      * @param {Object}  $filter      angular filter service
+     * @param {Object}  $document    angular wrapper for document
      * @param {Service} CacheService Stores data to share between controllers
      * @param {Object}  projects     List of projects from api
      * @param {Object}  jobs         List of jobs from api
+     * @param {Object}  GREETINGS    Data for hourly greetings
      */
-    function ($scope, $rootScope, $timeout, $filter, CacheService, projects, jobs, GREETINGS) {
+    function ($scope, $rootScope, $timeout, $filter, $document, CacheService, projects, jobs, GREETINGS) {
 
         /**
          * List of projects from thisissoon api
@@ -67,7 +70,9 @@ angular.module("thisissoon.core").controller("HomeCtrl", [
          * @method toggleProjects
          */
         $scope.toggleProjects = function toggleProjects(){
-            CacheService.put("projectList", true);
+            $document.duScrollTop(0, 0).then(function(){
+                CacheService.put("projectList", true)
+            });
         }
 
         /**

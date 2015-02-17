@@ -2,7 +2,7 @@
 
 describe("HomeCtrl", function (){
 
-    var scope, rootScope, _timeout, _filter, _cache, _projects, _jobs, _GREETINGS;
+    var scope, rootScope, _timeout, _filter, _document, _cache, _projects, _jobs, _GREETINGS;
 
     beforeEach(function(){
         module("thisissoon.core");
@@ -16,6 +16,13 @@ describe("HomeCtrl", function (){
 
         _timeout = $injector.get("$timeout");
         _filter = $injector.get("$filter");
+
+        _document = $injector.get("$document");
+        _document.duScrollTop = function(left, top){
+            return {
+                then: function(fn){ fn.apply(this); }
+            };
+        }
 
         _cache = $injector.get("CacheService");
         spyOn(_cache, "get");
@@ -55,6 +62,7 @@ describe("HomeCtrl", function (){
             $rootScope: rootScope,
             $timeout: _timeout,
             $filter: _filter,
+            $document: _document,
             CacheService: _cache,
             projects: _projects,
             jobs: _jobs,
