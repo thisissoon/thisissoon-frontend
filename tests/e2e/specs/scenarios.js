@@ -2,12 +2,12 @@
 
 /* https://github.com/angular/protractor/blob/master/docs/getting-started.md */
 
-describe("sn.example", function() {
+describe("thisissoon", function() {
 
-    describe("search", function() {
+    describe("home", function() {
 
         beforeEach(function(){
-            browser.manage().deleteAllCookies();
+            browser.driver.manage().window().setSize(1366, 768);
             browser.get("http://127.0.0.1:8000/");
             browser.waitForAngular();
             browser.driver.sleep(2000);
@@ -18,54 +18,45 @@ describe("sn.example", function() {
         });
 
         it("should render home partial when user navigates to /", function() {
-            expect(element.all(by.css("ng-view h1")).first().getText()).toContain("Search");
+
+            expect(element.all(by.css("h2")).first().getText()).toContain("We design and build digital products, services and brands.");
+
+            element.all(by.css("h1")).then(function(headings) {
+                expect(headings.length).toBe(6);
+                expect(headings[1].getText()).toContain("Latest");
+                expect(headings[2].getText()).toContain("Services");
+                expect(headings[3].getText()).toContain("About");
+                expect(headings[4].getText()).toContain("Join");
+                expect(headings[5].getText()).toContain("Say hello");
+            });
         });
 
-        it("should search for location", function() {
-            element(by.model("location")).sendKeys("London");
-            element(by.id("submit")).click();
+        it("should navigate to 'Services' section", function() {
 
-            browser.driver.sleep(5000);
+            var initTop = 0;
+            var initLeft = 0;
 
-            browser.driver.wait(function() {
-                return browser.driver.getCurrentUrl().then(function (url) {
-                    return /results/.test(url);
-                });
-            });
-            expect(browser.getLocationAbsUrl()).toMatch("/results");
-            expect(element.all(by.repeater("result in results")).count()).toEqual(4);
+            browser.driver.executeScript("window.scrollBy(0,200)", "");
+            browser.driver.sleep(4000);
         });
 
     });
 
-
-    describe("results", function() {
-
+    describe("navbar", function() {
         beforeEach(function(){
-            browser.get("http://127.0.0.1:8000/results");
+            browser.driver.manage().window().setSize(1366, 768);
+            browser.get("http://127.0.0.1:8000/");
             browser.waitForAngular();
             browser.driver.sleep(2000);
         });
 
-        it("should render results page view", function() {
-            expect(element.all(by.css("ng-view h1")).first().getText()).toContain("Results");
-            expect(element(by.css(".bg-info")).getText()).toContain("No search results");
+        it("should ...", function() {
+
+            browser.driver.executeScript("window.scrollBy(0,200)", "");
+            expect(element(by.css("nav.navbar.navbar-hide"))).toBeTruthy();
+            browser.driver.sleep(1000);
 
         });
-
-        it("should go back to search page view", function() {
-            element(by.css("a.home")).click();
-
-            browser.driver.wait(function() {
-                return browser.driver.getCurrentUrl().then(function (url) {
-                    return /\//.test(url);
-                });
-            });
-
-            expect(browser.getLocationAbsUrl()).toMatch("/");
-
-        });
-
     });
 
 });
