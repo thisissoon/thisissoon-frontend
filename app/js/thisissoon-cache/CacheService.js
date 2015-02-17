@@ -12,9 +12,16 @@
  */
 angular.module("thisissoon.cache", [])
 
-.service("CacheService", [
-    "$cacheFactory",
-    function($cacheFactory){
-        return $cacheFactory("cache");
-    }
-])
+    .factory("CacheService", [
+        "$cacheFactory",
+        /**
+         * @constructor
+         * @param   {Service} $cacheFactory angular cache service
+         * @returns {Object}  $cacheFactory
+         */
+        function($cacheFactory){
+
+            return $cacheFactory("cache");
+
+        }
+    ]);
