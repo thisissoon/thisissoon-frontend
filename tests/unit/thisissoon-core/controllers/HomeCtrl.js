@@ -2,7 +2,7 @@
 
 describe("HomeCtrl", function (){
 
-    var scope, rootScope, _timeout, _filter, _cache, _projects, _jobs, _GREETINGS;
+    var scope, rootScope, _interval, _filter, _cache, _projects, _jobs, _GREETINGS;
 
     beforeEach(function(){
         module("thisissoon.core");
@@ -14,7 +14,7 @@ describe("HomeCtrl", function (){
 
         rootScope = $rootScope;
 
-        _timeout = $injector.get("$timeout");
+        _interval = $injector.get("$interval");
         _filter = $injector.get("$filter");
 
         _cache = $injector.get("CacheService");
@@ -53,7 +53,7 @@ describe("HomeCtrl", function (){
         $controller("HomeCtrl", {
             $scope: scope,
             $rootScope: rootScope,
-            $timeout: _timeout,
+            $interval: _interval,
             $filter: _filter,
             CacheService: _cache,
             projects: _projects,
@@ -121,7 +121,6 @@ describe("HomeCtrl", function (){
         expect(scope.currentTime.value).toEqual(jasmine.any(Date));
         expect(scope.currentTime.get).toHaveBeenCalled();
 
-        _timeout.flush();
     });
 
 });

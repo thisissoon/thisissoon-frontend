@@ -8,7 +8,7 @@
 angular.module("thisissoon.core").controller("HomeCtrl", [
     "$scope",
     "$rootScope",
-    "$timeout",
+    "$interval",
     "$filter",
     "CacheService",
     "projects",
@@ -18,13 +18,13 @@ angular.module("thisissoon.core").controller("HomeCtrl", [
      * @constructor
      * @param {Object}  $scope       date in controller scope
      * @param {Object}  $rootScope   application root scope
-     * @param {Object}  $timeout     angular wrapper for timeout
+     * @param {Object}  $interval    angular wrapper for setInterval
      * @param {Object}  $filter      angular filter service
      * @param {Service} CacheService Stores data to share between controllers
      * @param {Object}  projects     List of projects from api
      * @param {Object}  jobs         List of jobs from api
      */
-    function ($scope, $rootScope, $timeout, $filter, CacheService, projects, jobs, GREETINGS) {
+    function ($scope, $rootScope, $interval, $filter, CacheService, projects, jobs, GREETINGS) {
 
         /**
          * List of projects from thisissoon api
@@ -71,15 +71,21 @@ angular.module("thisissoon.core").controller("HomeCtrl", [
         }
 
         /**
+         * Track currentTime interval
+         * @property timer
+         * @type     {Object}
+         */
+        var timer;
+
+        /**
          * Gets current time to display in hero
          * @method currentTime
          */
         $scope.currentTime = {
             value: new Date(),
             get: function getTime() {
-                $timeout(function(){
+                timer = $interval(function(){
                     $scope.currentTime.value = new Date();
-                    $scope.currentTime.get();
                 }, 1000);
             }
         }
@@ -107,6 +113,10 @@ angular.module("thisissoon.core").controller("HomeCtrl", [
         }
 
         $scope.init();
+
+        $scope.$on("$destroy", function() {
+            $interval.cancel(timer);
+        });
 
     }
 
