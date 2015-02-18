@@ -1,10 +1,12 @@
 language: node_js
 node_js:
-  - "0.10"
+  - '0.10'
 env:
   global:
-    - secure: Hdy7pt/qRv3YapQVSMSK8pSIIc3NUaKahsZytpgpfwfcNusBikzSiAuiH3/Hu+npNPpAGOqsEKPMxz9GzI0f8xwX3q3Xd8a4RW9JD2RyEmsaxvW/gU/CH7Wv+vc8kPNDHZs5c5jAtEL3MiGxPNA8KyNB9CfZDg0OoFlBG2uNLN4=
-    - secure: UXeIm0pJyOKlKfSwpfbwNzP2UFRb8O56ElUpDwDDo6ttL6n73drWPY5urmAsrZF2XsShyriH3oAg1ItyR2xTxZCcIyXtkhmRLLoA6tpe9m6dIHjs8mn7kP8kRgNjK0MCVi4rT9x/4EzXYoqaRFr+cqR9IXHEqSrvHlvItJ8yGXQ=
+  - secure: Hdy7pt/qRv3YapQVSMSK8pSIIc3NUaKahsZytpgpfwfcNusBikzSiAuiH3/Hu+npNPpAGOqsEKPMxz9GzI0f8xwX3q3Xd8a4RW9JD2RyEmsaxvW/gU/CH7Wv+vc8kPNDHZs5c5jAtEL3MiGxPNA8KyNB9CfZDg0OoFlBG2uNLN4=
+  - secure: UXeIm0pJyOKlKfSwpfbwNzP2UFRb8O56ElUpDwDDo6ttL6n73drWPY5urmAsrZF2XsShyriH3oAg1ItyR2xTxZCcIyXtkhmRLLoA6tpe9m6dIHjs8mn7kP8kRgNjK0MCVi4rT9x/4EzXYoqaRFr+cqR9IXHEqSrvHlvItJ8yGXQ=
+  - secure: MkRP4x3zZu1gPUWkkMTxd6O/H9HHsVmYFKWBb0lVl+6a/pyb4fdzdJePPrIqT1wkZwWKU2/W7NN7NjleYcm3GN6ZGmxBhqQ8YxIwvomlFy6o2xiwVEY/5QLId5tALvVfw3J5Drxdy/dX0ZH8ELGmUXdCTHOu3KybP13sIKZh6Bw=
+  - secure: Bg1Zn0Nfe7pAlehRB6IQ1iILZXIkS2Pn3RcW+gYEwvf/i4JrcBa8v7eCGD1xtXNCm8+PoV0DK8AH36/9vCWJCx+PiKOZILEZzjCG9bHOmLP56UrhK+NTt7BVJ02iIVL9IQzwYoF2HC2FUNsude4esI1ZaL5XwaEU7ge9bjnrauc=
 before_install:
   - npm install -g bower
   - npm install -g grunt-cli
@@ -15,7 +17,4 @@ script:
 after_success:
   - ./node_modules/coveralls/bin/coveralls.js < coverage/lcov.info
 addons:
-  sauce_connect:
-    username: "thisissoon"
-    access_key:
-      secure: kZtDg8+P0+06Cpw3D/w7+StwkTfyzP5YKqtqJ9p81DZahOcrGVZXbYOUyIEUYQl4dKmTZAPJtbGmebGptIU5xCXUTP00ifELUD/dyt4ihe4kKMYVWyau8xmQsKYO5ifox8SIuJsQy47+EksVfjqD+HJSDmP3wmtkpcwuVDSwM5A=
+  sauce_connect: true
