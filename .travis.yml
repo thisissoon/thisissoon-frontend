@@ -1,6 +1,10 @@
 language: node_js
 node_js:
   - "0.10"
+env:
+  global:
+    - secure: Hdy7pt/qRv3YapQVSMSK8pSIIc3NUaKahsZytpgpfwfcNusBikzSiAuiH3/Hu+npNPpAGOqsEKPMxz9GzI0f8xwX3q3Xd8a4RW9JD2RyEmsaxvW/gU/CH7Wv+vc8kPNDHZs5c5jAtEL3MiGxPNA8KyNB9CfZDg0OoFlBG2uNLN4=
+    - secure: UXeIm0pJyOKlKfSwpfbwNzP2UFRb8O56ElUpDwDDo6ttL6n73drWPY5urmAsrZF2XsShyriH3oAg1ItyR2xTxZCcIyXtkhmRLLoA6tpe9m6dIHjs8mn7kP8kRgNjK0MCVi4rT9x/4EzXYoqaRFr+cqR9IXHEqSrvHlvItJ8yGXQ=
 before_install:
   - npm install -g bower
   - npm install -g grunt-cli
@@ -10,3 +14,5 @@ script:
   - grunt test
 after_success:
   - ./node_modules/coveralls/bin/coveralls.js < coverage/lcov.info
+addons:
+  sauce_connect: true
