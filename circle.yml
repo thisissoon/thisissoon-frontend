@@ -52,3 +52,5 @@ deployment:
       - grunt build --env=stage
       - docker build -t $REPO:$TAG .
       - docker push $REPO:$TAG
+      - eb deploy:
+          timeout: 600
