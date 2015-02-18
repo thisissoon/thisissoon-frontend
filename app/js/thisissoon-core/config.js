@@ -7,13 +7,14 @@
 angular.module("thisissoon.core").config([
     "$routeProvider",
     "$httpProvider",
+    "$locationProvider",
     "snSkrollrProvider",
     /**
      * @constructor
      * @param {Service} $routeProvider
      * @param {Service} $httpProvider
      */
-    function ($routeProvider, $httpProvider, snSkrollrProvider) {
+    function ($routeProvider, $httpProvider, $locationProvider, snSkrollrProvider) {
 
         snSkrollrProvider.config = {
             forceHeight: false,
@@ -22,6 +23,8 @@ angular.module("thisissoon.core").config([
         };
 
         $httpProvider.defaults.cache = false;
+
+        $locationProvider.html5Mode(true).hashPrefix("!");
 
         $routeProvider
             .when("/", {
