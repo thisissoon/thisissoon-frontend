@@ -7,11 +7,9 @@
 .project-list {
 
     background-color: @dark-grey;
-    opacity: 0;
+    display: none;
     position: relative;
-    visibility: hidden;
     z-index: 1100;
-    .transition(~"visibility 0.5s ease, opacity 0.5s ease");
 
     ul {
         bottom: 0;
@@ -83,18 +81,21 @@
 
 // when project list is "open"
 .project-list-open {
-    height: 100%;
-    overflow: hidden;
-    width: 100%;
+    .no-overflow;
 
     // show the project list
     .project-list {
-        opacity: 1;
-        visibility: visible;
+        display: block;
     }
 
     // hide nav toggle icon
     .navbar-toggle {
+        display: none;
+    }
+
+    // hide main content
+    main,
+    footer {
         display: none;
     }
 
