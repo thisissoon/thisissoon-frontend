@@ -41,11 +41,13 @@ angular.module("thisissoon.core", [
      */
     function ($rootScope, ResizeService, $window, $timeout, CacheService, snSkrollr, ENV) {
 
+        var skrollrBreakpoint = 1024;
+
         ResizeService.add($rootScope.$id, function(event, size) {
-            if (size.width >= 1024 && !$rootScope.skrollrInitialised) {
+            if (size.width >= skrollrBreakpoint && !$rootScope.skrollrInitialised) {
                 snSkrollr.init();
                 $rootScope.skrollrInitialised = true;
-            } else if (size.width < 1024 && $rootScope.skrollrInitialised) {
+            } else if (size.width < skrollrBreakpoint && $rootScope.skrollrInitialised) {
                 $rootScope.skrollrInitialised = false;
                 snSkrollr.destroy();
             }
@@ -58,17 +60,25 @@ angular.module("thisissoon.core", [
         CacheService.put("loading", true);
         CacheService.put("projectList", false);
 
-        // close nav menu when changing views
+        // close nav menu and destroy skrollr when changing views
         $rootScope.$on("$routeChangeStart", function() {
             CacheService.put("navOpen", false);
             CacheService.put("loading", true);
-            snSkrollr.destroy();
+
+            if ($rootScope.skrollrInitialised) {
+                snSkrollr.destroy();
+            }
         });
 
-        // close nav menu when changing views
+        // close nav menu and re-initialise skrollr when changing views
         $rootScope.$on("$routeChangeSuccess", function() {
             CacheService.put("loading", false);
-            snSkrollr.init();
+
+            if ($window.innerWidth >= skrollrBreakpoint && !$rootScope.skrollrInitialised) {
+                snSkrollr.init();
+                $rootScope.skrollrInitialised = true;
+            }
+
             if ($rootScope.skrollrInitialised) {
                 $timeout(snSkrollr.refresh, 200);
             }
