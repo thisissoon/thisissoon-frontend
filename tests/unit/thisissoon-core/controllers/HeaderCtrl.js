@@ -2,7 +2,7 @@
 
 describe("HeaderCtrl", function (){
 
-    var scope, rootScope, _filter , _cache, _thisissoonAPI, _projects;
+    var scope, rootScope, $httpBackend, _filter , _cache, _env, _thisissoonAPI, _projects;
 
     beforeEach(function(){
         module("thisissoon.core");
@@ -13,9 +13,11 @@ describe("HeaderCtrl", function (){
         scope = $rootScope.$new();
         rootScope = $rootScope;
 
+        $httpBackend = $injector.get("$httpBackend");
         _filter = $injector.get("$filter");
-
         _cache = $injector.get("CacheService");
+        _env = $injector.get("ENV");
+        _thisissoonAPI = $injector.get("ThisissoonAPI");
 
         _projects = {
             list: [
@@ -24,12 +26,7 @@ describe("HeaderCtrl", function (){
             ]
         };
 
-        _thisissoonAPI = $injector.get("ThisissoonAPI");
-        _thisissoonAPI.getProjects = function (){
-            return {
-                then: function(fn){ fn.call(this, _projects); }
-            }
-        }
+        $httpBackend.when("GET", _env.API_ADDRESS + "projects/").respond(_projects);
 
         $controller("HeaderCtrl", {
             $scope: scope,
@@ -61,6 +58,7 @@ describe("HeaderCtrl", function (){
 
     it("should attach projects to scope on init", function (){
         scope.init();
+        $httpBackend.flush();
         expect(scope.projects).toEqual(_projects.list);
     });
 
