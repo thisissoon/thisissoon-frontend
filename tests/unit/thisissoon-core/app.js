@@ -1,6 +1,6 @@
 describe( "thisissoon.core", function() {
 
-    var runBlocks, rootScope, _cacheService, _resizeService;
+    var runBlocks, rootScope, _cacheService, _resizeService, _window, _snSkrollr;
 
     beforeEach( function() {
         var myModule = angular.module( "thisissoon.core" );
@@ -26,9 +26,16 @@ describe( "thisissoon.core", function() {
 
             _resizeService = $injector.get("ResizeService");
             _resizeService.add = function(id, fn){
-                fn.apply(this, [{}, { width: 1000, height: 200 }]);
+                fn.apply(this, [{}, { width: 1025, height: 200 }]);
             };
             spyOn(_resizeService, "add");
+
+            _window = $injector.get("$window");
+            _window.innerWidth = 1025;
+
+            _snSkrollr = $injector.get("snSkrollr");
+            spyOn(_snSkrollr, "init");
+            spyOn(_snSkrollr, "destroy");
 
             for( var i = 0; i < runBlocks.length; ++i ) {
                 $injector.invoke( runBlocks[i] );
@@ -72,12 +79,22 @@ describe( "thisissoon.core", function() {
 
         });
 
-        it("should call snSkrollr when window is correct size", function(){
+        it("should call snSkrollr.destroy on routeChangeStart", function(){
+
+            rootScope.skrollrInitialised = true;
+            rootScope.$broadcast("$routeChangeStart");
+
+            expect(_snSkrollr.destroy).toHaveBeenCalled();
+
+        });
+
+        it("should call snSkrollr.init on routeChangeSuccess if window size is greater than 1024", function(){
 
             _cacheService.put.calls.reset();
+            _window.innerWidth = 1025;
             rootScope.$broadcast("$routeChangeSuccess");
 
-            expect(_cacheService.put.calls.argsFor(0)).toEqual([ "loading", false ]);
+            expect(_snSkrollr.init).toHaveBeenCalled();
 
         });
 
