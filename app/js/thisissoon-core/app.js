@@ -23,7 +23,9 @@ angular.module("thisissoon.core", [
     "sn.velocity",
     "sn.skrollr",
     "sn.addthis",
-    "duScroll"
+    "duScroll",
+    "angulartics",
+    "angulartics.google.analytics"
 ])
 
 .run([
