@@ -20,6 +20,7 @@
     ],
     "application": [
         "app/js/config.js",
+        "app/js/thisissoon/app.js",
         "app/js/thisissoon-api/app.js",
         "app/js/thisissoon-api/services/ThisissoonAPI.js",
         "app/js/thisissoon-core/app.js",
