@@ -217,6 +217,14 @@ module.exports = function (grunt) {
                     dest: "<%= config.outputDir %>img/"
                 }]
             },
+            favicons: {
+                files: [{
+                    expand: true,
+                    cwd: "app/favicons",
+                    src: ["**/*", "!test/**"],
+                    dest: "<%= config.outputDir %>"
+                }]
+            },
             fonts: {
                 files: [{
                     expand: true,
@@ -323,6 +331,7 @@ module.exports = function (grunt) {
         "less:production",
         "copy:images",
         "copy:fonts",
+        "copy:favicons",
         "copy:partials",
         "processhtml:production",
         "yuidoc"
