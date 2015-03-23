@@ -10,19 +10,21 @@ angular.module("thisissoon.core").controller("ProjectCtrl", [
     "$scope",
     "$rootScope",
     "$filter",
+    "$sce",
     "CacheService",
     "project",
     "projects",
     /**
      * @constructor
-     * @param   {Object}  $scope       Scope of the controller
-     * @param   {Object}  $rootScope   application root scope
-     * @param   {Service} $filter      angular filter service; selects a subset of items from array and returns it as a new array.
-     * @param   {Service} CacheService Stores data to share between controllers
-     * @param   {Object}  project      Project detail object from thisissoon API
-     * @param   {Object}  projects     List of projects from api
+     * @param   {Object}   $scope       Scope of the controller
+     * @param   {Object}   $rootScope   application root scope
+     * @param   {Service}  $filter      angular filter service; selects subset of items from array and returns it as a new array.
+     * @param   {Service}  $sce         Strict contextual escaping service
+     * @param   {Service}  CacheService Stores data to share between controllers
+     * @param   {Object}   project      Project detail object from thisissoon API
+     * @param   {Object}   projects     List of projects from api
      */
-    function ($scope, $rootScope, $filter, CacheService, project, projects) {
+    function ($scope, $rootScope, $filter, $sce, CacheService, project, projects) {
 
         /**
          * List of projects from thisissoon API
@@ -50,6 +52,12 @@ angular.module("thisissoon.core").controller("ProjectCtrl", [
             // format link for display
             if ($scope.project.link) {
                 $scope.project.linkText = $filter("linkDisplay")($scope.project.link);
+            }
+
+            if ($scope.project.video && $scope.project.video !== "") {
+                $scope.project.video = $sce.trustAsResourceUrl($scope.project.video + "?autohide=1")
+            } else {
+                $scope.project.video = null;
             }
         }
 

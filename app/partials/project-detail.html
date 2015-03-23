@@ -7,6 +7,11 @@
         ng-style="{ 'background-color': project.tint_colour, 'color': project.text_colour }"
         ng-include="'partials/project-description.html'">
 </section>
+<section id="project-video" class=""
+        ng-if="project.video"
+        ng-style="{ 'background-color': project.tint_colour, 'color': project.text_colour }"
+        ng-include="'partials/project-video.html'">
+</section>
 <section id="project-images" class=""
         ng-style="{ 'color': project.text_colour }"
         ng-include="'partials/project-images.html'">
