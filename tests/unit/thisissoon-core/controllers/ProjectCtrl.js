@@ -2,7 +2,7 @@
 
 describe("ProjectCtrl", function (){
 
-    var scope, _cache, _filter, _project, _projects;
+    var scope, _cache, _filter, _sce, _project, _projects;
 
 
     beforeEach(function(){
@@ -17,6 +17,9 @@ describe("ProjectCtrl", function (){
         spyOn(_cache, "get");
 
         _filter = $injector.get("$filter");
+
+        _sce = $injector.get("$sce");
+        spyOn(_sce, "trustAsResourceUrl");
 
         _project = {
             id: 3,
@@ -43,6 +46,7 @@ describe("ProjectCtrl", function (){
         $controller("ProjectCtrl", {
             $scope: scope,
             $filter: _filter,
+            $sce: _sce,
             CacheService: _cache,
             project: _project,
             projects: _projects
@@ -51,7 +55,7 @@ describe("ProjectCtrl", function (){
     }));
 
     it("should have a project detail object and projects array in scope", function (){
-        expect(scope.project).toEqual(jasmine.any(Object));
+        expect(scope.project).toEqual(_project);
         expect(scope.projects).toEqual(_projects.list);
     });
 
@@ -70,6 +74,12 @@ describe("ProjectCtrl", function (){
         scope.$emit("$destroy");
         expect(_cache.get("projectView")).toBe(undefined);
         expect(_cache.get("backgroundColor")).toBe(undefined);
+    });
+
+    it("should pass video URL through $sce.trustAsResourceUrl", function (){
+        _project.video = "http://youtube.com/randomvideo";
+        scope.init();
+        expect(_sce.trustAsResourceUrl).toHaveBeenCalledWith("http://youtube.com/randomvideo?autohide=1");
     });
 
 });
