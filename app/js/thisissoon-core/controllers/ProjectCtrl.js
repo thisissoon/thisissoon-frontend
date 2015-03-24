@@ -65,17 +65,17 @@ angular.module("thisissoon.core").controller("ProjectCtrl", [
                     index = key;
 
                     if (typeof $scope.projects[key + 1] !== "undefined"){
-                        $scope.next = $scope.projects[key + 1].id;
+                        $scope.next = $scope.projects[key + 1].slug;
                     } else {
                         // back to first project
-                        $scope.next = $scope.projects[0].id;
+                        $scope.next = $scope.projects[0].slug;
                     }
 
                     if (typeof $scope.projects[key - 1] !== "undefined"){
-                        $scope.previous = $scope.projects[key - 1].id;
+                        $scope.previous = $scope.projects[key - 1].slug;
                     } else {
                         // back to last project
-                        $scope.previous = $scope.projects[$scope.projects.length - 1].id;
+                        $scope.previous = $scope.projects[$scope.projects.length - 1].slug;
                     }
                 }
             })

@@ -19,11 +19,11 @@ angular.module("thisissoon.api").service("ThisissoonAPI", [
         /**
          * Retrieves a object that contains the details of a project
          * @function getProjectDetail
-         * @param  {Number}  id The unique identifier for project
+         * @param  {String}  slug The unique slug identifier for project
          * @return {Promise} A promise that will resolve if the project
          *                   exists or be rejected if it does not
          * @example
-         * ThisissoonAPI.getProjectDetail("123456")
+         * ThisissoonAPI.getProjectDetail("doit")
          *     .then(function(projectObj){
          *         console.log(projectObj)
          *         // Do something with project object here
@@ -33,10 +33,10 @@ angular.module("thisissoon.api").service("ThisissoonAPI", [
          *         // error handling code
          *     })
          */
-        this.getProjectDetail = function getProjectDetail(id){
+        this.getProjectDetail = function getProjectDetail(slug){
             var deferred = $q.defer();
 
-            $http.get(ENV.API_ADDRESS + "projects/" + id + "/")
+            $http.get(ENV.API_ADDRESS + "projects/" + slug + "/")
                 .success(function (data) {
                     deferred.resolve(data);
                 })
