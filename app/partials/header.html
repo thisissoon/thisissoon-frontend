@@ -15,7 +15,7 @@
     </div>
     <ul>
         <li ng-repeat="project in projects">
-            <a href ng-href="projects/{{ project.id }}" ng-click="toggleProjects()">
+            <a href ng-href="projects/{{ project.slug }}" ng-click="toggleProjects()">
                 <article class="project container-fluid" ng-style="{ 'background-color': '{{ project.background_colour }}', 'color': '{{ project.text_colour }}' }">
 
                     <div class="vertical-center project-logo-container">
