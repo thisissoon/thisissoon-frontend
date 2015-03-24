@@ -34,9 +34,9 @@ describe("ProjectCtrl", function (){
 
         _projects = {
             list: [
-                { id: 1 },
-                { id: 3 },
-                { id: 5 }
+                { id: 1, slug: "project-1" },
+                { id: 3, slug: "project-2" },
+                { id: 5, slug: "project-3" }
             ]
         };
 
@@ -57,8 +57,8 @@ describe("ProjectCtrl", function (){
 
     it("should set next and previous projects based on current project", function (){
         scope.setNextPrevious();
-        expect(scope.next).toEqual(5);
-        expect(scope.previous).toEqual(1);
+        expect(scope.next).toEqual("project-3");
+        expect(scope.previous).toEqual("project-1");
     });
 
     it("should get background colour from cache", function (){
