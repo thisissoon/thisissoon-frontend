@@ -1,8 +1,8 @@
 {
-  "name": "angularjs-template",
-  "description": "A base template for a typical angularjs application",
-  "version": "0.0.3",
-  "homepage": "https://github.com/thisissoon/angularjs-template",
+  "name": "thisissoon-frontend",
+  "description": "The frontend for thisissoon.com",
+  "version": "1.0.0",
+  "homepage": "http://thisissoon.com",
   "license": "MIT",
   "private": true,
   "dependencies": {

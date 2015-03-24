@@ -1,9 +1,10 @@
 {
-  "name": "angularjs-template",
+  "name": "thisissoon-frontend",
   "private": true,
-  "version": "0.0.3",
-  "description": "A base template for a typical angularjs application",
-  "repository": "https://github.com/thisissoon/angularjs-template",
+  "version": "1.0.0",
+  "description": "The frontend for thisissoon.com",
+  "repository": "https://github.com/thisissoon/thisissoon-frontend",
+  "author": "SOON_ <dorks@thisissoon.com>",
   "license": "MIT",
   "dependencies": {
     "bower": "~1.3.12",
