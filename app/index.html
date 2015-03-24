@@ -70,6 +70,13 @@
 
         <div class="loading" ng-include="'partials/loading.html'" ng-controller="LoadingCtrl"></div>
 
+        <!--[if lte IE 9]>
+            <div class="container-fluid background-dark error-page"> <div class="row"> <div class="col-md-2"><img class="logo" src="img/header/SOON.svg"></div> <div class="col-md-8 col-md-offset-2"> <h1>Brower not supported</h1> <div class="error-details"> <p class="main">Sorry, but Internet Explorer 9 and below is not supported by thisissoon.com.<p> <p class="secondary">Please update your browser.</p> </div> </div> </div> </div>
+        <![endif]-->
+
+        <noscript>
+            <div class="browser-not-supported background-dark container-fluid error-page"> <div class="row"> <div class="col-md-2"><img class="logo" src="img/header/SOON.svg"></div> <div class="col-md-8 col-md-offset-2"> <h1>Javascript not detected</h1> <div class="error-details"> <p class="main">Sorry, but thisissoon.com requires a browser with javascript enabled.<p> <p class="secondary">Please update your browser and/or enable javascript.</p> </div> </div> </div> </div>
+        </noscript>
 
         <!-- Add this -->
         <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-54da2c451489176b&domready=1" async="async"></script>
