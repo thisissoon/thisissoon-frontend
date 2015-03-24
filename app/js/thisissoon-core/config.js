@@ -39,7 +39,7 @@ angular.module("thisissoon.core").config([
                     }]
                 }
             })
-            .when("/projects/:id", {
+            .when("/projects/:slug", {
                 templateUrl: "partials/project-detail.html",
                 controller: "ProjectCtrl",
                 resolve: {
@@ -47,7 +47,7 @@ angular.module("thisissoon.core").config([
                         return ThisissoonAPI.getProjects();
                     }],
                     project: ["ThisissoonAPI", "$route", function (ThisissoonAPI, $route){
-                        return ThisissoonAPI.getProjectDetail($route.current.params.id);
+                        return ThisissoonAPI.getProjectDetail($route.current.params.slug);
                     }]
                 }
             })
