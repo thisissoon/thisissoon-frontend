@@ -1,0 +1,54 @@
+#
+# CircleCI Configuration
+#
+
+# Machine Settings
+
+machine:
+  services:
+    - docker
+  node:
+    version: 0.10.28
+  environment:
+    REPO: soon/thisissoon-frontend
+    TAG: $(sed 's/master/latest/;s/\//\-/' <<<$CIRCLE_BRANCH)
+    VERSION: $(head -n 1 ~/thisissoon-frontend/VERSION.txt)
+
+# Dependencies
+
+dependencies:
+  pre:
+    - sudo easy_install awscli
+    - sudo easy_install awsebcli
+    - sed "s/<EMAIL>/$DOCKER_EMAIL/;s/<AUTH>/$DOCKER_AUTH/" < .dockercfg.template > ~/.dockercfg
+  override:
+    - npm -d install
+    - npm install -g grunt-cli
+
+# Test Commands
+
+test:
+  override:
+    - grunt test
+
+# Push to Docker Hub
+
+deployment:
+  latest:
+    branch: master
+    commands:
+      - grunt build
+      - docker build -t $REPO:$TAG .
+      - docker push $REPO:$TAG
+      - eb deploy:
+          timeout: 600
+  release:
+    branch: /release\/.*/
+    commands:
+      - grunt build
+  develop:
+    branch: develop
+    commands:
+      - grunt build --env=stage
+      - docker build -t $REPO:$TAG .
+      - docker push $REPO:$TAG

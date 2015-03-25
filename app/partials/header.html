@@ -1,0 +1,40 @@
+<div class="container-fluid-max-width">
+    <sn-navbar></sn-navbar>
+    <sn-nav-counter data-style="navStyle"></sn-nav-counter>
+</div>
+
+<div class="brand hidden-lg hidden-md">
+    <sn-logo class="logo" data-style="{{ navStyle }}"></sn-logo>
+</div>
+
+<div class="project-list">
+    <div class="actions">
+        <button class="btn btn-icon-sm icon-close" ng-click="toggleProjects($event)">
+            <img class="icon icon-close" src="img/icons/close.svg">
+        </button>
+    </div>
+    <ul>
+        <li ng-repeat="project in projects">
+            <a href ng-href="projects/{{ project.slug }}" ng-click="toggleProjects()">
+                <article class="project container-fluid" ng-style="{ 'background-color': '{{ project.background_colour }}', 'color': '{{ project.text_colour }}' }">
+
+                    <div class="vertical-center project-logo-container">
+                        <img class="project-logo" ng-src="{{ env.SERVER_ADDRESS + project.project_logo.small }}" alt="{{ project.title }}">
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+
+                        </div>
+                        <div class="col-lg-8 col-lg-offset-1 col-md-8 col-md-offset-1 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0" >
+                            <img class="project-hero" ng-src="{{ env.SERVER_ADDRESS + project.overview_image.medium }}"><br>
+                            <div class="project-desc">{{ project.introduction }}</div>
+                        </div>
+                    </div>
+
+                </article>
+            </a>
+        </li>
+    </ul>
+</div>
+

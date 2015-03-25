@@ -1,0 +1,102 @@
+/**
+ *  @class          project-list
+ *  @author         SOON_
+ *  @description    overview of casestudies
+ */
+
+.project-list {
+
+    background-color: @dark-grey;
+    display: none;
+    position: relative;
+    z-index: 1100;
+
+    ul {
+        bottom: 0;
+        left: 0;
+        margin: 0;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+        padding: 0;
+        position: fixed;
+        right: 0;
+        top: 0;
+    }
+
+    .project {
+        position: relative;
+        padding-bottom: 50px;
+        padding-top: 20px;
+
+        .project-logo-container {
+            z-index: 99;
+        }
+
+        .project-hero {
+            .transition(~"transform 0.3s");
+            position: relative;
+            left: -11%;
+        }
+
+        .vertical-center {
+            position: absolute;
+            top: 50%;
+            .translate(0, -50%);
+        }
+
+        &:hover {
+            .project-hero {
+                .scale(1.1);
+            }
+        }
+    }
+
+    .project-hero {
+        max-height: 420px;
+    }
+
+    .project-desc {
+        position: relative;
+        z-index: 10;
+    }
+
+    a {
+        background-color: transparent;
+        color: inherit;
+        padding: 0;
+    }
+
+    .actions {
+        position: fixed;
+        right: 0;
+        z-index: 1200;
+
+        .btn {
+            margin: 0;
+        }
+    }
+
+}
+
+// when project list is "open"
+.project-list-open {
+    .no-overflow;
+
+    // show the project list
+    .project-list {
+        display: block;
+    }
+
+    // hide nav toggle icon
+    .navbar-toggle {
+        display: none;
+    }
+
+    // hide main content
+    main,
+    footer {
+        display: none;
+    }
+
+}

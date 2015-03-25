@@ -1,0 +1,113 @@
+/**
+ *  @class          navbar
+ *  @author         SOON_
+ *  @description    main navigation
+ */
+
+nav.navbar {
+
+    height: 53px;
+    width: 100%;
+    .transition(~"top 0.5s, background 0.3s");
+
+    ul {
+        height: 53px;
+        list-style: none;
+        margin-bottom: 0;
+        margin-top: 0;
+        padding-left: 0;
+    }
+
+    li {
+        display: inline-block;
+        height: 100%;
+        position: relative;
+    }
+
+    a {
+        display: block;
+        height: 100%;
+        padding: 30px 29px 11px 5px;
+        .transition(~"background 0.2s, color 0.2s");
+    }
+
+    a:link,
+    a:visited,
+    a:focus {
+        background-color: transparent;
+    }
+
+    a:hover,
+    a:active {
+        background-color: @yellow;
+        color: @black;
+    }
+
+    li a i {
+        display: block;
+        position: absolute;
+        top: 20px;
+    }
+
+    li.disabled {
+        pointer-events: none;
+    }
+
+    li.active a {
+        background-color: @white;
+        color: @black;
+    }
+}
+
+.navbar-light {
+    li a {
+        color: @white;
+    }
+
+    .scrolled & {
+        background-color: @dark-trans;
+    }
+}
+
+.navbar-dark {
+    li a {
+        color: @black;
+    }
+
+    .scrolled & {
+        background-color: @light-trans;
+    }
+}
+
+.navbar-header {
+    display: none;
+    padding: 15px 40px;
+}
+
+.navbar-brand {
+    display: none;
+    padding: 0;
+    height: 45px;
+
+    .nav-open & {
+        display: block;
+    }
+}
+
+.navbar-collapse {
+    box-shadow: none;
+}
+
+.navbar-fixed-top {
+    left: inherit;
+    right: inherit;
+
+    .navbar-collapse {
+        max-height: none;
+    }
+}
+
+.navbar-hide {
+    .transition(top 0.1s);
+    top: -53px;
+}

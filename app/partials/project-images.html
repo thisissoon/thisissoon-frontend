@@ -1,0 +1,12 @@
+<div class="container-fluid-max-width project-images" ng-repeat="image in project.stacked_images">
+    <img ng-src="{{ env.SERVER_ADDRESS + image.huge }}">
+    <div class="caption" ng-if="image.caption" ng-style="{ 'background-color': image.background_colour || project.background_colour, 'color': image.text_colour }">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-8  col-lg-offset-4  col-md-8  col-md-offset-4  col-sm-12  col-sm-offset-0  col-xs-12  col-xs-offset-0">
+                    <p>{{ image.caption }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,81 @@
+.icon-casestudies {
+    display: inline-block;
+    width: 15px;
+    &:before {
+        content: "";
+        display: block;
+        height: 6px;
+        width: 12px;
+        border: 1px solid @white;
+        .transition("border 0.2s");
+    }
+    &:after {
+        position: absolute;
+        margin-top: -9px;
+        margin-left: 3px;
+        content: "";
+        display: block;
+        height: 6px;
+        width: 12px;
+        border: 1px solid @white;
+        .transition("border 0.2s");
+    }
+
+    li a:hover &:before,
+    li a:hover &:after,
+    li.active &:before,
+    li.active &:after {
+        border-color: @black;
+    }
+
+    .navbar-dark &:before,
+    .navbar-dark &:after {
+        border-color: @black;
+    }
+
+}
+
+@font-face {
+	font-family: 'thisissoon-social';
+	src:url('../fonts/thisissoon-social.eot?-c67m3n');
+	src:url('../fonts/thisissoon-social.eot?#iefix-c67m3n') format('embedded-opentype'),
+		url('../fonts/thisissoon-social.woff?-c67m3n') format('woff'),
+		url('../fonts/thisissoon-social.ttf?-c67m3n') format('truetype'),
+		url('../fonts/thisissoon-social.svg?-c67m3n#thisissoon-social') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+i {
+	font-family: 'thisissoon-social';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-instagram:before {
+	content: "\e600";
+}
+
+.icon-google-plus:before {
+	content: "\e601";
+}
+
+.icon-pinterest:before {
+	content: "\e602";
+}
+
+.icon-facebook:before {
+	content: "\e603";
+}
+
+.icon-twitter:before {
+	content: "\e604";
+}

@@ -1,0 +1,207 @@
+/**
+ *  @class          buttons
+ *  @author         SOON_
+ *  @description    Override bootstrap buttons classes here
+ */
+
+.btn {
+    background-color: @yellow;
+    border: none;
+    border-radius: 0;
+    color: @black;
+    font-size: 2.5714em; // 36px
+    font-weight: 400;
+    line-height: 48px;
+    padding: 5px 5px;
+    position: relative;
+    margin-top: 0;
+    margin-bottom: 0;
+    .transition(all .2s);
+
+    & + .btn {
+        margin-left: 2px;
+    }
+
+    &.btn-border {
+        border: 1px solid @yellow;
+    }
+
+    &.btn-icon-xs {
+        .btn-icon(35px);
+
+        svg,
+        .icon {
+            max-width: 16px;
+            max-height: 16px;
+        }
+    }
+
+    &.btn-icon-sm {
+        .btn-icon(45px);
+
+        svg,
+        .icon {
+            max-width: 22px;
+            max-height: 22px;
+        }
+    }
+
+    &.btn-icon-md {
+        .btn-icon(60px);
+
+        svg,
+        .icon {
+            max-width: 27px;
+            max-height: 27px;
+        }
+    }
+
+    &.btn-icon-lg {
+        .btn-icon(95px);
+
+        svg,
+        .icon {
+            max-width: 40px;
+            max-height: 40px;
+        }
+    }
+
+    &.btn-text-icon {
+        .clearfix();
+        line-height: 45px;
+        padding-left: 20px;
+        text-align: left;
+    }
+
+    &.btn-text-icon .icon {
+        display: inline-block;
+        float: left;
+        height: 100%;
+        margin-right: 7px;
+        position: relative;
+        vertical-align: middle;
+        width: 20px;
+    }
+
+    .icon,
+    svg {
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    svg [fill] {
+        .transition(all .2s);
+    }
+
+    &:focus,
+    &:active:focus,
+    &.active:focus {
+        outline: none;
+    }
+
+    &:hover,
+    &:hover:focus {
+        background-color: @white;
+        color: @black;
+
+        svg [fill] {
+            fill: @yellow;
+        }
+    }
+
+    &:focus {
+        background-color: @yellow;
+        color: @white;
+
+        svg [fill] {
+            fill: @white;
+        }
+    }
+
+    &:active,
+    &.active,
+    &:active:focus,
+    &.active:focus {
+        .box-shadow(none);
+        border-color: white;
+        background-color: @white;
+        color: @black;
+
+        svg [fill] {
+            fill: @white;
+        }
+    }
+
+    &.no-hover {
+        &:hover,
+        &:active
+        &.active {
+            .box-shadow(none);
+            background-color: @yellow;
+            color: @black;
+            cursor: auto;
+
+            svg [fill] {
+                fill: @black;
+            }
+        }
+    }
+
+    .btn-label {
+        .small;
+        color: @light-grey;
+        display: none;
+        position: relative;
+        text-align: right;
+        right: 80px;
+
+        .nav-open & {
+            display: block;
+        }
+    }
+
+    &.btn-share {
+        color: @white;
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: 0.9em;
+        height: 26px;
+        line-height: 23px;
+        margin-top: 5px;
+
+        .icon {
+            position: relative;
+            font-size: 1.2em;
+            height: 17px;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+
+        .share-text {
+            margin-right: 8px;
+        }
+
+        &:hover {
+            background-color: @white;
+            color: @black;
+        }
+    }
+
+    &.btn-twitter {
+        background-color: @twitter-blue;
+    }
+    &.btn-facebook {
+        background-color: @facebook-blue;
+    }
+    &.btn-google-plus {
+        background-color: @google-red;
+    }
+    &.btn-pinterest {
+        background-color: @google-red;
+    }
+
+}

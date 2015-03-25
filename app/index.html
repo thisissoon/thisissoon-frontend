@@ -1,36 +1,156 @@
 <!DOCTYPE html>
-<!-- build:[ng-app]:e2e sn.example.e2e -->
-<html lang="en" ng-app="sn.example">
-<!-- /build -->
+<html lang="en" ng-app="thisissoon.core">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-        <meta name="fragment" content="!" />
-        <title>SOON_ AngularJS Template</title>
-        <!-- build:template:production
+        <title>SOON_ is a digital branding &amp; web development agency in London</title>
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Nixie+One" />
+        <!-- build:template
         <base href="/">
         /build -->
-        <!-- build:remove:production -->
+        <!-- build:remove -->
         <base href="/app/">
         <!-- /build -->
-        <!-- build:css:production css/all.min.css -->
+        <!-- build:css css/all.min.css -->
         <link rel="stylesheet" href="css/all.css"/>
         <!-- /build -->
+
+        <meta name="fragment" content="!">
+        <meta name="description" content="SOON_ is a digital branding and platform development agency based in London’s Shoreditch area. We work with start-ups, established businesses, entrepreneurs and business leaders to create digital brands, products and services. We create new brands, help existing brands adapt to digital environments, we design and build websites, APIs, web services, Apple iOS apps, Android apps, physical digital installations and provide strategic consultancy advice.">
+        <meta name="keywords" content="SOON_,digital,creative agency,branding agency,platform development,web development,web design,eCommerce,app development,native apps,Shoreditch,Hoxton,London,Soon,Soon London,Soon London Limited,Soon London Ltd,thisissoon,This Is Soon">
+        <meta name="author" content="SOON_">
+
+        <!-- Favicon -->
+        <link rel="apple-touch-icon" sizes="57x57" href="apple-touch-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="apple-touch-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="apple-touch-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="apple-touch-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="apple-touch-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="apple-touch-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180x180.png">
+        <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="favicon-194x194.png" sizes="194x194">
+        <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96">
+        <link rel="icon" type="image/png" href="android-chrome-192x192.png" sizes="192x192">
+        <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16">
+        <link rel="manifest" href="manifest.json">
+        <meta name="msapplication-TileColor" content="#000000">
+        <meta name="msapplication-TileImage" content="mstile-144x144.png">
+        <meta name="theme-color" content="#000000">
+
+        <!-- Facebook  -->
+        <meta name="og:site_name" content="SOON_" />
+        <meta name="og:description" content="We design and build digital products, services and brands." />
+
+        <!-- Twitter  -->
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@soonlondon" />
+        <meta name="twitter:title" content="SOON_" />
+        <meta name="twitter:description" content="We design and build digital products, services and brands." />
+        <meta name="twitter:url" content="http://thisissoon.com" />
+
+        <!-- Google Plus  -->
+        <meta itemprop="name" content="SOON_">
+        <meta itemprop="description" content="We design and build digital products, services and brands." />
     </head>
-    <body>
+    <body ng-class="{
+            'nav-open': cache.get('navOpen'),
+            'project-list-open': cache.get('projectList'),
+            'loading-active': cache.get('loading'),
+            'project-view': cache.get('projectView')
+          }"
+          class="loading-active"
+    >
 
-        <ng-view></ng-view>
+        <header class="header"></header>
+        <main class="main" ng-view autoscroll></main>
+        <footer class="footer" ng-include="'partials/footer.html'"></footer>
 
-        <!-- build:js:production js/app.min.js -->
+        <div class="loading" ng-include="'partials/loading.html'" ng-controller="LoadingCtrl"></div>
+
+        <!--[if lte IE 9]>
+            <div class="container-fluid background-dark error-page"> <div class="row"> <div class="col-md-2"><img class="logo" src="img/header/SOON.svg"></div> <div class="col-md-8 col-md-offset-2"> <h1>Brower not supported</h1> <div class="error-details"> <p class="main">Sorry, but Internet Explorer 9 and below is not supported by thisissoon.com.<p> <p class="secondary">Please update your browser.</p> </div> </div> </div> </div>
+        <![endif]-->
+
+        <noscript>
+            <div class="browser-not-supported background-dark container-fluid error-page"> <div class="row"> <div class="col-md-2"><img class="logo" src="img/header/SOON.svg"></div> <div class="col-md-8 col-md-offset-2"> <h1>Javascript not detected</h1> <div class="error-details"> <p class="main">Sorry, but thisissoon.com requires a browser with javascript enabled.<p> <p class="secondary">Please update your browser and/or enable javascript.</p> </div> </div> </div> </div>
+        </noscript>
+
+        <!-- Add this -->
+        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-54da2c451489176b&domready=1" async="async"></script>
+
+        <!-- Google Analytics -->
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-48955452-1', 'auto');
+        </script>
+
+        <!-- build:js js/app.min.js -->
+
+        <!-- vendor files -->
         <script src="components/angular/angular.js"></script>
         <script src="components/angular-route/angular-route.js"></script>
+        <script src="components/angular-sanitize/angular-sanitize.js"></script>
+        <script src="components/angular-scroll/angular-scroll.js"></script>
+        <script src="components/angular-addthis/dist/angular-addthis.js"></script>
+        <script src="components/velocity/velocity.js"></script>
+        <script src="components/angular-velocity-animate/dist/angular-velocity.js"></script>
+        <script src="components/skrollr/dist/skrollr.min.js"></script>
+        <script src="components/angular-skrollr/dist/angular-skrollr.js"></script>
+        <script src="components/angulartics/src/angulartics.js"></script>
+        <script src="components/angulartics/src/angulartics-ga.js"></script>
 
-        <script src="js/soon-example/app.js"></script>
-        <script src="js/soon-example/config.js"></script>
-        <script src="js/soon-example/controllers/SearchCtrl.js"></script>
-        <script src="js/soon-example/controllers/ResultsCtrl.js"></script>
+        <script src="js/soon-ui/app.js"></script>
+        <script src="js/soon-ui/directives/fixed.js"></script>
+        <script src="js/soon-ui/directives/fullscreen.js"></script>
+        <script src="js/soon-ui/directives/video.js"></script>
+        <script src="js/soon-ui/services/ResizeService.js"></script>
+        <script src="js/soon-ui/services/ScrollService.js"></script>
+
+        <script src="js/config.js"></script>
+
+        <!-- thisissoon -->
+        <script src="js/thisissoon/app.js"></script>
+
+        <!-- thisissoon-api -->
+        <script src="js/thisissoon-api/app.js"></script>
+        <script src="js/thisissoon-api/services/ThisissoonAPI.js"></script>
+
+        <!-- thisissoon-core -->
+        <script src="js/thisissoon-core/app.js"></script>
+        <script src="js/thisissoon-core/config.js"></script>
+        <script src="js/thisissoon-core/constants/greetings.js"></script>
+        <script src="js/thisissoon-core/controllers/HeaderCtrl.js"></script>
+        <script src="js/thisissoon-core/controllers/HomeCtrl.js"></script>
+        <script src="js/thisissoon-core/controllers/ProjectCtrl.js"></script>
+        <script src="js/thisissoon-core/controllers/LoadingCtrl.js"></script>
+        <script src="js/thisissoon-core/directives/header.js"></script>
+        <script src="js/thisissoon-core/directives/heroVideo.js"></script>
+        <script src="js/thisissoon-core/filters/currentDate.js"></script>
+        <script src="js/thisissoon-core/filters/linkDisplay.js"></script>
+
+        <script src="js/thisissoon-cache/CacheService.js"></script>
+
+        <script src="js/thisissoon-animation/app.js"></script>
+        <script src="js/thisissoon-animation/config.js"></script>
+        <script src="js/thisissoon-animation/snLogo.js"></script>
+        <script src="js/thisissoon-animation/snLogoParallax.js"></script>
+
+        <script src="js/thisissoon-nav/app.js"></script>
+        <script src="js/thisissoon-nav/config.js"></script>
+        <script src="js/thisissoon-nav/navbar/app.js"></script>
+        <script src="js/thisissoon-nav/navbar/navbar.js"></script>
+        <script src="js/thisissoon-nav/navbar/NavbarCtrl.js"></script>
+        <script src="js/thisissoon-nav/navCounter.js"></script>
+        <script src="js/thisissoon-nav/numberString.js"></script>
+        <script src="js/thisissoon-nav/hexShade.js"></script>
         <!-- /build -->
-        <!-- build:include:e2e ../tests/e2e/scripts.html --><!-- /build -->
 
     </body>
 </html>
