@@ -3,12 +3,14 @@
  * @module thisissoon.core
  * @author SOON_
  * @requires ngRoute {@link https://docs.angularjs.org/api/ngRoute}
+ * @requires sn.addthis {@link https://github.com/thisissoon/angular-addthis}
  * @requires sn.skrollr {@link https://github.com/thisissoon/angular-skrollr}
  * @requires soon.ui
  */
 angular.module("thisissoon.core", [
     "config",
     "ngRoute",
+    "sn.addthis",
     "sn.skrollr",
     "soon.ui",
     "thisissoon.cache",

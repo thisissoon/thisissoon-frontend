@@ -3,8 +3,7 @@
  * @module thisissoon
  * @author SOON_
  * @requires sn.velocity {@link https://github.com/thisissoon/angular-velocity}
- * @requires sn.addthis {@link https://github.com/thisissoon/angular-skrollr}
- * @requires sn.addthis {@link https://github.com/thisissoon/angular-addthis}
+ * @requires sn.skrollr {@link https://github.com/thisissoon/angular-skrollr}
  * @requires duScroll {@link https://github.com/oblador/angular-scroll}
  * @requires angulartics {@link https://github.com/luisfarzati/angulartics}
  * @requires angulartics.google.analytics {@link https://github.com/luisfarzati/angulartics}
@@ -18,7 +17,6 @@ angular.module("thisissoon", [
     "ngRoute",
     "sn.velocity",
     "sn.skrollr",
-    "sn.addthis",
     "duScroll",
     "angulartics",
     "angulartics.google.analytics",
