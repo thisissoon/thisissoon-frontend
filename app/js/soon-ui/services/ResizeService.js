@@ -7,10 +7,10 @@
  * is an object containing the current browsers width and height values. The handlers
  * can be removed by using 'ResizeService.remove($scope.$id, eventHadler)'
  * @author SOON_
- * @module soon.ui
+ * @module soon.ui.ResizeService
  * @class  ResizeService
  */
-angular.module("soon.ui").service("ResizeService", [
+angular.module("soon.ui.ResizeService", []).service("ResizeService", [
     "$rootScope",
     "$window",
     /**

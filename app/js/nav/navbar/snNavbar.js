@@ -8,7 +8,7 @@
 angular.module("thisissoon.nav.snNavbar", [
     "thisissoon.nav.config",
     "thisissoon.cache",
-    "soon.ui",
+    "soon.ui.ScrollService",
     "duScroll"
 ])
 

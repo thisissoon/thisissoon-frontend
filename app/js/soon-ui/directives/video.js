@@ -3,10 +3,12 @@
  * Directive for html5 video that allows video to be
  * controlled through events.
  * @author SOON_
- * @module soon.ui
+ * @module soon.ui.video
  * @class  video
  */
-angular.module("soon.ui").directive("video",[
+angular.module("soon.ui.video", [])
+
+.directive("video",[
     "$rootScope",
     /**
      * @constructor

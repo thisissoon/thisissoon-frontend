@@ -7,10 +7,10 @@
  * the current browsers width and height values. The handlers can be removed by using
  * 'ScrollService.remove($scope.$id, eventHadler)'
  * @author SOON_
- * @module soon.ui
+ * @module soon.ui.ScrollService
  * @class  ScrollService
  */
-angular.module("soon.ui").service("ScrollService", [
+angular.module("soon.ui.ScrollService", []).service("ScrollService", [
     "$rootScope",
     "$document",
     "$window",
