@@ -16,6 +16,6 @@ angular.module("thisissoon.core").directive("header",[
             scope: {},
             controller: "HeaderCtrl",
             templateUrl: "partials/header.html"
-        }
+        };
     }
 ]);

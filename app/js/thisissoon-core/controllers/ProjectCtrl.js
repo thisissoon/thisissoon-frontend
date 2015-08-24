@@ -28,15 +28,13 @@ angular.module("thisissoon.core").controller("ProjectCtrl", [
 
         /**
          * List of projects from thisissoon API
-         * @property projects
-         * @type     {Array}
+         * @property {Array} projects
          */
         $scope.projects = projects.list;
 
         /**
          * Project detail object from thisissoon API
-         * @property project
-         * @type     {Object}
+         * @property {Object} project
          */
         $scope.project = project;
 
@@ -44,7 +42,7 @@ angular.module("thisissoon.core").controller("ProjectCtrl", [
          * Assigns section numbers and generates next and previous urls
          * @method init
          */
-        $scope.init = function init(){
+        $scope.init = function init () {
             CacheService.put("projectView", true);
             CacheService.put("backgroundColor", project.background_colour);
             $scope.setNextPrevious();
@@ -55,17 +53,17 @@ angular.module("thisissoon.core").controller("ProjectCtrl", [
             }
 
             if ($scope.project.video && $scope.project.video !== "") {
-                $scope.project.video = $sce.trustAsResourceUrl($scope.project.video + "?autohide=1")
+                $scope.project.video = $sce.trustAsResourceUrl($scope.project.video + "?autohide=1");
             } else {
                 $scope.project.video = null;
             }
-        }
+        };
 
         /**
          * Finds the next and previous projects based on the current project
          * @method setNextPrevious
          */
-        $scope.setNextPrevious = function setNextPrevious(){
+        $scope.setNextPrevious = function setNextPrevious () {
             var index = 0;
 
             angular.forEach($scope.projects, function (project, key){
@@ -86,7 +84,7 @@ angular.module("thisissoon.core").controller("ProjectCtrl", [
                         $scope.previous = $scope.projects[$scope.projects.length - 1].slug;
                     }
                 }
-            })
+            });
 
             CacheService.put("project", {
                 id: $scope.project.id,
@@ -96,22 +94,21 @@ angular.module("thisissoon.core").controller("ProjectCtrl", [
                 count: projects.list.length,
                 backgroundColor: project.background_colour
             });
-        }
+        };
 
         /**
          * Get background color for hero section
-         * @property getBackgroundColor
-         * @type     {String}
+         * @property {String} getBackgroundColor
          */
-        $scope.getBackgroundColor = function getBackgroundColor(){
+        $scope.getBackgroundColor = function getBackgroundColor () {
             return CacheService.get("backgroundColor");
-        }
+        };
 
         $scope.$on("$destroy", function(){
             CacheService.remove("projectView");
             CacheService.remove("backgroundColor");
             CacheService.remove("project");
-        })
+        });
 
         $scope.init();
 

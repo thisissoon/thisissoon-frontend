@@ -45,7 +45,7 @@ angular.module("thisissoon.api").service("ThisissoonAPI", [
                 });
 
             return deferred.promise;
-        }
+        };
 
         /**
          * Retrieves a object that contains the list of projects
@@ -76,7 +76,7 @@ angular.module("thisissoon.api").service("ThisissoonAPI", [
                 });
 
             return deferred.promise;
-        }
+        };
 
         /**
          * Retrieves a object that contains the list of projects
@@ -107,7 +107,7 @@ angular.module("thisissoon.api").service("ThisissoonAPI", [
                 });
 
             return deferred.promise;
-        }
+        };
 
         /**
          * Retrieves a object that contains the list of jobs
@@ -137,7 +137,7 @@ angular.module("thisissoon.api").service("ThisissoonAPI", [
                 });
 
             return deferred.promise;
-        }
+        };
 
 
     }

@@ -9,4 +9,4 @@ angular.module("thisissoon.nav.snNavbar", [
     "thisissoon.cache",
     "soon.ui",
     "duScroll"
-])
+]);

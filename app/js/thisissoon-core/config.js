@@ -53,7 +53,7 @@ angular.module("thisissoon.core").config([
             })
             .otherwise({
                 redirectTo: "/"
-            })
+            });
 
     }
-])
+]);

@@ -37,4 +37,4 @@ angular.module("thisissoon.nav.config", [])
                 "title": "Contact",
                 "navStyle": "light"
             }
-    ])
+    ]);

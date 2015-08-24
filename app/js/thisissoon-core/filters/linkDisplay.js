@@ -12,5 +12,5 @@ angular.module("thisissoon.core").filter("linkDisplay", [
             return input.replace(/.*?:\/\//g, "").replace(/w{3}./, "").replace(/\/.*/g, "");
         };
     }
-])
+]);
 

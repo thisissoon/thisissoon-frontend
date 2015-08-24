@@ -17,7 +17,7 @@ angular.module("thisissoon.nav.snHexShade", [])
          * @param   {Boolean} reverse  light|dark response
          * @returns {Boolean} true if color is light
          */
-        var hexIsLight = function hexIsLight(hexcolor, reverse) {
+        var hexIsLight = function hexIsLight (hexcolor, reverse) {
             var r = parseInt(hexcolor.substr(1,2),16);
             var g = parseInt(hexcolor.substr(3,2),16);
             var b = parseInt(hexcolor.substr(5,2),16);
@@ -28,7 +28,7 @@ angular.module("thisissoon.nav.snHexShade", [])
             } else {
                 return (yiq >= 128) ? "light" : "dark";
             }
-        }
+        };
 
         return hexIsLight;
     }

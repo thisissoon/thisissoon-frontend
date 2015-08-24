@@ -19,6 +19,6 @@ angular.module("thisissoon.animation.snLogoParallax", [])
                 section: "@"
             },
             templateUrl: "partials/logo-parallax.html",
-        }
+        };
     }
 ]);

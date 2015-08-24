@@ -64,7 +64,7 @@ angular.module("thisissoon.core").controller("HeaderCtrl", [
         $scope.toggleProjects = function toggleProjects(){
             CacheService.put("projectList", !CacheService.get("projectList"));
             $document.duScrollTop(0);
-        }
+        };
 
         /**
          * Load list of projects data on initialisation
@@ -75,8 +75,8 @@ angular.module("thisissoon.core").controller("HeaderCtrl", [
                 .then(function (response){
                     $scope.projects = response.list;
                     NAV[1].navStyle = $filter("snHexShade")(response.list[0].background_colour, true);
-                })
-        }
+                });
+        };
 
         $scope.init();
 
@@ -104,7 +104,6 @@ angular.module("thisissoon.core").controller("HeaderCtrl", [
             if (newProject && newProject.backgroundColor) {
                 $scope.navStyle = $filter("snHexShade")(newProject.backgroundColor, true);
             }
-
         });
     }
 

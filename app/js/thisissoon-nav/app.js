@@ -11,4 +11,4 @@ angular.module("thisissoon.nav", [
     "thisissoon.nav.snHexShade",
 
     "thisissoon.animation"
-])
+]);

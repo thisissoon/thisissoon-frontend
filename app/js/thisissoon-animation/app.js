@@ -9,4 +9,4 @@ angular.module("thisissoon.animation", [
     "thisissoon.animation.snLogoParallax",
     "sn.skrollr",
     "sn.velocity"
-])
+]);

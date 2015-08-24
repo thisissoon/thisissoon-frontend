@@ -29,6 +29,6 @@ angular.module("thisissoon.animation.snLogo", [])
                 $scope.logoAnimation = SOON_LOGO.full;
 
             }
-        }
+        };
     }
 ]);

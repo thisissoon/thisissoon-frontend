@@ -12,4 +12,4 @@ angular.module("thisissoon.core").filter("currentDate", [
             return $filter("date")(new Date(), "yyyy-MM-dd");
         };
     }
-])
+]);

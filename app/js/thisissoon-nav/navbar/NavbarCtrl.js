@@ -49,29 +49,29 @@ angular.module("thisissoon.nav.snNavbar").controller("NavbarCtrl", [
          * Hide the fullscreen navigation on selecting an item
          * @method navClick
          */
-        $scope.navClick = function navClick(event){
+        $scope.navClick = function navClick (event) {
             CacheService.put("navOpen", false);
 
             if (event) {
                 $scope.$emit("snNavbar:" + event);
             }
-        }
+        };
 
         /**
          * Toggles the state of the main nav menu by updating
          * the "navOpen" value in the CacheService service
          * @method toggleNav
          */
-        $scope.toggleNav = function toggleNav($event){
+        $scope.toggleNav = function toggleNav ($event) {
             CacheService.put("navOpen", !CacheService.get("navOpen"));
-        }
+        };
 
         /**
          * On scrollspy event set navigation style
          * @param {Object} $event   js event object
          * @param {Object} $element anchor element for active section
          */
-        $rootScope.$on("duScrollspy:becameActive", function($event, $element){
+        $rootScope.$on("duScrollspy:becameActive", function ($event, $element) {
             var anchor = angular.element($element).find("a"),
                 navStyle = anchor[0].dataset.navStyle;
 
@@ -87,7 +87,7 @@ angular.module("thisissoon.nav.snNavbar").controller("NavbarCtrl", [
          * @param {Object} newProject project navigated too (current)
          * @param {Object} oldProject project navigated away from
          */
-        $scope.$watch("cache.get('project')", function(newProject, oldProject){
+        $scope.$watch("cache.get('project')", function (newProject, oldProject) {
             if (newProject && newProject.backgroundColor) {
                 $scope.project = newProject;
                 $scope.setNavStyle(newProject.backgroundColor);

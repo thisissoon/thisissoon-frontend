@@ -9,8 +9,8 @@ angular.module("thisissoon.nav.snNumberString", [])
 
 .filter("snNumberString", [
     function() {
-        return function(input){
-            switch(input){
+        return function (input) {
+            switch(input) {
                 case 1:
                     return "one";
                 case 2:
@@ -32,6 +32,6 @@ angular.module("thisissoon.nav.snNumberString", [])
                 case 10:
                     return "ten";
             }
-        }
+        };
     }
-])
+]);

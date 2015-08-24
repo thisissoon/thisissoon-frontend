@@ -29,18 +29,18 @@ angular.module("thisissoon.core").directive("heroVideo",[
                  * Resizes video on load to fill screen
                  * @method onLoad
                  */
-                var onLoad = function onLoad(){
+                var onLoad = function onLoad () {
                     $element.addClass("show");
                     ResizeService.add($scope.$id, onResize);
                     play();
-                }
+                };
 
                 /**
                  * Recalculate css values on resize to
                  * keep video centered
                  * @method onResize
                  */
-                var onResize = function onResize($event, windowSize){
+                var onResize = function onResize ($event, windowSize) {
                     if (windowSize.width > 1024){
                         $element.removeAttr("style");
 
@@ -66,45 +66,45 @@ angular.module("thisissoon.core").directive("heroVideo",[
                     } else {
                         stop();
                     }
-                }
+                };
 
                 /**
                  * Pause hero video playback
                  * @method pause
                  */
-                var pause = function pause(){
+                var pause = function pause () {
                     $element[0].pause();
-                }
+                };
 
                 /**
                  * Start/resume hero video playback
                  * @method play
                  */
-                var play = function play(){
+                var play = function play () {
                     $element[0].play();
-                }
+                };
 
                 /**
                  * Stop video playback and reset time to 0
                  * @method stop
                  */
-                var stop = function stop(){
+                var stop = function stop () {
                     $element[0].pause();
                     $element[0].currentTime = 0;
-                }
+                };
 
                 /**
                  * Clear all listeners during angularjs $destory event
                  * @function onDestroy
                  */
-                var onDestroy = function onDestroy(){
+                var onDestroy = function onDestroy () {
                     stop();
                     ResizeService.remove($scope.$id);
                     $element[0].removeEventListener("loadeddata");
                     angular.forEach(listener_obj, function (value, key){
                         listener_obj[key].call(this);
                     });
-                }
+                };
 
                 $element.addClass("hide");
                 $element[0].addEventListener("loadeddata", onLoad, false);
@@ -112,9 +112,9 @@ angular.module("thisissoon.core").directive("heroVideo",[
                 listener_obj.pause = $scope.$on("heroVideo:pause", pause);
                 listener_obj.destroy = $scope.$on("$destroy", onDestroy);
 
-                $element[0].load()
+                $element[0].load();
 
             }
-        }
+        };
     }
 ]);

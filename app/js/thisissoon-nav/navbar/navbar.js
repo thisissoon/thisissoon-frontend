@@ -26,22 +26,21 @@ angular.module("thisissoon.nav.snNavbar").directive("snNavbar",[
             link: function($scope, $element) {
 
                 /**
-                 * @property lastScroll
-                 * @type     {Object}
+                 * @property {Object} lastScroll
                  */
                 $scope.lastScroll = {
                     time: 0,
                     position: {
                         px: 0
                     }
-                }
+                };
 
                 /**
                  * Hide navbar on scroll
                  * @param {Object} $event         scroll event
                  * @param {Object} scrollPosition data object with scroll postion
                  */
-                $scope.onScroll = function onScroll($event, scrollPosition) {
+                $scope.onScroll = function onScroll ($event, scrollPosition) {
 
                     var timeNow = (new Date()).getTime(),
                         delay = 500;
@@ -55,7 +54,7 @@ angular.module("thisissoon.nav.snNavbar").directive("snNavbar",[
                     $scope.lastScroll = {
                         time: timeNow,
                         position: scrollPosition
-                    }
+                    };
 
                     // show nav once scrolling has stopped for 800ms
                     $timeout(function() {
@@ -70,13 +69,13 @@ angular.module("thisissoon.nav.snNavbar").directive("snNavbar",[
                             $element.removeClass("scrolled");
                         }
                     }, delay);
-                }
+                };
 
                 /**
                  * Set navbar style from backgroundColor
                  * @method setNavStyle
                  */
-                $scope.setNavStyle = function setNavStyle(navStyle) {
+                $scope.setNavStyle = function setNavStyle (navStyle) {
 
                     if (navStyle && navStyle.charAt(0) === "#") {
                         $scope.navStyle = $filter("snHexShade")(navStyle, true);
@@ -93,10 +92,10 @@ angular.module("thisissoon.nav.snNavbar").directive("snNavbar",[
                             $element.find("nav").removeClass("navbar-dark").addClass("navbar-light");
                             CacheService.put("navStyle", "light");
                     }
-                }
+                };
 
                 ScrollService.add($scope.$id, $scope.onScroll);
             }
-        }
+        };
     }
 ]);

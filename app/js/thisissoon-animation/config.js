@@ -103,5 +103,5 @@ angular.module("thisissoon.animation")
                 }
             ]
         }
-    })
+    });
 

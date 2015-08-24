@@ -61,19 +61,19 @@ angular.module("thisissoon.core").controller("HomeCtrl", [
          * @property getBackgroundColor
          * @type     {String}
          */
-        $scope.getBackgroundColor = function getBackgroundColor(){
+        $scope.getBackgroundColor = function getBackgroundColor () {
             return CacheService.get("backgroundColor");
-        }
+        };
 
         /**
          * Toggle projects list
          * @method toggleProjects
          */
-        $scope.toggleProjects = function toggleProjects(){
+        $scope.toggleProjects = function toggleProjects () {
             $document.duScrollTop(0, 0).then(function(){
-                CacheService.put("projectList", true)
+                CacheService.put("projectList", true);
             });
-        }
+        };
 
         /**
          * Gets current time to display in hero
@@ -87,29 +87,29 @@ angular.module("thisissoon.core").controller("HomeCtrl", [
                     $scope.currentTime.get();
                 }, 1000);
             }
-        }
+        };
 
         /**
          * Returns time based greeting from GREETINGS
          * @returns {String} greeting string
          * @method getGreeting
          */
-        $scope.getGreeting = function getGreeting() {
+        $scope.getGreeting = function getGreeting () {
             var time = $scope.currentTime.value.getHours();
             return GREETINGS[time];
-        }
+        };
 
         /**
          * Get current time on initialisaiton
          * @method init
          */
-        $scope.init = function() {
+        $scope.init = function () {
             $scope.currentTime.get();
             $scope.greeting = $scope.getGreeting();
             $scope.sticky.navStyle = $filter("snHexShade")($scope.sticky.background_colour, true);
 
             $rootScope.cache.put("navStyle", "light");
-        }
+        };
 
         $scope.init();
 

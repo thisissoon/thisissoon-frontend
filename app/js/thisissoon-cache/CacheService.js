@@ -17,4 +17,4 @@ angular.module("thisissoon.cache", [])
     function($cacheFactory){
         return $cacheFactory("cache");
     }
-])
+]);

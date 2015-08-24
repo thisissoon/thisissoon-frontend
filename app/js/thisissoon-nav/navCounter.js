@@ -75,6 +75,6 @@ angular.module("thisissoon.nav.snNavCounter", [
                 });
 
             }
-        }
+        };
     }
 ]);
