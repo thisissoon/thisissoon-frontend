@@ -2,11 +2,18 @@
 /**
  * Controller for "/projects" view of app. Displays project
  * infomation and tells project story.
- * @module thisissoon.core
+ * @module thisissoon.header.HeaderCtrl
  * @author SOON_
  * @class  HeaderCtrl
  */
-angular.module("thisissoon.core").controller("HeaderCtrl", [
+angular.module("thisissoon.header.HeaderCtrl", [
+    "thisissoon.api",
+    "thisissoon.nav",
+    "thisissoon.cache",
+    "thisissoon.animation"
+])
+
+.controller("HeaderCtrl", [
     "$scope",
     "$rootScope",
     "$document",

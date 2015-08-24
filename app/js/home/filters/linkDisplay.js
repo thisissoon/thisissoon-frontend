@@ -1,11 +1,13 @@
 "use strict";
 /**
- * Returns the current date
- * @module thisissoon.core
+ * Formats link for display
+ * @module thisissoon.home.linkDisplay
  * @author SOON_
  * @class  linkDisplay
- **/
-angular.module("thisissoon.core").filter("linkDisplay", [
+ */
+angular.module("thisissoon.home.linkDisplay", [])
+
+.filter("linkDisplay", [
     "$filter",
     function($filter) {
         return function(input) {

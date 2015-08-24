@@ -3,10 +3,14 @@
  * Directive for site header which contains navigation,
  * project list and filter.
  * @author SOON_
- * @module thisissoon.core
+ * @module thisissoon.header.header
  * @class  header
  */
-angular.module("thisissoon.core").directive("header",[
+angular.module("thisissoon.header.header", [
+    "thisissoon.header.HeaderCtrl"
+])
+
+.directive("header",[
     /**
      * @constructor
      */

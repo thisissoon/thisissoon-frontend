@@ -1,11 +1,43 @@
 "use strict";
 /**
  * Controller for root view or "/" view of app.
- * @module thisissoon.core
+ * @module thisissoon.home.HomeCtrl
  * @author SOON_
  * @class  HomeCtrl
+ * @requires ngRoute {@link https://docs.angularjs.org/api/ngRoute}
+ * @requires sn.addthis {@link https://github.com/thisissoon/angular-addthis}
+ *
  */
-angular.module("thisissoon.core").controller("HomeCtrl", [
+angular.module("thisissoon.home.HomeCtrl", [
+    "ngRoute",
+
+    "thisissoon.home.greetings",
+    "thisissoon.cache",
+    "thisissoon.api"
+])
+
+.config([
+    "$routeProvider",
+    function ($routeProvider) {
+
+        $routeProvider
+            .when("/", {
+                templateUrl: "partials/home/home.html",
+                controller: "HomeCtrl",
+                resolve: {
+                    projects: ["ThisissoonAPI", function (ThisissoonAPI){
+                        return ThisissoonAPI.getProjects();
+                    }],
+                    jobs: ["ThisissoonAPI", function (ThisissoonAPI){
+                        return ThisissoonAPI.getJobs();
+                    }]
+                }
+            });
+
+    }
+])
+
+.controller("HomeCtrl", [
     "$scope",
     "$rootScope",
     "$timeout",

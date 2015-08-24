@@ -1,10 +1,10 @@
 "use strict";
 /**
- * @module thisissoon.core
+ * @module thisissoon.home.greetings
  * @author SOON_
  * @class  greetings
  */
-angular.module("thisissoon.core")
+angular.module("thisissoon.home.greetings", [])
 
     .constant("GREETINGS", [
         {

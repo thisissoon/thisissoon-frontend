@@ -1,11 +1,15 @@
 "use strict";
 /**
  * Loading view
- * @module thisissoon.core
+ * @module thisissoon.home.LoadingCtrl
  * @author SOON_
  * @class  LoadingCtrl
  */
-angular.module("thisissoon.core").controller("LoadingCtrl", [
+angular.module("thisissoon.home.LoadingCtrl", [
+    "thisissoon.animation"
+])
+
+.controller("LoadingCtrl", [
     "$scope",
     "SOON_LOGO",
     /**

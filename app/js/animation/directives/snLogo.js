@@ -4,8 +4,11 @@
  * @author SOON_
  * @module thisissoon.animation.snLogo
  * @class  snLogo
+ * @requires sn.velocity {@link https://github.com/thisissoon/angular-velocity-animate}
  */
-angular.module("thisissoon.animation.snLogo", [])
+angular.module("thisissoon.animation.snLogo", [
+    "sn.velocity"
+])
 
 .directive("snLogo",[
     "SOON_LOGO",

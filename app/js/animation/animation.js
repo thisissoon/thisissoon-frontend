@@ -6,7 +6,5 @@
  */
 angular.module("thisissoon.animation", [
     "thisissoon.animation.snLogo",
-    "thisissoon.animation.snLogoParallax",
-    "sn.skrollr",
-    "sn.velocity"
+    "thisissoon.animation.snLogoParallax"
 ]);

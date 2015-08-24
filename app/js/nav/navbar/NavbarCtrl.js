@@ -4,6 +4,7 @@
  * @module thisissoon.nav
  * @author SOON_
  * @class  NavbarCtrl
+ * @requires duScroll {@link https://github.com/oblador/angular-scroll}
  */
 angular.module("thisissoon.nav.NavbarCtrl", [
     "thisissoon.nav.config",

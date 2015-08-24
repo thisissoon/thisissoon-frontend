@@ -2,10 +2,15 @@
 /**
  * Directive for hero background video to keep video vertically centered
  * @author SOON_
- * @module thisissoon.core
+ * @module thisissoon.home.heroVideo
  * @class  heroVideo
+ * @requires soon.ui
  */
-angular.module("thisissoon.core").directive("heroVideo",[
+angular.module("thisissoon.home.heroVideo", [
+    "soon.ui.ResizeService"
+])
+
+.directive("heroVideo",[
     "ResizeService",
     /**
      * @constructor
