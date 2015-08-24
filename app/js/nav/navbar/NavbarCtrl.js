@@ -5,7 +5,13 @@
  * @author SOON_
  * @class  NavbarCtrl
  */
-angular.module("thisissoon.nav.snNavbar").controller("NavbarCtrl", [
+angular.module("thisissoon.nav.NavbarCtrl", [
+    "thisissoon.nav.config",
+    "thisissoon.cache",
+    "duScroll"
+])
+
+.controller("NavbarCtrl", [
     "$scope",
     "$rootScope",
     "CacheService",

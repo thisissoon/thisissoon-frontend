@@ -5,7 +5,14 @@
  * @module thisissoon.nav
  * @class  snNavbar
  */
-angular.module("thisissoon.nav.snNavbar").directive("snNavbar",[
+angular.module("thisissoon.nav.snNavbar", [
+    "thisissoon.nav.config",
+    "thisissoon.cache",
+    "soon.ui",
+    "duScroll"
+])
+
+.directive("snNavbar",[
     "$timeout",
     "$rootScope",
     "$filter",
@@ -21,7 +28,7 @@ angular.module("thisissoon.nav.snNavbar").directive("snNavbar",[
         return {
             restrict: "E",
             scope: {},
-            templateUrl: "partials/navbar.html",
+            templateUrl: "partials/nav/navbar.html",
             controller: "NavbarCtrl",
             link: function($scope, $element) {
 

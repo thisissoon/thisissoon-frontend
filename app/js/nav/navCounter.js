@@ -20,7 +20,7 @@ angular.module("thisissoon.nav.snNavCounter", [
     function ($timeout, ScrollService, NAV){
         return {
             restrict: "E",
-            templateUrl: "partials/nav-counter.html",
+            templateUrl: "partials/nav/nav-counter.html",
             scope: {
                 "style": "="
             },
