@@ -24,5 +24,6 @@ angular.module("thisissoon", [
     "thisissoon.api",
     "thisissoon.nav",
     "thisissoon.cache",
-    "thisissoon.animation"
+    "thisissoon.animation",
+    "thisissoon.projects"
 ]);

@@ -2,11 +2,37 @@
 /**
  * Controller for "/projects" view of app. Displays project
  * infomation and tells project story.
- * @module thisissoon.core
+ * @module thisissoon.projects.ProjectCtrl
  * @author SOON_
  * @class  ProjectCtrl
  */
-angular.module("thisissoon.core").controller("ProjectCtrl", [
+angular.module("thisissoon.projects.ProjectCtrl", [
+    "thisissoon.api",
+    "thisissoon.cache"
+])
+
+.config([
+    "$routeProvider",
+    function ($routeProvider) {
+
+        $routeProvider
+            .when("/projects/:slug", {
+                templateUrl: "partials/projects/detail.html",
+                controller: "ProjectCtrl",
+                resolve: {
+                    projects: ["ThisissoonAPI", function (ThisissoonAPI){
+                        return ThisissoonAPI.getProjects();
+                    }],
+                    project: ["ThisissoonAPI", "$route", function (ThisissoonAPI, $route){
+                        return ThisissoonAPI.getProjectDetail($route.current.params.slug);
+                    }]
+                }
+            });
+
+    }
+])
+
+.controller("ProjectCtrl", [
     "$scope",
     "$rootScope",
     "$filter",

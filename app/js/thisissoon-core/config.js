@@ -39,18 +39,6 @@ angular.module("thisissoon.core").config([
                     }]
                 }
             })
-            .when("/projects/:slug", {
-                templateUrl: "partials/project-detail.html",
-                controller: "ProjectCtrl",
-                resolve: {
-                    projects: ["ThisissoonAPI", function (ThisissoonAPI){
-                        return ThisissoonAPI.getProjects();
-                    }],
-                    project: ["ThisissoonAPI", "$route", function (ThisissoonAPI, $route){
-                        return ThisissoonAPI.getProjectDetail($route.current.params.slug);
-                    }]
-                }
-            })
             .otherwise({
                 redirectTo: "/"
             });

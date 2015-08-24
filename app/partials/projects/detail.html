@@ -1,26 +1,24 @@
 <section id="hero"   class="project-hero"
         ng-style="{ 'background-color': project.background_colour, 'color': project.text_colour }"
-        ng-include="'partials/project-hero.html'"
+        ng-include="'partials/projects/hero.html'"
         soon-fullscreen>
 </section>
 <section id="project-description" class=""
         ng-style="{ 'background-color': project.tint_colour, 'color': project.text_colour }"
-        ng-include="'partials/project-description.html'">
+        ng-include="'partials/projects/description.html'">
 </section>
-<section id="project-video" class=""
-        ng-if="project.video"
-        ng-style="{ 'background-color': project.tint_colour, 'color': project.text_colour }"
-        ng-include="'partials/project-video.html'">
+<section sn-project-video data-video="{ mp4: 'img/mock/netted-video.mp4' }" id="project-video" class=""
+        ng-style="{ 'background-color': project.tint_colour, 'color': project.text_colour }">
 </section>
 <section id="project-images" class=""
         ng-style="{ 'color': project.text_colour }"
-        ng-include="'partials/project-images.html'">
+        ng-include="'partials/projects/images.html'">
 </section>
 <section id="project-stats" class=""
         ng-style="{ 'background-color': project.background_colour, 'color': project.text_colour  }"
-        ng-include="'partials/project-stats.html'">
+        ng-include="'partials/projects/stats.html'">
 </section>
 <section id="project-share" class=""
         ng-style="{ 'background-color': project.tint_colour, 'color': project.text_colour  }"
-        ng-include="'partials/project-share.html'">
+        ng-include="'partials/projects/share.html'">
 </section>
