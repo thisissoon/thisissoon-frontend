@@ -1,5 +1,5 @@
 <div class="container-fluid-max-width project-video" sn-viewport-enter="playVideo('project-v0')" sn-viewport-exit="stopVideo('project-v0')">
-    <video id="project-v0" tabindex="0" data-video="video" ng-attr-poster="{{ video.poster }}">
+    <video id="project-v0" tabindex="0" loop data-video="video" ng-attr-poster="{{ video.poster }}">
         <source type="video/mp4" ng-src="{{ video.mp4 }}">
         <source type="video/webm" ng-src="{{ video.webm }}">
         <img ng-src="{{ video.poster }}">
