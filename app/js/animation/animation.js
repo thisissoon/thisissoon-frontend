@@ -6,5 +6,6 @@
  */
 angular.module("thisissoon.animation", [
     "thisissoon.animation.snLogo",
-    "thisissoon.animation.snLogoParallax"
+    "thisissoon.animation.snLogoParallax",
+    "thisissoon.animation.viewportEnter"
 ]);

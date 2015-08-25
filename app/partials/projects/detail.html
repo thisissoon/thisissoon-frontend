@@ -7,8 +7,10 @@
         ng-style="{ 'background-color': project.tint_colour, 'color': project.text_colour }"
         ng-include="'partials/projects/description.html'">
 </section>
-<section sn-project-video data-video="{ mp4: 'img/mock/netted-video.mp4' }" id="project-video" class=""
-        ng-style="{ 'background-color': project.tint_colour, 'color': project.text_colour }">
+<section id="project-video" class=""
+        ng-if="project.mp4_video"
+        ng-style="{ 'background-color': project.tint_colour, 'color': project.text_colour }"
+        ng-include="'partials/projects/video.html'">
 </section>
 <section id="project-images" class=""
         ng-style="{ 'color': project.text_colour }"

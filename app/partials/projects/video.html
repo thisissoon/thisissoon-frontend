@@ -1,5 +1,6 @@
-<div class="container-fluid-max-width project-video">
-    <video tabindex="0" loop ng-attr-poster="{{ video.poster }}">
-        <source type="video/mp4" ng-src="{{ video.mp4 }}">
+<div class="container-fluid-max-width project-video" sn-viewport-enter="playVideo('project-v0')" data-on-exit="stopVideo('project-v0')">
+    <video id="project-v0" tabindex="0" loop ng-attr-poster="{{ project.video_background }}">
+        <source type="video/mp4" ng-src="{{ project.mp4_video }}">
+        <source type="video/webm" ng-src="{{ project.webm_video }}">
     </video>
 </div>

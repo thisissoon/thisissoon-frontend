@@ -7,8 +7,11 @@
  * @class  ProjectCtrl
  */
 angular.module("thisissoon.projects.ProjectCtrl", [
+    "soon.ui.video",
+
     "thisissoon.api",
-    "thisissoon.cache"
+    "thisissoon.cache",
+    "thisissoon.animation.viewportEnter"
 ])
 
 .config([
@@ -128,6 +131,24 @@ angular.module("thisissoon.projects.ProjectCtrl", [
          */
         $scope.getBackgroundColor = function getBackgroundColor () {
             return CacheService.get("backgroundColor");
+        };
+
+        /**
+         * Trigger video playback
+         * @method playVideo
+         * @param {String} id  DOM id of video to play
+         */
+        $scope.playVideo = function playVideo (id) {
+            $scope.$emit(id + ":play");
+        };
+
+        /**
+         * Trigger video stop
+         * @method stopVideo
+         * @param {String} id  DOM id of video to stop
+         */
+        $scope.stopVideo = function stopVideo (id) {
+            $scope.$emit(id + ":stop");
         };
 
         $scope.$on("$destroy", function(){
