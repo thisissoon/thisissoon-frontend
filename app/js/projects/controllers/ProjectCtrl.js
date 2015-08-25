@@ -68,6 +68,16 @@ angular.module("thisissoon.projects.ProjectCtrl", [
         $scope.project = project;
 
         /**
+         * Project video
+         * @property {Object} video
+         */
+        $scope.video = {
+            mp4: $sce.trustAsResourceUrl(project.mp4_video),
+            webm: $sce.trustAsResourceUrl(project.webm_video),
+            poster: project.video_background.huge
+        };
+
+        /**
          * Assigns section numbers and generates next and previous urls
          * @method init
          */
@@ -79,12 +89,6 @@ angular.module("thisissoon.projects.ProjectCtrl", [
             // format link for display
             if ($scope.project.link) {
                 $scope.project.linkText = $filter("linkDisplay")($scope.project.link);
-            }
-
-            if ($scope.project.video && $scope.project.video !== "") {
-                $scope.project.video = $sce.trustAsResourceUrl($scope.project.video + "?autohide=1");
-            } else {
-                $scope.project.video = null;
             }
         };
 

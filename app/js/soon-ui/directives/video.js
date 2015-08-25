@@ -17,6 +17,9 @@ angular.module("soon.ui.video", [])
     function ($rootScope){
         return {
             restrict: "E",
+            scope: {
+                video: "="
+            },
             link: function ($scope, $element, attrs){
 
                 /**
@@ -74,6 +77,11 @@ angular.module("soon.ui.video", [])
                     delete attrs.src;
                     video.removeEventListener("loadeddata");
                 }
+
+                // reload video on src change
+                $scope.$watch("video", function () {
+                    video.load();
+                });
 
                 video.addEventListener("loadeddata", onLoad, false);
                 $rootScope.$on(attrs.id + ":play", play);
