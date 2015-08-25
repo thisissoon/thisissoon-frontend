@@ -6,10 +6,13 @@
  * @class  snNavbar
  */
 angular.module("thisissoon.nav.snNavbar", [
-    "thisissoon.nav.config",
-    "thisissoon.cache",
+    "duScroll",
     "soon.ui.ScrollService",
-    "duScroll"
+
+    "thisissoon.nav.config",
+    "thisissoon.nav.NavbarCtrl",
+    "thisissoon.cache",
+    "thisissoon.nav.snHexShade"
 ])
 
 .directive("snNavbar",[

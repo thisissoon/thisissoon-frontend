@@ -6,6 +6,8 @@
  * @class  snNavCounter
  */
 angular.module("thisissoon.nav.snNavCounter", [
+    "soon.ui.ScrollService",
+
     "thisissoon.nav.config",
     "thisissoon.nav.snNumberString"
 ])

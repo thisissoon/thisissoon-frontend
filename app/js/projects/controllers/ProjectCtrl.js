@@ -7,11 +7,15 @@
  * @class  ProjectCtrl
  */
 angular.module("thisissoon.projects.ProjectCtrl", [
+    "ngRoute",
+    "ngSanitize",
+
     "soon.ui.video",
 
     "thisissoon.api",
     "thisissoon.cache",
-    "thisissoon.animation.viewportEnter"
+    "thisissoon.animation.viewportEnter",
+    "thisissoon.home.linkDisplay"
 ])
 
 .config([

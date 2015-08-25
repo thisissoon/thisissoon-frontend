@@ -12,6 +12,7 @@ angular.module("thisissoon.home.HomeCtrl", [
     "ngRoute",
 
     "thisissoon.home.greetings",
+    "thisissoon.nav.snHexShade",
     "thisissoon.cache",
     "thisissoon.api"
 ])
