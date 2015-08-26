@@ -76,9 +76,9 @@ angular.module("thisissoon.projects.ProjectCtrl", [
          * @property {Object} video
          */
         $scope.video = {
-            mp4: $sce.trustAsResourceUrl(project.mp4_video),
-            webm: $sce.trustAsResourceUrl(project.webm_video),
-            poster: project.video_background.huge
+            mp4: $scope.env.SERVER_ADDRESS + project.mp4_video,
+            webm: $scope.env.SERVER_ADDRESS + project.webm_video,
+            poster: $scope.env.SERVER_ADDRESS + project.video_background.huge
         };
 
         /**
