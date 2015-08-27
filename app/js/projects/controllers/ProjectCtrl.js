@@ -79,7 +79,7 @@ angular.module("thisissoon.projects.ProjectCtrl", [
             mp4: $scope.env.SERVER_ADDRESS + project.desktop_mp4,
             mobile: {
                 mp4: $scope.env.SERVER_ADDRESS + project.mobile_mp4,
-                web: $scope.env.SERVER_ADDRESS + project.mobile_webm
+                webm: $scope.env.SERVER_ADDRESS + project.mobile_webm
             },
             poster: project.video_background ? $scope.env.SERVER_ADDRESS + project.video_background.huge : undefined
         };

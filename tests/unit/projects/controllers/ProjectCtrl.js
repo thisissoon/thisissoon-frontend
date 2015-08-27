@@ -12,6 +12,9 @@ describe("ProjectCtrl", function (){
     beforeEach(inject(function ($rootScope, $injector, $controller) {
 
         scope = $rootScope.$new();
+        scope.env = {
+            SERVER_ADDRESS: "http://SERVER"
+        }
 
         _cache = $injector.get("CacheService");
         spyOn(_cache, "get");
@@ -34,8 +37,9 @@ describe("ProjectCtrl", function (){
                 huge: ""
             },
             video_background: { huge: "" },
-            mp4_video: "http://domain.com/randomvideo",
-            webm_video: "http://domain.com/randomvideo"
+            desktop_mp4: "/media/desktopmp4",
+            mobile_mp4: "/media/mobilemp4",
+            mobile_webm: "/media/mobilewebm"
         };
 
         _projects = {
@@ -79,8 +83,10 @@ describe("ProjectCtrl", function (){
         expect(_cache.get("backgroundColor")).toBe(undefined);
     });
 
-    it("should pass video URL through $sce.trustAsResourceUrl", function (){
-        expect(_sce.trustAsResourceUrl).toHaveBeenCalledWith("http://domain.com/randomvideo");
+    it("should set video object", function (){
+        expect(scope.video.mp4).toEqual("http://SERVER/media/desktopmp4");
+        expect(scope.video.mobile.mp4).toEqual("http://SERVER/media/mobilemp4");
+        expect(scope.video.mobile.webm).toEqual("http://SERVER/media/mobilewebm");
     });
 
 });
