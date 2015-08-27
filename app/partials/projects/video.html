@@ -1,7 +1,14 @@
-<div class="container-fluid-max-width project-video" sn-viewport-enter="playVideo('project-v0')" sn-viewport-exit="stopVideo('project-v0')">
+<div ng-if="!isMobile && video.mp4" class="container-fluid-max-width project-video" sn-viewport-enter="playVideo('project-v0')" sn-viewport-exit="stopVideo('project-v0')">
     <video id="project-v0" tabindex="0" loop data-video="video" ng-attr-poster="{{ video.poster }}">
         <source type="video/mp4" ng-src="{{ video.mp4 }}">
-        <source type="video/webm" ng-src="{{ video.webm }}">
+        <img ng-src="{{ video.poster }}">
+    </video>
+</div>
+
+<div ng-if="isMobile && video.mobile.mp4" class="container-fluid-max-width project-video">
+    <video id="project-v0" tabindex="0" controls data-video="video">
+        <source type="video/webm" ng-src="{{ video.mobile.webm }}">
+        <source type="video/mp4" ng-src="{{ video.mobile.mp4 }}">
         <img ng-src="{{ video.poster }}">
     </video>
 </div>
