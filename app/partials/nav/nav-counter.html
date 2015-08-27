@@ -1,0 +1,8 @@
+<div class="nav-counter {{ style }} hidden-xs">
+    <div class="count-text">{{ sectionCurrent | snNumberString }} of {{ sections.length | snNumberString }}</div>
+    <ul class="nav">
+        <li ng-repeat="section in sections">
+            <a ng-href="#{{ section.id }}" du-smooth-scroll></a>
+        </li>
+    </ul>
+</div>

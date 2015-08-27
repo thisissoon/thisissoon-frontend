@@ -3,10 +3,12 @@
  * Directive for html5 video that allows video to be
  * controlled through events.
  * @author SOON_
- * @module soon.ui
+ * @module soon.ui.video
  * @class  video
  */
-angular.module("soon.ui").directive("video",[
+angular.module("soon.ui.video", [])
+
+.directive("video",[
     "$rootScope",
     /**
      * @constructor
@@ -15,16 +17,10 @@ angular.module("soon.ui").directive("video",[
     function ($rootScope){
         return {
             restrict: "E",
+            scope: {
+                video: "="
+            },
             link: function ($scope, $element, attrs){
-
-                /**
-                 * Object containing references to listenters
-                 * to be cleared when directive is destory during
-                 * garbage collection.
-                 * @property listener_obj
-                 * @type     {Object}
-                 */
-                var listener_obj = {};
 
                 /**
                  * The html5 video element
@@ -40,7 +36,11 @@ angular.module("soon.ui").directive("video",[
                  * @method onLoad
                  */
                 var onLoad = function onLoad(){
-                    play();
+                    if (attrs.autoplay) {
+                        play();
+                    } else {
+                        pause();
+                    }
                 }
 
                 /**
@@ -76,16 +76,18 @@ angular.module("soon.ui").directive("video",[
                     stop();
                     delete attrs.src;
                     video.removeEventListener("loadeddata");
-                    angular.forEach(listener_obj, function (value, key){
-                        listener_obj[key].call(this);
-                    });
                 }
 
+                // reload video on src change
+                $scope.$watch("video", function () {
+                    video.load();
+                });
+
                 video.addEventListener("loadeddata", onLoad, false);
-                listener_obj.play = $rootScope.$on(attrs.id+":play", play);
-                listener_obj.pause = $rootScope.$on(attrs.id+":pause", pause);
-                listener_obj.stop = $rootScope.$on(attrs.id+":stop", stop);
-                listener_obj.destroy = $rootScope.$on("$destroy", onDestroy);
+                $rootScope.$on(attrs.id + ":play", play);
+                $rootScope.$on(attrs.id + ":pause", pause);
+                $rootScope.$on(attrs.id + ":stop", stop);
+                $rootScope.$on("$destroy", onDestroy);
 
             }
         }

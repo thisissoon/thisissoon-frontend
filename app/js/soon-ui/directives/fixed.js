@@ -7,10 +7,14 @@
  * which is static until the browser has scrolled below it a which point
  * it is then fixed to the top of the window.
  * @author SOON_
- * @module soon.ui
+ * @module soon.ui.snFixed
  * @class  soonFixed
  */
-angular.module("soon.ui").directive("soonFixed",[
+angular.module("soon.ui.snFixed", [
+    "soon.ui.ScrollService"
+])
+
+.directive("snFixed",[
     "$rootScope",
     "$window",
     "$document",

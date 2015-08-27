@@ -1,0 +1,26 @@
+<section id="hero"   class="project-hero"
+        ng-style="{ 'background-color': project.background_colour, 'color': project.text_colour }"
+        ng-include="'partials/projects/hero.html'"
+        sn-fullscreen>
+</section>
+<section id="project-description" class=""
+        ng-style="{ 'background-color': project.tint_colour, 'color': project.text_colour }"
+        ng-include="'partials/projects/description.html'">
+</section>
+<section id="project-video" class=""
+        ng-if="project.desktop_mp4"
+        ng-style="{ 'background-color': project.tint_colour, 'color': project.text_colour }"
+        ng-include="'partials/projects/video.html'">
+</section>
+<section id="project-images" class=""
+        ng-style="{ 'color': project.text_colour }"
+        ng-include="'partials/projects/images.html'">
+</section>
+<section id="project-stats" class=""
+        ng-style="{ 'background-color': project.background_colour, 'color': project.text_colour  }"
+        ng-include="'partials/projects/stats.html'">
+</section>
+<section id="project-share" class=""
+        ng-style="{ 'background-color': project.tint_colour, 'color': project.text_colour  }"
+        ng-include="'partials/projects/share.html'">
+</section>

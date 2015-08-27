@@ -4,10 +4,14 @@
  * browser's viewport if the element's height is not already
  * greater than the height of the viewport
  * @author SOON_
- * @module soon.ui
- * @class  soonFullscreen
+ * @module soon.ui.snFullscreen
+ * @class  snFullscreen
  */
-angular.module("soon.ui").directive("soonFullscreen",[
+angular.module("soon.ui.snFullscreen", [
+    "soon.ui.ResizeService"
+])
+
+.directive("snFullscreen",[
     "ResizeService",
     /**
      * @constructor

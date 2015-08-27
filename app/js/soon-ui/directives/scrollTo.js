@@ -3,10 +3,12 @@
  * Scrolls smoothly to an element without using jquery. based on:
  * {@link https://gist.github.com/justinmc/d72f38339e0c654437a2}
  * @author SOON_
- * @module soon.ui
- * @class  soonScrollTo
+ * @module soon.ui.snScrollTo
+ * @class  snScrollTo
  */
-angular.module("soon.ui").directive("soonScrollTo", [
+angular.module("soon.ui.snScrollTo", [])
+
+.directive("snScrollTo", [
     "$location",
     "$document",
     "$window",
