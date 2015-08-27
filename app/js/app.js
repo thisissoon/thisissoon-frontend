@@ -76,15 +76,26 @@ angular.module("thisissoon", [
      */
     function ($rootScope, ResizeService, $window, $timeout, CacheService, snSkrollr, ENV) {
 
-        var skrollrBreakpoint = 1024;
+        var desktopMin = 1024,
+            tabletMin = 768;
 
         ResizeService.add($rootScope.$id, function(event, size) {
-            if (size.width >= skrollrBreakpoint && !$rootScope.skrollrInitialised) {
+            if (size.width >= desktopMin && !$rootScope.skrollrInitialised) {
+                // Desktop
                 snSkrollr.init();
                 $rootScope.skrollrInitialised = true;
-            } else if (size.width < skrollrBreakpoint && $rootScope.skrollrInitialised) {
+            } else if (size.width < desktopMin && $rootScope.skrollrInitialised) {
+                // Disable skrollr on tablet and smaller sizes
                 $rootScope.skrollrInitialised = false;
                 snSkrollr.destroy();
+            }
+        });
+
+        ResizeService.add($rootScope.$id, function(event, size) {
+            if (size.width >= tabletMin) {
+                $rootScope.isMobile = false;
+            } else if (size.width < tabletMin) {
+                $rootScope.isMobile = true;
             }
         });
 
@@ -109,7 +120,7 @@ angular.module("thisissoon", [
         $rootScope.$on("$routeChangeSuccess", function() {
             CacheService.put("loading", false);
 
-            if ($window.innerWidth >= skrollrBreakpoint && !$rootScope.skrollrInitialised) {
+            if ($window.innerWidth >= desktopMin && !$rootScope.skrollrInitialised) {
                 snSkrollr.init();
                 $rootScope.skrollrInitialised = true;
             }
