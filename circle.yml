@@ -40,8 +40,6 @@ deployment:
       - grunt build
       - docker build -t $REPO:$TAG .
       - docker push $REPO:$TAG
-      - eb deploy:
-          timeout: 600
   release:
     branch: /release\/.*/
     commands:
@@ -50,5 +48,7 @@ deployment:
     branch: develop
     commands:
       - grunt build --env=stage
-      - docker build -t $REPO:$TAG .
-      - docker push $REPO:$TAG
+      - docker build -t $REPO:latest .
+      - docker push $REPO:latest
+      - eb deploy:
+          timeout: 600
