@@ -1,5 +1,14 @@
-# Pull base image.
-FROM nginx:1.7.6
+# Pull alpine base image
+FROM alpine:3.2
+
+# Install Nginx
+RUN apk add --update nginx && \
+    rm -rf /var/cache/apk/*
+
+# Add the grunt build dist to /thisissoon
+COPY ./dist /thisissoon
+
+WORKDIR /thisissoon
 
 # Add nginx config - overwrite bundled nginx.conf
 ADD nginx.conf /etc/nginx/
@@ -7,9 +16,7 @@ ADD nginx.conf /etc/nginx/
 # Volumes
 VOLUME ["/etc/nginx"]
 
-# Expose ports - 80 only, SSL will terminate at ELB
+# Expose ports - 80 only
 EXPOSE 80
 
-# Add the grunt build dist to /thisissoon
-ADD ./dist /thisissoon
-
+CMD nginx
