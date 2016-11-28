@@ -12,11 +12,13 @@ WORKDIR /thisissoon
 
 # Add nginx config - overwrite bundled nginx.conf
 ADD nginx.conf /etc/nginx/
+RUN chown -R nginx:nginx /var/log/nginx
+RUN chown -R nginx:nginx /var/lib/nginx
 
 # Volumes
 VOLUME ["/etc/nginx"]
 
-# Expose ports - 80 only
+# Exposed ports
 EXPOSE 80
 
 CMD nginx
