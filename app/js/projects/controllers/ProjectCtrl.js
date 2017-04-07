@@ -98,10 +98,17 @@ angular.module("thisissoon.projects.ProjectCtrl", [
                 $scope.project.linkText = $filter("linkDisplay")($scope.project.link);
             }
 
-            if ($scope.project.title === 'Team Sky') {
-                $scope.project.webbyCode = $sce.trustAsHtml('<span id="webby-pv-2014-bug" style="position: fixed; z-index: 99999; top: 0; right: 0; width: 161px; height: 161px; margin: 0; padding: 0;"><iframe src="https://vote.webbyawards.com/sitebug?entryid=42782&display_rank=0&data=2017/websites/general-website/sports" style="position: relative; z-index: 99999; width: 161px; height: 161px; margin: 0; border: 0 none;" height="161" width="161" scrolling="no" frameborder="0" seamless></iframe></span>');
+            if ($scope.project.title === "Team Sky") {
+                $scope.project.webbyCode = $sce.trustAsHtml(
+                    '<span id="webby-pv-2014-bug" style="position: fixed; z-index: 99999;\
+                     top: 0; right: 0; width: 161px; height: 161px; margin: 0; padding: 0;">\
+                     <iframe src="https://vote.webbyawards.com/sitebug?entryid=42782&\
+                     display_rank=0&data=2017/websites/general-website/sports" \
+                     style="position: relative; z-index: 99999; width: 161px; height: 161px;\
+                      margin: 0; border: 0 none;" height="161" width="161" scrolling="no"\
+                       frameborder="0" seamless></iframe></span>');
             } else {
-                $scope.project.webbyCode = '';
+                $scope.project.webbyCode = "";
             }
         };
 
